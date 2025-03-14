@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWindow</class>
+ <widget class="QMainWindow" name="LoginWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>398</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>30</y>
+      <width>261</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame{
+	background-color: rgb(255, 255, 255);
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>20</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 16pt &quot;华文隶书&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Welcom To Fit Mind!</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_exit">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>10</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    font: 9pt &quot;微软雅黑&quot;; 
+    border: 1px solid #ccc; /* 细边框 */
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+	border:none;
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    padding-bottom: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 更深的灰色，按下效果 */
+    padding-bottom: 1px;
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
+       <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>8</width>
+       <height>8</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>70</y>
+       <width>261</width>
+       <height>461</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>261</width>
+       <height>461</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="frame_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>6</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QFrame" name="frame_5">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>5</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QStackedWidget" name="stackedWidget_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    font: 9pt &quot;微软雅黑&quot;; 
+    border: 1px solid #ccc; /* 细边框 */
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: black; /* 纯黑背景 */
+    color: white; /* 白色文字 */
+	border:none;
+}
+
+QPushButton:hover {
+    background-color: rgb(15,15,15); /* 浅灰色悬浮效果 */
+    padding-bottom: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: rgb(125,125,125); /* 更深的灰色，按下效果 */
+    padding-bottom: 1px;
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+QLineEdit {
+    font: 9pt &quot;微软雅黑&quot;;
+    border: none; /* 移除所有边框 */
+    border-bottom: 2px solid #5c9ef5; /* 初始底部颜色 */
+    background-color: rgba(255, 255, 255, 0.3); /* 半透明背景 */
+    padding: 5px 8px; /* 适当的内边距 */
+    color: #999999; /* 待机状态字体颜色：浅灰色 */
+    selection-background-color: #a8d8ff; /* 选中文字的背景 */
+    transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out; /* 添加颜色渐变 */
+}
+
+QLineEdit:hover {
+    border-bottom: 2px solid #3b7fd4; /* 悬浮时底部颜色变深 */
+    background-color: rgba(255, 255, 255, 0.5); /* 提高透明度 */
+}
+
+QLineEdit:focus {
+    border-bottom: 2px solid #ff6600; /* 聚焦时变成橙色 */
+    background-color: rgba(255, 255, 255, 0.7); /* 聚焦时更加清晰 */
+    color: black; /* 输入时字体颜色变黑 */
+}
+
+
+
+</string>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="page_login">
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <widget class="QLineEdit" name="line_login_username">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="inputMask">
+                   <string/>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter username...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="line_login_password">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="echoMode">
+                   <enum>QLineEdit::EchoMode::Password</enum>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter password...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Orientation::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="button_retrieve">
+                    <property name="minimumSize">
+                     <size>
+                      <width>16</width>
+                      <height>16</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton {
+    font: 9pt &quot;微软雅黑&quot;; 
+    border: 1px solid #ccc; /* 细边框 */
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+	border:none;
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    padding-bottom: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 更深的灰色，按下效果 */
+    padding-bottom: 1px;
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
+                      <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/question-mark.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/question-mark.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="button_login_confirm">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Login</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="page_register">
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>9</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>9</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QLineEdit" name="line_register_email">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter QQ email...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="line_register_username">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter username...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="line_register_password">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="echoMode">
+                   <enum>QLineEdit::EchoMode::Password</enum>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter password...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="line_register_okpassword">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="echoMode">
+                   <enum>QLineEdit::EchoMode::Password</enum>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please confirm password...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSplitter" name="splitter">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <widget class="QLineEdit" name="line_register_verification">
+                   <property name="placeholderText">
+                    <string>Verification code...</string>
+                   </property>
+                  </widget>
+                  <widget class="QPushButton" name="button_register_verificationGet">
+                   <property name="minimumSize">
+                    <size>
+                     <width>60</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Get</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="button_register_confirm">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Register</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="page_retrievePassword">
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <widget class="QLineEdit" name="line_retrievePassword_email">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter QQ email...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSplitter" name="splitter_2">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <widget class="QLineEdit" name="line_retrievePassword_verification">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Verification code...</string>
+                   </property>
+                  </widget>
+                  <widget class="QPushButton" name="button_retrievePassword_verificationGet">
+                   <property name="minimumSize">
+                    <size>
+                     <width>60</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Get</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="line_retrievePassword_password">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="echoMode">
+                   <enum>QLineEdit::EchoMode::Password</enum>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter password...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="line_retrievePassword_okpassword">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="echoMode">
+                   <enum>QLineEdit::EchoMode::Password</enum>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please confirm password...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="button_retrievePassword_confirm">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Retrieve</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_6">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>1</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    font: 9pt &quot;微软雅黑&quot;; 
+    border: 1px solid #ccc; /* 细边框 */
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+	border:none;
+    min-width: 60px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    padding-bottom: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 更深的灰色，按下效果 */
+    padding-bottom: 1px;
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="button_login">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
+                <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_register">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
+                <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/user-add-plus--actions-add-close-geometric-human-p.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/user-add-plus--actions-add-close-geometric-human-p.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>1</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QStackedWidget" name="stackedWidget">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="page_login_tap">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLabel" name="label_login_error">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="page_register_tap">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QLabel" name="label_register_error">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="page_retrievePassword_tap">
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QLabel" name="label_retrievePassword_error">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>button_exit</sender>
+   <signal>clicked()</signal>
+   <receiver>LoginWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>291</x>
+     <y>42</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>15</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
