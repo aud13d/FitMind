@@ -1,19 +1,23 @@
 <RCC>
   <qresource prefix="icons">
-    <file>E:/Pycharm_study/FitMind/Client/icon/check--check-form-validation-checkmark-success-add.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/expand-window-2--expand-small-bigger-retract-small.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/fist.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/heart--reward-social-rating-media-heart-it-like-fa.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/humidity-none--humidity-drop-weather.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/image-saturation.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/invisible-2.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/logout-1--arrow-exit-frame-leave-logout-rectangle-.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/magnifying-glass--glass-search-magnifying.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/question-mark.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/thermometer--temperature-thermometer-weather-level.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/trending-content--lit-flame-torch-trending.png</file>
-    <file>E:/Pycharm_study/FitMind/Client/icon/user-add-plus--actions-add-close-geometric-human-p.png</file>
+    <file>icon/check--check-form-validation-checkmark-success-add.png</file>
+    <file>icon/delete-1--remove-add-button-buttons-delete-cross-x.png</file>
+    <file>icon/dongzuo.png</file>
+    <file>icon/expand-window-2--expand-small-bigger-retract-small.png</file>
+    <file>icon/fist.png</file>
+    <file>icon/heart--reward-social-rating-media-heart-it-like-fa.png</file>
+    <file>icon/humidity-none--humidity-drop-weather.png</file>
+    <file>icon/image-saturation.png</file>
+    <file>icon/invisible-2.png</file>
+    <file>icon/login-1--arrow-enter-frame-left-login-point-rectan.png</file>
+    <file>icon/logout-1--arrow-exit-frame-leave-logout-rectangle-.png</file>
+    <file>icon/magnifying-glass--glass-search-magnifying.png</file>
+    <file>icon/os-icon-history.png</file>
+    <file>icon/question-mark.png</file>
+    <file>icon/thermometer--temperature-thermometer-weather-level.png</file>
+    <file>icon/trending-content--lit-flame-torch-trending.png</file>
+    <file>icon/user-add-plus--actions-add-close-geometric-human-p.png</file>
+    <file>icon/user-circle-single--circle-geometric-human-person-.png</file>
+    <file>icon/xunlianjihua.png</file>
   </qresource>
 </RCC>

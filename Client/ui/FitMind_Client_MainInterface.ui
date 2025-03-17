@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>373</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>40</y>
+      <width>261</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>261</width>
+      <height>531</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame{
+	background-color: rgb(255, 255, 255);
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="frame_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>10</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QStackedWidget" name="stackedWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="page_train"/>
+          <widget class="QWidget" name="page_sports"/>
+          <widget class="QWidget" name="page_history"/>
+          <widget class="QWidget" name="page_user"/>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton {
+    font: 9pt &quot;微软雅黑&quot;; 
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 60px;
+    min-height: 25px;
+
+}
+
+QToolButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QToolButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QToolButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::InputMethodHint::ImhNone</set>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="button_train">
+          <property name="text">
+           <string>train</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icons/icon/xunlianjihua.png</normaloff>
+            <normalon>:/icons/icon/xunlianjihua.png</normalon>:/icons/icon/xunlianjihua.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="button_sports">
+          <property name="text">
+           <string>sports</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icons/icon/dongzuo.png</normaloff>
+            <normalon>:/icons/icon/dongzuo.png</normalon>:/icons/icon/dongzuo.png</iconset>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="button_history">
+          <property name="text">
+           <string>history</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icons/icon/os-icon-history.png</normaloff>
+            <normalon>:/icons/icon/os-icon-history.png</normalon>:/icons/icon/os-icon-history.png</iconset>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="button_user">
+          <property name="text">
+           <string>user</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normaloff>
+            <normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</iconset>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
