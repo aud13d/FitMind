@@ -19,8 +19,9 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QMainWindow, QPushButton, QSizePolicy,
     QSpacerItem, QSplitter, QStackedWidget, QVBoxLayout,
     QWidget)
-from .res_rc import *
 #import res_rc
+from .res_rc import *
+
 class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
@@ -46,7 +47,7 @@ class Ui_LoginWindow(object):
         self.label.setStyleSheet(u"font: 16pt \"\u534e\u6587\u96b6\u4e66\";")
         self.button_exit = QPushButton(self.frame)
         self.button_exit.setObjectName(u"button_exit")
-        self.button_exit.setGeometry(QRect(220, 10, 31, 16))
+        self.button_exit.setGeometry(QRect(230, 10, 16, 16))
         self.button_exit.setMinimumSize(QSize(0, 0))
         self.button_exit.setStyleSheet(u"QPushButton {\n"
 "    font: 9pt \"\u5fae\u8f6f\u96c5\u9ed1\"; \n"
@@ -74,9 +75,9 @@ class Ui_LoginWindow(object):
 "}\n"
 "")
         icon = QIcon()
-        icon.addFile(u":/icons/E:/Pycharm_study/FitMind/Client/icon/delete-1--remove-add-button-buttons-delete-cross-x.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u":/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.button_exit.setIcon(icon)
-        self.button_exit.setIconSize(QSize(8, 8))
+        self.button_exit.setIconSize(QSize(16, 16))
         self.frame_2 = QFrame(self.frame)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setGeometry(QRect(0, 70, 261, 461))
@@ -223,7 +224,7 @@ class Ui_LoginWindow(object):
 "}\n"
 "")
         icon1 = QIcon()
-        icon1.addFile(u":/icons/E:/Pycharm_study/FitMind/Client/icon/question-mark.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u":/icons/icon/question-mark.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.button_retrieve.setIcon(icon1)
 
         self.horizontalLayout_2.addWidget(self.button_retrieve)
@@ -385,7 +386,7 @@ class Ui_LoginWindow(object):
         self.button_login.setObjectName(u"button_login")
         self.button_login.setStyleSheet(u"")
         icon2 = QIcon()
-        icon2.addFile(u":/icons/E:/Pycharm_study/FitMind/Client/icon/login-1--arrow-enter-frame-left-login-point-rectan.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon2.addFile(u":/icons/icon/login-1--arrow-enter-frame-left-login-point-rectan.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.button_login.setIcon(icon2)
 
         self.horizontalLayout.addWidget(self.button_login)
@@ -394,7 +395,7 @@ class Ui_LoginWindow(object):
         self.button_register.setObjectName(u"button_register")
         self.button_register.setStyleSheet(u"")
         icon3 = QIcon()
-        icon3.addFile(u":/icons/E:/Pycharm_study/FitMind/Client/icon/user-add-plus--actions-add-close-geometric-human-p.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon3.addFile(u":/icons/icon/user-add-plus--actions-add-close-geometric-human-p.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.button_register.setIcon(icon3)
 
         self.horizontalLayout.addWidget(self.button_register)
@@ -467,7 +468,7 @@ class Ui_LoginWindow(object):
 
     def retranslateUi(self, LoginWindow):
         LoginWindow.setWindowTitle(QCoreApplication.translate("LoginWindow", u"MainWindow", None))
-        self.label.setText(QCoreApplication.translate("LoginWindow", u"Welcom To Fit Mind!", None))
+        self.label.setText(QCoreApplication.translate("LoginWindow", u"Welcom To FitMind!", None))
         self.button_exit.setText("")
         self.line_login_username.setInputMask("")
         self.line_login_username.setText("")

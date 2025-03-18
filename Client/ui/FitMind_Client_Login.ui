@@ -51,15 +51,15 @@
       <string notr="true">font: 16pt &quot;华文隶书&quot;;</string>
      </property>
      <property name="text">
-      <string>Welcom To Fit Mind!</string>
+      <string>Welcom To FitMind!</string>
      </property>
     </widget>
     <widget class="QPushButton" name="button_exit">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>230</x>
        <y>10</y>
-       <width>31</width>
+       <width>16</width>
        <height>16</height>
       </rect>
      </property>
@@ -100,13 +100,13 @@ QPushButton:disabled {
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
-       <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</iconset>
+      <iconset resource="res.qrc">
+       <normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>8</width>
-       <height>8</height>
+       <width>16</width>
+       <height>16</height>
       </size>
      </property>
     </widget>
@@ -361,8 +361,8 @@ QPushButton:disabled {
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
-                      <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/question-mark.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/question-mark.png</iconset>
+                     <iconset resource="res.qrc">
+                      <normaloff>:/icons/icon/question-mark.png</normaloff>:/icons/icon/question-mark.png</iconset>
                     </property>
                    </widget>
                   </item>
@@ -660,8 +660,8 @@ QPushButton:disabled {
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
-                <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</iconset>
+               <iconset resource="res.qrc">
+                <normaloff>:/icons/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</normaloff>:/icons/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</iconset>
               </property>
              </widget>
             </item>
@@ -674,8 +674,8 @@ QPushButton:disabled {
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc">
-                <normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/user-add-plus--actions-add-close-geometric-human-p.png</normaloff>:/icons/E:/Pycharm_study/FitMind/Client/icon/user-add-plus--actions-add-close-geometric-human-p.png</iconset>
+               <iconset resource="res.qrc">
+                <normaloff>:/icons/icon/user-add-plus--actions-add-close-geometric-human-p.png</normaloff>:/icons/icon/user-add-plus--actions-add-close-geometric-human-p.png</iconset>
               </property>
              </widget>
             </item>
@@ -764,7 +764,7 @@ QPushButton:disabled {
   </widget>
  </widget>
  <resources>
-  <include location="C:/Users/30484/AppData/Local/Programs/Python/Python39/Lib/site-packages/PySide6/res.qrc"/>
+  <include location="res.qrc"/>
  </resources>
  <connections>
   <connection>
