@@ -15,23 +15,26 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QSplitter, QStackedWidget, QToolButton,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCalendarWidget, QFrame, QHBoxLayout,
+    QLabel, QMainWindow, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QSplitter, QStackedWidget,
+    QToolButton, QVBoxLayout, QWidget)
+
 from .res_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(373, 600)
+        MainWindow.resize(362, 700)
+        MainWindow.setMinimumSize(QSize(300, 666))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.verticalLayout_13 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(60, 40, 261, 531))
-        self.frame.setMinimumSize(QSize(261, 531))
+        self.frame.setMinimumSize(QSize(300, 666))
         self.frame.setStyleSheet(u"#frame{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	border-top-right-radius:20px;\n"
@@ -52,6 +55,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(10)
         sizePolicy.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
         self.frame_2.setSizePolicy(sizePolicy)
+        self.frame_2.setStyleSheet(u"")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
@@ -60,6 +64,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.frame_2)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setStyleSheet(u"")
         self.page_train = QWidget()
         self.page_train.setObjectName(u"page_train")
         self.verticalLayout_5 = QVBoxLayout(self.page_train)
@@ -210,7 +215,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 257, 451))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 340, 588))
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -245,6 +250,15 @@ class Ui_MainWindow(object):
 "    background-color: #f8f8f8;\n"
 "    color: gray;\n"
 "    border-color: #ddd;\n"
+"}\n"
+"\n"
+"/* \u9009\u4e2d\u65f6\uff1a\u5b57\u4f53\u53d8\u84dd + \u53d1"
+                        "\u5149 */\n"
+"QToolButton:checked {\n"
+"    background-color: transparent;\n"
+"    color: #0078D7; /* \u9009\u4e2d\u540e\u5b57\u4f53\u53d8\u84dd */\n"
+"    font-weight: bold; /* \u52a0\u7c97 */\n"
+"    text-shadow: 0px 0px 5px #4da6ff; /* \u8f7b\u5fae\u53d1\u5149\u6548\u679c */\n"
 "}\n"
 "")
         self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
@@ -304,6 +318,44 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
         self.frame_7.setSizePolicy(sizePolicy6)
         self.frame_7.setStyleSheet(u"font: 700 10pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"\n"
+"\n"
+"QToolButton {\n"
+"    font: 9pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    border-radius: 6px; /* \u8f7b\u5fae\u5706\u89d2 */\n"
+"    background-color: white; /* \u7eaf\u767d\u80cc\u666f */\n"
+"    color: black; /* \u9ed1\u8272\u6587\u5b57 */\n"
+"    min-width: 60px;\n"
+"    min-height: 25px;\n"
+"\n"
+"}\n"
+"\n"
+"QToolButton:hover {\n"
+"    background-color: #f0f0f0; /* \u6d45\u7070\u8272\u60ac\u6d6e\u6548\u679c */\n"
+"    margin-top: 2px; /* \u8f7b\u5fae\u4e0b\u79fb\uff0c\u589e\u52a0\u6309\u538b\u611f */\n"
+"}\n"
+"\n"
+"QToolButton:pressed {\n"
+"    background-color: #e0e0e0; /* \u6309\u4e0b\u65f6\u53d8\u6df1\u7070 */\n"
+"    margin-top: 1px; /* \u6309\u4e0b\u65f6\u8f7b\u5fae\u4e0a\u79fb */\n"
+"}\n"
+"\n"
+"QToolButton:disabled {\n"
+"    background-color: #f8f8f8;\n"
+"    color: gray;\n"
+"    border-color: #ddd;\n"
+"}\n"
+"\n"
+"\n"
+"/* \u9009\u4e2d\u65f6\uff1a\u5b57\u4f53\u53d8\u84dd + \u53d1\u5149 */\n"
+"QToolButton:checked {\n"
+"    background-color: white;\n"
+""
+                        "    color: #0078D7; /* \u9009\u4e2d\u540e\u5b57\u4f53\u53d8\u84dd */\n"
+"    font-weight: bold; /* \u52a0\u7c97 */\n"
+"    text-shadow: 0px 0px 5px #4da6ff; /* \u8f7b\u5fae\u53d1\u5149\u6548\u679c */\n"
+"}\n"
+"\n"
 "")
         self.frame_7.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Shadow.Raised)
@@ -315,13 +367,15 @@ class Ui_MainWindow(object):
         self.splitter_2.setObjectName(u"splitter_2")
         self.splitter_2.setOrientation(Qt.Orientation.Horizontal)
         self.splitter_2.setHandleWidth(0)
-        self.button_official_plan = QToolButton(self.splitter_2)
-        self.button_official_plan.setObjectName(u"button_official_plan")
-        self.button_official_plan.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextOnly)
-        self.splitter_2.addWidget(self.button_official_plan)
-        self.button_personal_plan = QToolButton(self.splitter_2)
-        self.button_personal_plan.setObjectName(u"button_personal_plan")
-        self.splitter_2.addWidget(self.button_personal_plan)
+        self.button_train_official_plan = QToolButton(self.splitter_2)
+        self.button_train_official_plan.setObjectName(u"button_train_official_plan")
+        self.button_train_official_plan.setCheckable(True)
+        self.button_train_official_plan.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextOnly)
+        self.splitter_2.addWidget(self.button_train_official_plan)
+        self.button_train_personal_plan = QToolButton(self.splitter_2)
+        self.button_train_personal_plan.setObjectName(u"button_train_personal_plan")
+        self.button_train_personal_plan.setCheckable(True)
+        self.splitter_2.addWidget(self.button_train_personal_plan)
 
         self.verticalLayout_4.addWidget(self.splitter_2)
 
@@ -353,25 +407,29 @@ class Ui_MainWindow(object):
         self.splitter_3.setSizePolicy(sizePolicy7)
         self.splitter_3.setOrientation(Qt.Orientation.Horizontal)
         self.splitter_3.setHandleWidth(0)
-        self.button_plan1 = QToolButton(self.splitter_3)
-        self.button_plan1.setObjectName(u"button_plan1")
+        self.button_train_plan1 = QToolButton(self.splitter_3)
+        self.button_train_plan1.setObjectName(u"button_train_plan1")
         sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy8.setHorizontalStretch(0)
         sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.button_plan1.sizePolicy().hasHeightForWidth())
-        self.button_plan1.setSizePolicy(sizePolicy8)
-        self.splitter_3.addWidget(self.button_plan1)
-        self.button_plan2 = QToolButton(self.splitter_3)
-        self.button_plan2.setObjectName(u"button_plan2")
-        sizePolicy8.setHeightForWidth(self.button_plan2.sizePolicy().hasHeightForWidth())
-        self.button_plan2.setSizePolicy(sizePolicy8)
-        self.splitter_3.addWidget(self.button_plan2)
-        self.button_plan3 = QToolButton(self.splitter_3)
-        self.button_plan3.setObjectName(u"button_plan3")
-        self.splitter_3.addWidget(self.button_plan3)
-        self.button_plan4 = QToolButton(self.splitter_3)
-        self.button_plan4.setObjectName(u"button_plan4")
-        self.splitter_3.addWidget(self.button_plan4)
+        sizePolicy8.setHeightForWidth(self.button_train_plan1.sizePolicy().hasHeightForWidth())
+        self.button_train_plan1.setSizePolicy(sizePolicy8)
+        self.button_train_plan1.setCheckable(True)
+        self.splitter_3.addWidget(self.button_train_plan1)
+        self.button_train_plan2 = QToolButton(self.splitter_3)
+        self.button_train_plan2.setObjectName(u"button_train_plan2")
+        sizePolicy8.setHeightForWidth(self.button_train_plan2.sizePolicy().hasHeightForWidth())
+        self.button_train_plan2.setSizePolicy(sizePolicy8)
+        self.button_train_plan2.setCheckable(True)
+        self.splitter_3.addWidget(self.button_train_plan2)
+        self.button_train_plan3 = QToolButton(self.splitter_3)
+        self.button_train_plan3.setObjectName(u"button_train_plan3")
+        self.button_train_plan3.setCheckable(True)
+        self.splitter_3.addWidget(self.button_train_plan3)
+        self.button_train_plan4 = QToolButton(self.splitter_3)
+        self.button_train_plan4.setObjectName(u"button_train_plan4")
+        self.button_train_plan4.setCheckable(True)
+        self.splitter_3.addWidget(self.button_train_plan4)
 
         self.verticalLayout_7.addWidget(self.splitter_3)
 
@@ -426,6 +484,247 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_sports)
         self.page_history = QWidget()
         self.page_history.setObjectName(u"page_history")
+        sizePolicy9 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.page_history.sizePolicy().hasHeightForWidth())
+        self.page_history.setSizePolicy(sizePolicy9)
+        self.verticalLayout_12 = QVBoxLayout(self.page_history)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.frame_11 = QFrame(self.page_history)
+        self.frame_11.setObjectName(u"frame_11")
+        sizePolicy10 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(1)
+        sizePolicy10.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
+        self.frame_11.setSizePolicy(sizePolicy10)
+        self.frame_11.setStyleSheet(u"#frame{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	border-top-right-radius:20px;\n"
+"	border-top-left-radius:20px;\n"
+"	border-bottom-right-radius:20px;\n"
+"	border-bottom-left-radius:20px;\n"
+"}\n"
+"\n"
+"QToolButton {\n"
+"    font: 700 16pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    border-radius: 6px; /* \u8f7b\u5fae\u5706\u89d2 */\n"
+"    background-color: white; /* \u7eaf\u767d\u80cc\u666f */\n"
+"    color: black; /* \u9ed1\u8272\u6587\u5b57 */\n"
+"    min-width: 60px;\n"
+"    min-height: 60px;\n"
+"\n"
+"}\n"
+"\n"
+"QToolButton:hover {\n"
+"    background-color: #f0f0f0; /* \u6d45\u7070\u8272\u60ac\u6d6e\u6548\u679c */\n"
+"    margin-top: 2px; /* \u8f7b\u5fae\u4e0b\u79fb\uff0c\u589e\u52a0\u6309\u538b\u611f */\n"
+"}\n"
+"\n"
+"QToolButton:pressed {\n"
+"    background-color: #e0e0e0; /* \u6309\u4e0b\u65f6\u53d8\u6df1\u7070 */\n"
+"    margin-top: 1px; /* \u6309\u4e0b\u65f6\u8f7b\u5fae\u4e0a\u79fb */\n"
+"}\n"
+"\n"
+"QToolButton:disabled {\n"
+"    background-color: #f8f8f8;\n"
+"    color: gray;\n"
+"    border-color: "
+                        "#ddd;\n"
+"}\n"
+"\n"
+"\n"
+"/* \u9009\u4e2d\u65f6\uff1a\u5b57\u4f53\u53d8\u84dd + \u53d1\u5149 */\n"
+"QToolButton:checked {\n"
+"    background-color: white;\n"
+"    color: #0078D7; /* \u9009\u4e2d\u540e\u5b57\u4f53\u53d8\u84dd */\n"
+"    font-weight: bold; /* \u52a0\u7c97 */\n"
+"    text-shadow: 0px 0px 5px #4da6ff; /* \u8f7b\u5fae\u53d1\u5149\u6548\u679c */\n"
+"}\n"
+"\n"
+"")
+        self.frame_11.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Shadow.Raised)
+        self.frame_11.setLineWidth(0)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame_11)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(5, 10, 5, 0)
+        self.button_history_history = QToolButton(self.frame_11)
+        self.button_history_history.setObjectName(u"button_history_history")
+        sizePolicy11 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy11.setHorizontalStretch(0)
+        sizePolicy11.setVerticalStretch(0)
+        sizePolicy11.setHeightForWidth(self.button_history_history.sizePolicy().hasHeightForWidth())
+        self.button_history_history.setSizePolicy(sizePolicy11)
+        self.button_history_history.setMinimumSize(QSize(60, 60))
+        self.button_history_history.setCheckable(True)
+
+        self.horizontalLayout_4.addWidget(self.button_history_history)
+
+        self.button_history_statistics = QToolButton(self.frame_11)
+        self.button_history_statistics.setObjectName(u"button_history_statistics")
+        sizePolicy11.setHeightForWidth(self.button_history_statistics.sizePolicy().hasHeightForWidth())
+        self.button_history_statistics.setSizePolicy(sizePolicy11)
+        self.button_history_statistics.setMinimumSize(QSize(60, 60))
+        self.button_history_statistics.setCheckable(True)
+
+        self.horizontalLayout_4.addWidget(self.button_history_statistics)
+
+
+        self.verticalLayout_12.addWidget(self.frame_11)
+
+        self.frame_12 = QFrame(self.page_history)
+        self.frame_12.setObjectName(u"frame_12")
+        sizePolicy.setHeightForWidth(self.frame_12.sizePolicy().hasHeightForWidth())
+        self.frame_12.setSizePolicy(sizePolicy)
+        self.frame_12.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_12.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.frame_12)
+        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.calendarWidget = QCalendarWidget(self.frame_12)
+        self.calendarWidget.setObjectName(u"calendarWidget")
+        self.calendarWidget.setStyleSheet(u"/*\u9876\u90e8\u5bfc\u822a\u533a\u57df*/\n"
+"#qt_calendar_navigationbar {\n"
+"    background-color: white;\n"
+"    min-height: 10px;\n"
+"	max-height: 1000px;\n"
+"}\n"
+"\n"
+"\n"
+"/*\u4e0a\u4e00\u4e2a\u6708\u6309\u94ae\u548c\u4e0b\u4e00\u4e2a\u6708\u6309\u94ae*/\n"
+"#qt_calendar_prevmonth, #qt_calendar_nextmonth {\n"
+"	padding:0px;\n"
+"    border: none; /*\u53bb\u6389\u8fb9\u6846*/\n"
+"    color: black;\n"
+"	min-width: 20px;\n"
+"    max-width: 20px;\n"
+"    min-height: 16px;\n"
+"    max-height: 16px;\n"
+"    border-radius: 6px; /*\u770b\u6765\u8fd1\u4f3c\u692d\u5706*/\n"
+"    font-weight: bold; /*\u5b57\u4f53\u52a0\u7c97*/\n"
+"	    qproperty-icon: none; /*\u53bb\u6389\u9ed8\u8ba4\u7684\u65b9\u5411\u952e\u56fe\u7247\uff0c\u5f53\u7136\u4e5f\u53ef\u4ee5\u81ea\u5b9a\u4e49*/\n"
+"    background-color: transparent;/*\u80cc\u666f\u989c\u8272\u900f\u660e*/\n"
+"}\n"
+"\n"
+"#qt_calendar_prevmonth {\n"
+"	font-size:20px;\n"
+"    qproperty-text: \"<\"; /*\u4fee\u6539\u6309\u94ae\u7684\u6587\u5b57*/\n"
+"}\n"
+"#qt_calendar_nextm"
+                        "onth {\n"
+"font-size:20px;\n"
+"    qproperty-text: \">\";\n"
+"}\n"
+"#qt_calendar_prevmonth:hover, #qt_calendar_nextmonth:hover {\n"
+"    background-color: rgba(0, 0, 0, 100);\n"
+"}\n"
+"#qt_calendar_prevmonth:pressed, #qt_calendar_nextmonth:pressed {\n"
+"    background-color: rgba(0, 0, 0, 100);\n"
+"}\n"
+"\n"
+"\n"
+"/*\u5e74,\u6708\u63a7\u4ef6*/\n"
+"#qt_calendar_yearbutton, #qt_calendar_monthbutton {\n"
+"    color: black;\n"
+"    margin: 10px;\n"
+"    min-width: 60px;\n"
+"    border-radius: 30px;\n"
+"\n"
+"	font: 700 14pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"}\n"
+"#qt_calendar_yearbutton:hover, #qt_calendar_monthbutton:hover {\n"
+"    background-color: rgba(225, 225, 225, 100);\n"
+"}\n"
+"#qt_calendar_yearbutton:pressed, #qt_calendar_monthbutton:pressed {\n"
+"    background-color: rgba(235, 235, 235, 100);\n"
+"}\n"
+"\n"
+"\n"
+"/*\u5e74\u4efd\u8f93\u5165\u6846*/\n"
+"#qt_calendar_yearedit {\n"
+"    min-width: 50px;\n"
+"    color: white;\n"
+"    background: transparent;/*\u8ba9\u8f93\u5165\u6846\u80cc\u666f\u900f\u660e*/"
+                        "\n"
+"}\n"
+"#qt_calendar_yearedit::up-button { /*\u5f80\u4e0a\u7684\u6309\u94ae*/\n"
+"    width: 20px;\n"
+"    subcontrol-position: right;/*\u79fb\u52a8\u5230\u53f3\u8fb9*/\n"
+"}\n"
+"#qt_calendar_yearedit::down-button { /*\u5f80\u4e0b\u7684\u6309\u94ae*/\n"
+"    width: 20px;\n"
+"    subcontrol-position: left; /*\u79fb\u52a8\u5230\u5de6\u8fb9\u53bb*/\n"
+"}\n"
+"\n"
+"\n"
+"/* \u6708\u4efd\u9009\u62e9\u83dc\u5355 */\n"
+"QCalendarWidget QToolButton QMenu {\n"
+"     background-color: white;\n"
+"}\n"
+"\n"
+"/* \u83dc\u5355\u9879\u6837\u5f0f */\n"
+"QCalendarWidget QToolButton QMenu::item {\n"
+"    padding: 10px;\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton QMenu::item:selected:enabled {\n"
+"    background-color: rgb(230, 230, 230);\n"
+"}\n"
+"\n"
+"/* \u53bb\u6389\u6708\u4efd\u9009\u62e9\u5c0f\u7bad\u5934 */\n"
+"QCalendarWidget QToolButton::menu-indicator {\n"
+"	image: none;\n"
+"    subcontrol-position: right center;\n"
+"}\n"
+"\n"
+"\n"
+"/*\u4e0b\u65b9\u7684\u65e5\u5386\u8868\u683c*/\n"
+"#qt_calendar_calendarview::item:select"
+                        "ed {\n"
+"    background-color: rgb(0, 188, 212); /* \u9009\u4e2d\u7684\u80cc\u666f\u989c\u8272 */\n"
+"    color: white; /* \u5b57\u4f53\u53d8\u767d */\n"
+"    border-radius: 15px; /* \u8ba9\u80cc\u666f\u53d8\u6210\u5706\u5f62 */\n"
+"    padding: 0px 0px; /* \u8c03\u6574\u5185\u8fb9\u8ddd\uff1a\u4e0a\u4e0b 2px\uff0c\u5de6\u53f3 8px */\n"
+"    margin: 16px 6px; /* \u4e0a\u4e0b\u51cf\u5c11\u95f4\u8ddd */\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"#qt_calendar_calendarview {\n"
+"    outline: none; /* \u53bb\u6389\u9009\u4e2d\u540e\u7684\u865a\u7ebf\u6846 */\n"
+"}\n"
+"\n"
+"/* \u65e5\u5386\u680f */\n"
+"QCalendarWidget QTableView {\n"
+"	font:12px \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"	background-color: white; /* \u80cc\u666f\u989c\u8272 */\n"
+" max-height: 450px;\n"
+"}\n"
+"\n"
+"\n"
+"/* \u8c03\u6574\u9009\u4e2d\u65e5\u671f\u7684\u6837\u5f0f */\n"
+"QCalendarWidget QAbstractItemView::item:selected {\n"
+"    background-color: rgb(0, 188, 212); /* \u9009\u4e2d\u7684\u80cc\u666f\u989c\u8272 */\n"
+"    color: white; /* \u5b57\u4f53\u53d8"
+                        "\u767d */\n"
+"    border-radius: 15px; /* \u5706\u5f62\u80cc\u666f */\n"
+"    padding: 2px;\n"
+"}\n"
+"")
+        self.calendarWidget.setGridVisible(False)
+        self.calendarWidget.setSelectionMode(QCalendarWidget.SelectionMode.NoSelection)
+        self.calendarWidget.setNavigationBarVisible(True)
+        self.calendarWidget.setDateEditEnabled(True)
+
+        self.horizontalLayout_5.addWidget(self.calendarWidget)
+
+
+        self.verticalLayout_12.addWidget(self.frame_12)
+
         self.stackedWidget.addWidget(self.page_history)
         self.page_user = QWidget()
         self.page_user.setObjectName(u"page_user")
@@ -438,11 +737,8 @@ class Ui_MainWindow(object):
 
         self.frame_3 = QFrame(self.frame)
         self.frame_3.setObjectName(u"frame_3")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(1)
-        sizePolicy9.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
-        self.frame_3.setSizePolicy(sizePolicy9)
+        sizePolicy10.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
+        self.frame_3.setSizePolicy(sizePolicy10)
         self.frame_3.setStyleSheet(u"\n"
 "\n"
 "QToolButton {\n"
@@ -538,6 +834,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.frame_3)
 
+
+        self.verticalLayout_13.addWidget(self.frame)
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -556,12 +855,14 @@ class Ui_MainWindow(object):
         self.button_friend.setText(QCoreApplication.translate("MainWindow", u"friend", None))
         self.pushButton.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u" Diet Record", None))
-        self.button_official_plan.setText(QCoreApplication.translate("MainWindow", u"Official Plan", None))
-        self.button_personal_plan.setText(QCoreApplication.translate("MainWindow", u"Personal Plan", None))
-        self.button_plan1.setText(QCoreApplication.translate("MainWindow", u"plan1", None))
-        self.button_plan2.setText(QCoreApplication.translate("MainWindow", u"plan2", None))
-        self.button_plan3.setText(QCoreApplication.translate("MainWindow", u"plan3", None))
-        self.button_plan4.setText(QCoreApplication.translate("MainWindow", u"plan4", None))
+        self.button_train_official_plan.setText(QCoreApplication.translate("MainWindow", u"Official Plan", None))
+        self.button_train_personal_plan.setText(QCoreApplication.translate("MainWindow", u"Personal Plan", None))
+        self.button_train_plan1.setText(QCoreApplication.translate("MainWindow", u"plan1", None))
+        self.button_train_plan2.setText(QCoreApplication.translate("MainWindow", u"plan2", None))
+        self.button_train_plan3.setText(QCoreApplication.translate("MainWindow", u"plan3", None))
+        self.button_train_plan4.setText(QCoreApplication.translate("MainWindow", u"plan4", None))
+        self.button_history_history.setText(QCoreApplication.translate("MainWindow", u"History", None))
+        self.button_history_statistics.setText(QCoreApplication.translate("MainWindow", u"Statistics", None))
         self.button_train.setText(QCoreApplication.translate("MainWindow", u"train", None))
         self.button_sports.setText(QCoreApplication.translate("MainWindow", u"sports", None))
         self.button_history.setText(QCoreApplication.translate("MainWindow", u"history", None))
