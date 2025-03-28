@@ -8,6 +8,7 @@ from .config import *
 class AuthService:
     @staticmethod
     async def register_user(email: str, username: str, password: str, confirm_password: str, verification: str):
+        """用户注册逻辑"""
         await AuthService.validate_email(email)
         await AuthService.validate_username(username)
         await AuthService.validate_password(password, confirm_password)
@@ -27,6 +28,7 @@ class AuthService:
 
     @staticmethod
     async def login_user(username: str, password: str):
+        """用户登录逻辑"""
         await AuthService.validate_username(username)
         await AuthService.validate_password(password)
 
@@ -34,10 +36,13 @@ class AuthService:
             raise HTTPException(status_code=400, detail=INVALID_USERNAME_OR_PASSWORD)
 
         print("User logged in successfully")
+
+        await DataService.set_user_logged_in(username)
         return {"message": LOGIN_SUCCESSFULLY}
 
     @staticmethod
     async def retrieve_password(email: str, verification: str, password: str, confirm_password: str):
+        """用户找回密码逻辑"""
         await AuthService.validate_email(email)
         await AuthService.validate_verification_code(email,verification)
         await AuthService.validate_password(password, confirm_password)
@@ -53,16 +58,19 @@ class AuthService:
 
     @staticmethod
     async def validate_email(email: str):
+        """验证邮箱格式逻辑"""
         if not re.match(r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$', email):
             raise HTTPException(status_code=400, detail=INVALID_EMAIL_FORMAT)
 
     @staticmethod
     async def validate_username(username: str):
+        """验证用户名格式逻辑"""
         if len(username) < 4 or not username.isalnum() or ' ' in username:
             raise HTTPException(status_code=400, detail=USERNAME_MIN_LENGTH_AND_ALPHANUMERIC)
 
     @staticmethod
     async def validate_password(password: str, confirm_password: str = None):
+        """验证密码格式逻辑"""
         if len(password) < 6:
             raise HTTPException(status_code=400, detail=PASSWORD_MIN_LENGTH )
 
@@ -83,6 +91,7 @@ class AuthService:
 
     @staticmethod
     async def validate_verification_code(email: str, code: str):
+        """验证验证码逻辑"""
         if not re.match(r'^\d{4}$', code):
             raise HTTPException(status_code=400, detail=VERIFICATION_CODE_MIN_LENGTH)
 
@@ -104,6 +113,7 @@ class AuthService:
 
     @staticmethod
     async def send_verification_code(email: str,purpose: str):
+        """发送验证码逻辑"""
         if purpose == PURPOSE_REGISTER:
             existing_email = await DataService.check_email_exists(email)
 
@@ -118,6 +128,9 @@ class AuthService:
         await EmailService.get_verification_code(email)
 
         return {"message": VERIFICATION_SENT}
+
+
+
 
 
 

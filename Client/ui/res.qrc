@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icon/shezhi.png</file>
+    <file>icon/tianjia.png</file>
+    <file>icon/xinde-.png</file>
+    <file>icon/zuixiaohua.png</file>
     <file>icon/check--check-form-validation-checkmark-success-add.png</file>
     <file>icon/delete-1--remove-add-button-buttons-delete-cross-x.png</file>
     <file>icon/dongzuo.png</file>
@@ -9,16 +13,22 @@
     <file>icon/humidity-none--humidity-drop-weather.png</file>
     <file>icon/image-saturation.png</file>
     <file>icon/invisible-2.png</file>
+    <file>icon/jingqi.png</file>
+    <file>icon/kaishi.png</file>
     <file>icon/login-1--arrow-enter-frame-left-login-point-rectan.png</file>
     <file>icon/logout-1--arrow-exit-frame-leave-logout-rectangle-.png</file>
     <file>icon/magnifying-glass--glass-search-magnifying.png</file>
     <file>icon/os-icon-history.png</file>
+    <file>icon/paobuji.png</file>
     <file>icon/question-mark.png</file>
+    <file>icon/stzx_renti.png</file>
     <file>icon/thermometer--temperature-thermometer-weather-level.png</file>
     <file>icon/trending-content--lit-flame-torch-trending.png</file>
     <file>icon/user-add-plus--actions-add-close-geometric-human-p.png</file>
     <file>icon/user-circle-single--circle-geometric-human-person-.png</file>
     <file>icon/user-multiple-group--close-geometric-human-multipl.png</file>
     <file>icon/xunlianjihua.png</file>
+    <file>icon/yaling.png</file>
+    <file>icon/xiuxi.png</file>
   </qresource>
 </RCC>

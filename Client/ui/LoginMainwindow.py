@@ -1,8 +1,10 @@
+from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QMainWindow
 from PySide6 import QtCore
 from .ui_Login import Ui_LoginWindow
 from ..services.server_auth import AuthService
 from ..config import get_error_message, PURPOSE_REGISTER, PURPOSE_RETRIEVE
+from .MainInterfaceMainwindow import MainInterfaceWindow
 
 class LoginWindow(QMainWindow):
     def __init__(self):
@@ -16,6 +18,7 @@ class LoginWindow(QMainWindow):
         self.ui.button_login_confirm.setEnabled(False)
 
     def bind(self):
+        """信号与槽的连接"""
         # 切换界面
         self.ui.button_login.clicked.connect(self.move_to_login)
         self.ui.button_register.clicked.connect(self.move_to_register)
@@ -47,19 +50,29 @@ class LoginWindow(QMainWindow):
 
 # 切换界面
     def move_to_login(self):
+        """切换到登陆界面"""
         self.ui.stackedWidget_2.setCurrentIndex(0)
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def move_to_register(self):
+        """切换到注册界面"""
         self.ui.stackedWidget_2.setCurrentIndex(1)
         self.ui.stackedWidget.setCurrentIndex(1)
 
     def move_to_retrieve(self):
+        """切换到找回密码界面"""
         self.ui.stackedWidget_2.setCurrentIndex(2)
         self.ui.stackedWidget.setCurrentIndex(2)
 
+    def move_to_MainInterfaceWindow(self):
+        """进入到主界面"""
+        self.mainInterfaceWindow = MainInterfaceWindow()
+        self.mainInterfaceWindow.show()
+        self.close()
+
 # 登录
     def validate_login_username(self):
+        """检查登陆界面的用户名"""
         username = self.ui.line_login_username.text().strip()
 
         if not username:
@@ -83,6 +96,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_login_password(self):
+        """检查登陆界面的密码"""
         password = self.ui.line_login_password.text().strip()
 
         if not password:
@@ -106,6 +120,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_login(self):
+        """调用检查和登录请求方法"""
         username = self.ui.line_login_username.text().strip()
         password = self.ui.line_login_password.text().strip()
 
@@ -131,6 +146,7 @@ class LoginWindow(QMainWindow):
         if response.status_code == 200:
             message = data.get("message", "Login successful!")
             color = "green"
+            QTimer.singleShot(2000, self.move_to_MainInterfaceWindow)
         else:
             message = data.get("detail", "Invalid username or password!")
             color = "red"
@@ -139,6 +155,7 @@ class LoginWindow(QMainWindow):
         self.ui.label_login_error.setStyleSheet(f"color: {color};")
 
     def update_login_button_state(self):
+        """更新登陆界面的按钮状态"""
         username_valid = AuthService.validate_username(self.ui.line_login_username.text().strip())
         password_valid = AuthService.validate_password(self.ui.line_login_password.text().strip())
 
@@ -149,6 +166,7 @@ class LoginWindow(QMainWindow):
 
 # 注册
     def validate_register_username(self):
+        """检查注册界面的用户名"""
         username = self.ui.line_register_username.text().strip()
         if not username:
             self.ui.line_register_username.setStyleSheet("border-bottom: 2px solid #5c9ef5;")
@@ -171,6 +189,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_register_password(self):
+        """检查注册界面的密码"""
         password = self.ui.line_register_password.text().strip()
 
         if not password:
@@ -195,6 +214,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_register_okpassword(self):
+        """检查注册界面的确认密码"""
         okpassword = self.ui.line_register_okpassword.text().strip()
         password = self.ui.line_register_password.text().strip()
         if not okpassword:
@@ -219,6 +239,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_register_email(self):
+        """检查注册界面的邮箱"""
         email = self.ui.line_register_email.text().strip()
         if not email:
             self.ui.line_register_email.setStyleSheet("border-bottom: 2px solid #5c9ef5;")
@@ -242,6 +263,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_register_verification(self):
+        """检查注册界面的验证码"""
         verification = self.ui.line_register_verification.text().strip()
 
         if not verification:
@@ -265,6 +287,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_register(self):
+        """调用检查和注册请求方法"""
         username = self.ui.line_register_username.text().strip()
         password = self.ui.line_register_password.text().strip()
         okpassword = self.ui.line_register_okpassword.text().strip()
@@ -308,6 +331,7 @@ class LoginWindow(QMainWindow):
             self.ui.label_register_error.setStyleSheet(f"color: {color};")
 
     def get_register_verification(self):
+        """获取注册界面的邮箱验证码"""
         email = self.ui.line_register_email.text().strip()
 
         if not email:
@@ -340,6 +364,7 @@ class LoginWindow(QMainWindow):
         self.ui.label_register_error.setStyleSheet(f"color: {color};")
 
     def update_register_button_state(self):
+        """根据输入框的状态更新注册按钮的状态"""
         username_valid = AuthService.validate_username(self.ui.line_register_username.text().strip())
         password_valid = AuthService.validate_password(self.ui.line_register_password.text().strip())
         okpassword_valid = AuthService.validate_okpassword(self.ui.line_register_password.text().strip() ,self.ui.line_register_okpassword.text().strip())
@@ -351,12 +376,9 @@ class LoginWindow(QMainWindow):
         else:
             self.ui.button_login_confirm.setEnabled(False)
 
-
-
-
-
 # 找回密码
     def validate_retrieve_email(self):
+        """检查找回密码界面的邮箱"""
         email = self.ui.line_retrievePassword_email.text().strip()
         if not email:
             self.ui.line_retrievePassword_email.setStyleSheet("border-bottom: 2px solid #5c9ef5;")
@@ -380,6 +402,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_retrieve_verification(self):
+        """检查找回密码界面的验证码"""
         verification = self.ui.line_retrievePassword_verification.text().strip()
         if not verification:
             self.ui.line_retrievePassword_verification.setStyleSheet("border-bottom: 2px solid #5c9ef5;")
@@ -399,6 +422,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_retrieve_password(self):
+        """检查找回密码界面的密码"""
         password = self.ui.line_retrievePassword_password.text().strip()
         if not password:
             self.ui.line_retrievePassword_password.setStyleSheet("border-bottom: 2px solid #5c9ef5;")
@@ -418,6 +442,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def validate_retrieve_okpassword(self):
+        """检查找回密码界面的确认密码"""
         okpassword = self.ui.line_retrievePassword_okpassword.text().strip()
         password = self.ui.line_retrievePassword_password.text().strip()
         if not okpassword:
@@ -438,6 +463,7 @@ class LoginWindow(QMainWindow):
         return True
 
     def get_retrieve_verification(self):
+        """获取找回密码界面的验证码"""
         email = self.ui.line_retrievePassword_email.text().strip()
 
         if not email:
@@ -471,6 +497,7 @@ class LoginWindow(QMainWindow):
         self.ui.label_retrievePassword_error.setStyleSheet(f"color: {color};")
 
     def validate_retrieve(self):
+        """调用检查和找回密码请求方法"""
         email = self.ui.line_retrievePassword_email.text().strip()
         verification = self.ui.line_retrievePassword_verification.text().strip()
         password = self.ui.line_retrievePassword_password.text().strip()
@@ -512,6 +539,7 @@ class LoginWindow(QMainWindow):
             self.ui.label_retrievePassword_error.setStyleSheet(f"color: {color};")
 
     def update_retrieve_button_state(self):
+        """更新找回密码界面的按钮状态"""
         email_valid = AuthService.validate_email(self.ui.line_retrievePassword_email.text().strip())
         verification_valid = AuthService.validate_verification(self.ui.line_retrievePassword_verification.text().strip())
         password_valid = AuthService.validate_password(self.ui.line_retrievePassword_password.text().strip())

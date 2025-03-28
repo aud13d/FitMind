@@ -1169,6 +1169,12 @@ QToolButton:checked {
           </property>
           <item>
            <widget class="QToolButton" name="button_train">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>train</string>
             </property>
@@ -1196,6 +1202,12 @@ QToolButton:checked {
           </item>
           <item>
            <widget class="QToolButton" name="button_sports">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>sports</string>
             </property>
@@ -1213,7 +1225,75 @@ QToolButton:checked {
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="button_TrainAndDiet">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    font: 700 16pt &quot;微软雅黑&quot;; 
+    border: 1px solid #ccc; /* 细边框 */
+    border-radius: 16px; /* 更圆的圆角，增加质感 */
+    
+    background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(56, 230, 148, 255), stop:1 rgba(255, 255, 255, 50));
+    color: white; /* 白色文字，使文字与背景有对比 */
+    min-width: 60px;
+    min-height: 45px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* 添加轻微阴影 */
+    outline: none; /* 去除默认轮廓线 */
+    transition: all 0.3s ease; /* 平滑过渡效果 */
+}
+
+QPushButton:hover {
+    /* 悬浮时渐变色加深 */
+    background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(34, 192, 112, 255), stop:1 rgba(255, 255, 255, 70));
+    padding-bottom: 2px; /* 轻微下移，增加按压感 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* 悬浮时加深阴影 */
+}
+
+QPushButton:pressed {
+    /* 按下时渐变色更深 */
+    background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(23, 170, 83, 255), stop:1 rgba(255, 255, 255, 90));
+    padding-bottom: 1px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); /* 按下时减小阴影 */
+}
+
+QPushButton:disabled {
+    background: linear-gradient(to right, #cce5ff, #d4edda); /* 禁用时浅色渐变 */
+    color: gray;
+    border-color: #ddd;
+    box-shadow: none; /* 禁用时去除阴影 */
+}
+</string>
+            </property>
+            <property name="text">
+             <string>T/D</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="button_history">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>history</string>
             </property>
@@ -1232,6 +1312,12 @@ QToolButton:checked {
           </item>
           <item>
            <widget class="QToolButton" name="button_user">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>user</string>
             </property>

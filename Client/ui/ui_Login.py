@@ -21,17 +21,18 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QWidget)
 #import res_rc
 from .res_rc import *
-
 class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
             LoginWindow.setObjectName(u"LoginWindow")
-        LoginWindow.resize(398, 600)
+        LoginWindow.resize(373, 698)
         self.centralwidget = QWidget(LoginWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.verticalLayout_10 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(60, 30, 261, 531))
+        self.frame.setMinimumSize(QSize(300, 666))
         self.frame.setStyleSheet(u"#frame{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	border-top-right-radius:20px;\n"
@@ -41,13 +42,24 @@ class Ui_LoginWindow(object):
 "}")
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
-        self.label = QLabel(self.frame)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(50, 20, 211, 51))
-        self.label.setStyleSheet(u"font: 16pt \"\u534e\u6587\u96b6\u4e66\";")
-        self.button_exit = QPushButton(self.frame)
+        self.verticalLayout_9 = QVBoxLayout(self.frame)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.frame_7 = QFrame(self.frame)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_8 = QVBoxLayout(self.frame_7)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setSpacing(0)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(-1, -1, -1, 20)
+        self.horizontalSpacer_2 = QSpacerItem(228, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_2)
+
+        self.button_exit = QPushButton(self.frame_7)
         self.button_exit.setObjectName(u"button_exit")
-        self.button_exit.setGeometry(QRect(230, 10, 16, 16))
         self.button_exit.setMinimumSize(QSize(0, 0))
         self.button_exit.setStyleSheet(u"QPushButton {\n"
 "    font: 9pt \"\u5fae\u8f6f\u96c5\u9ed1\"; \n"
@@ -78,9 +90,24 @@ class Ui_LoginWindow(object):
         icon.addFile(u":/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.button_exit.setIcon(icon)
         self.button_exit.setIconSize(QSize(16, 16))
+
+        self.horizontalLayout_6.addWidget(self.button_exit)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_6)
+
+        self.label = QLabel(self.frame_7)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"font: 25pt \"\u534e\u6587\u96b6\u4e66\";")
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_8.addWidget(self.label)
+
+
+        self.verticalLayout_9.addWidget(self.frame_7)
+
         self.frame_2 = QFrame(self.frame)
         self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setGeometry(QRect(0, 70, 261, 461))
         self.frame_2.setMinimumSize(QSize(261, 461))
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
@@ -454,6 +481,12 @@ class Ui_LoginWindow(object):
 
         self.verticalLayout.addWidget(self.frame_4)
 
+
+        self.verticalLayout_9.addWidget(self.frame_2)
+
+
+        self.verticalLayout_10.addWidget(self.frame)
+
         LoginWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(LoginWindow)
@@ -468,8 +501,8 @@ class Ui_LoginWindow(object):
 
     def retranslateUi(self, LoginWindow):
         LoginWindow.setWindowTitle(QCoreApplication.translate("LoginWindow", u"MainWindow", None))
-        self.label.setText(QCoreApplication.translate("LoginWindow", u"Welcom To FitMind!", None))
         self.button_exit.setText("")
+        self.label.setText(QCoreApplication.translate("LoginWindow", u"Welcom To FitMind!", None))
         self.line_login_username.setInputMask("")
         self.line_login_username.setText("")
         self.line_login_username.setPlaceholderText(QCoreApplication.translate("LoginWindow", u"Please enter username...", None))

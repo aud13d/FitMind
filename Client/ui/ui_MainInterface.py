@@ -19,9 +19,7 @@ from PySide6.QtWidgets import (QApplication, QCalendarWidget, QFrame, QHBoxLayou
     QLabel, QMainWindow, QPushButton, QScrollArea,
     QSizePolicy, QSpacerItem, QSplitter, QStackedWidget,
     QToolButton, QVBoxLayout, QWidget)
-
 from .res_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -787,6 +785,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.button_train = QToolButton(self.frame_3)
         self.button_train.setObjectName(u"button_train")
+        sizePolicy11.setHeightForWidth(self.button_train.sizePolicy().hasHeightForWidth())
+        self.button_train.setSizePolicy(sizePolicy11)
         icon2 = QIcon()
         icon2.addFile(u":/icons/icon/xunlianjihua.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         icon2.addFile(u":/icons/icon/xunlianjihua.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
@@ -800,6 +800,8 @@ class Ui_MainWindow(object):
 
         self.button_sports = QToolButton(self.frame_3)
         self.button_sports.setObjectName(u"button_sports")
+        sizePolicy11.setHeightForWidth(self.button_sports.sizePolicy().hasHeightForWidth())
+        self.button_sports.setSizePolicy(sizePolicy11)
         icon3 = QIcon()
         icon3.addFile(u":/icons/icon/dongzuo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         icon3.addFile(u":/icons/icon/dongzuo.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
@@ -809,8 +811,55 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.button_sports)
 
+        self.button_TrainAndDiet = QPushButton(self.frame_3)
+        self.button_TrainAndDiet.setObjectName(u"button_TrainAndDiet")
+        sizePolicy11.setHeightForWidth(self.button_TrainAndDiet.sizePolicy().hasHeightForWidth())
+        self.button_TrainAndDiet.setSizePolicy(sizePolicy11)
+        self.button_TrainAndDiet.setMinimumSize(QSize(60, 45))
+        self.button_TrainAndDiet.setMaximumSize(QSize(16777215, 16777215))
+        self.button_TrainAndDiet.setStyleSheet(u"QPushButton {\n"
+"    font: 700 16pt \"\u5fae\u8f6f\u96c5\u9ed1\"; \n"
+"    border: 1px solid #ccc; /* \u7ec6\u8fb9\u6846 */\n"
+"    border-radius: 16px; /* \u66f4\u5706\u7684\u5706\u89d2\uff0c\u589e\u52a0\u8d28\u611f */\n"
+"    \n"
+"    background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(56, 230, 148, 255), stop:1 rgba(255, 255, 255, 50));\n"
+"    color: white; /* \u767d\u8272\u6587\u5b57\uff0c\u4f7f\u6587\u5b57\u4e0e\u80cc\u666f\u6709\u5bf9\u6bd4 */\n"
+"    min-width: 60px;\n"
+"    min-height: 45px;\n"
+"    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* \u6dfb\u52a0\u8f7b\u5fae\u9634\u5f71 */\n"
+"    outline: none; /* \u53bb\u9664\u9ed8\u8ba4\u8f6e\u5ed3\u7ebf */\n"
+"    transition: all 0.3s ease; /* \u5e73\u6ed1\u8fc7\u6e21\u6548\u679c */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    /* \u60ac\u6d6e\u65f6\u6e10\u53d8\u8272\u52a0\u6df1 */\n"
+"    background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(34, 192, 112, 255), stop:1 rgba(255, 255, 255, 70"
+                        "));\n"
+"    padding-bottom: 2px; /* \u8f7b\u5fae\u4e0b\u79fb\uff0c\u589e\u52a0\u6309\u538b\u611f */\n"
+"    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* \u60ac\u6d6e\u65f6\u52a0\u6df1\u9634\u5f71 */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    /* \u6309\u4e0b\u65f6\u6e10\u53d8\u8272\u66f4\u6df1 */\n"
+"    background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(23, 170, 83, 255), stop:1 rgba(255, 255, 255, 90));\n"
+"    padding-bottom: 1px;\n"
+"    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); /* \u6309\u4e0b\u65f6\u51cf\u5c0f\u9634\u5f71 */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background: linear-gradient(to right, #cce5ff, #d4edda); /* \u7981\u7528\u65f6\u6d45\u8272\u6e10\u53d8 */\n"
+"    color: gray;\n"
+"    border-color: #ddd;\n"
+"    box-shadow: none; /* \u7981\u7528\u65f6\u53bb\u9664\u9634\u5f71 */\n"
+"}\n"
+"")
+
+        self.horizontalLayout.addWidget(self.button_TrainAndDiet)
+
         self.button_history = QToolButton(self.frame_3)
         self.button_history.setObjectName(u"button_history")
+        sizePolicy11.setHeightForWidth(self.button_history.sizePolicy().hasHeightForWidth())
+        self.button_history.setSizePolicy(sizePolicy11)
         icon4 = QIcon()
         icon4.addFile(u":/icons/icon/os-icon-history.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         icon4.addFile(u":/icons/icon/os-icon-history.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
@@ -822,6 +871,8 @@ class Ui_MainWindow(object):
 
         self.button_user = QToolButton(self.frame_3)
         self.button_user.setObjectName(u"button_user")
+        sizePolicy11.setHeightForWidth(self.button_user.sizePolicy().hasHeightForWidth())
+        self.button_user.setSizePolicy(sizePolicy11)
         icon5 = QIcon()
         icon5.addFile(u":/icons/icon/user-circle-single--circle-geometric-human-person-.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         icon5.addFile(u":/icons/icon/user-circle-single--circle-geometric-human-person-.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
@@ -865,6 +916,7 @@ class Ui_MainWindow(object):
         self.button_history_statistics.setText(QCoreApplication.translate("MainWindow", u"Statistics", None))
         self.button_train.setText(QCoreApplication.translate("MainWindow", u"train", None))
         self.button_sports.setText(QCoreApplication.translate("MainWindow", u"sports", None))
+        self.button_TrainAndDiet.setText(QCoreApplication.translate("MainWindow", u"T/D", None))
         self.button_history.setText(QCoreApplication.translate("MainWindow", u"history", None))
         self.button_user.setText(QCoreApplication.translate("MainWindow", u"user", None))
     # retranslateUi

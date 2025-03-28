@@ -8,11 +8,13 @@ from ..database.redisClient import RedisClient
 
 class EmailService:
     def generate_verification_code(length: int = 4, digits_only: bool = True) -> str:
+        """生成指定长度的验证码"""
         characters = string.digits if digits_only else string.ascii_uppercase + string.digits
         return ''.join(random.choices(characters, k=length))
 
     @staticmethod
     async def get_verification_code(email: str):
+        """获取验证码并存入 Redis"""
         code = EmailService.generate_verification_code(digits_only=True)
 
         await RedisClient.set(email, code, expire=300)
@@ -29,6 +31,7 @@ class EmailService:
 
     @staticmethod
     async def send_email(recipient_email: str, subject: str, body: str):
+        """发送邮件"""
         # 创建邮件对象
         message = EmailMessage()
         message.set_content(body, subtype=SMTP_EMAIL_SUBTYPE)  # 邮件内容是 HTML 格式
