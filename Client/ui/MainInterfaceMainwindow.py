@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QMainWindow, QButtonGroup, QCalendarWidget
+from PySide6.QtWidgets import QMainWindow, QButtonGroup, QCalendarWidget, QPushButton
 from PySide6.QtCore import QLocale, Qt
 from .ui_MainInterface import Ui_MainWindow
 from .TrainAndDietDialog import TrainAndDietDialog
@@ -25,7 +25,24 @@ class MainInterfaceWindow(QMainWindow):
         # 设置星期栏显示为简短的星期格式
         self.ui.calendarWidget.setFirstDayOfWeek(Qt.Monday)
 
+        # 创建悬浮按钮(用于返回最小化的NewTrainWidget窗口)
+        self.new_train_widget_mini_floating_button = self.create_new_train_widget_mini_floating_button()
+        self.new_train_widget_mini_floating_button.setVisible(False)  # 默认隐藏
+        self.new_train_widget = None
+
+        self.new_train_widget = None
+
         self.bind()
+
+    def create_new_train_widget_mini_floating_button(self):
+        """创建悬浮按钮并返回"""
+        button = QPushButton("Training in progress", self)
+        button.setFixedSize(100, 40)
+        button.move(self.width() - 120, self.height() - 130)  # 调整位置
+        button.setStyleSheet(
+            "background-color: rgba(0, 0, 255, 100); color: white; border-radius: 10px; font-size: 11px;"
+        )
+        return button
 
     def bind(self):
         """信号与槽的连接"""
@@ -34,6 +51,7 @@ class MainInterfaceWindow(QMainWindow):
         self.ui.button_sports.clicked.connect(self.move_to_sports)
         self.ui.button_history.clicked.connect(self.move_to_history)
         self.ui.button_user.clicked.connect(self.move_to_user)
+        self.new_train_widget_mini_floating_button.clicked.connect(self.restore_NewTrain)
 
         #打开训练/饮食窗口
         self.ui.button_TrainAndDiet.clicked.connect(self.open_TrainAndDiet)
@@ -113,4 +131,24 @@ class MainInterfaceWindow(QMainWindow):
 
         # 关闭遮罩层
         self.mask.close()
+
+    def set_new_train_widget(self, widget):
+        """保存 NewTrainWidget 引用并监听最小化"""
+        self.new_train_widget = widget
+        self.new_train_widget.minimized_signal.connect(self.show_floating_button)  # 监听最小化
+
+    def show_floating_button(self):
+        """显示悬浮按钮"""
+        self.new_train_widget_mini_floating_button.setText("Training in progress")
+        self.new_train_widget_mini_floating_button.setVisible(True)
+
+    def restore_NewTrain(self):
+        """恢复 NewTrainWidget"""
+        if self.new_train_widget:
+            self.new_train_widget.showNormal()
+            self.new_train_widget.raise_()
+            self.new_train_widget_mini_floating_button.setVisible(False)
+
+
+
 
