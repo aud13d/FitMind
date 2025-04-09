@@ -12,6 +12,7 @@ class MainInterfaceWindow(QMainWindow):
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
 
+
         self.setup_BottomStatusBar_button_group()
         self.setup_Train_ParentPlan_button_group()
         self.setup_Train_SonsPlan_button_group()
@@ -33,6 +34,7 @@ class MainInterfaceWindow(QMainWindow):
         self.new_train_widget = None
 
         self.bind()
+
 
     def create_new_train_widget_mini_floating_button(self):
         """创建悬浮按钮并返回"""
