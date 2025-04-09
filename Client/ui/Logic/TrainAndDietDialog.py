@@ -1,6 +1,6 @@
 from PySide6 import QtCore
 from PySide6.QtWidgets import QDialog
-from .ui_TrainAndDiet import Ui_Dialog_TD
+from Client.ui.Designer.ui_TrainAndDiet import Ui_Dialog_TD
 from .NewTrainWidget import NewTrainWidget
 
 class TrainAndDietDialog(QDialog,Ui_Dialog_TD):

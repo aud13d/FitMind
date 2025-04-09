@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>362</width>
-    <height>666</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -114,7 +114,7 @@ QPushButton:disabled {
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="res.qrc">
+               <iconset resource="../res.qrc">
                 <normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</iconset>
               </property>
               <property name="iconSize">
@@ -387,7 +387,7 @@ QPushButton:disabled {
                          <string/>
                         </property>
                         <property name="icon">
-                         <iconset resource="res.qrc">
+                         <iconset resource="../res.qrc">
                           <normaloff>:/icons/icon/question-mark.png</normaloff>:/icons/icon/question-mark.png</iconset>
                         </property>
                        </widget>
@@ -686,7 +686,7 @@ QPushButton:disabled {
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="res.qrc">
+                   <iconset resource="../res.qrc">
                     <normaloff>:/icons/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</normaloff>:/icons/icon/login-1--arrow-enter-frame-left-login-point-rectan.png</iconset>
                   </property>
                  </widget>
@@ -700,7 +700,7 @@ QPushButton:disabled {
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="res.qrc">
+                   <iconset resource="../res.qrc">
                     <normaloff>:/icons/icon/user-add-plus--actions-add-close-geometric-human-p.png</normaloff>:/icons/icon/user-add-plus--actions-add-close-geometric-human-p.png</iconset>
                   </property>
                  </widget>
@@ -794,7 +794,7 @@ QPushButton:disabled {
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../res.qrc"/>
  </resources>
  <connections>
   <connection>

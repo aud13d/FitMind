@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCalendarWidge
     QHBoxLayout, QLabel, QMainWindow, QPushButton,
     QScrollArea, QSizePolicy, QSpacerItem, QSplitter,
     QStackedWidget, QToolButton, QVBoxLayout, QWidget)
+from ..res_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -239,7 +240,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(False)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -2, 340, 650))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 340, 650))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents.setSizePolicy(sizePolicy)
         self.horizontalLayout_6 = QHBoxLayout(self.scrollAreaWidgetContents)

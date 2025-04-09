@@ -19,20 +19,21 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QPushButton, QSizePolicy, QToolButton,
     QVBoxLayout, QWidget)
 
+
 class Ui_Widget_NewTrain(object):
     def setupUi(self, Widget_NewTrain):
         if not Widget_NewTrain.objectName():
             Widget_NewTrain.setObjectName(u"Widget_NewTrain")
         Widget_NewTrain.resize(362, 700)
-        self.verticalLayout_3 = QVBoxLayout(Widget_NewTrain)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        Widget_NewTrain.setMinimumSize(QSize(300, 666))
+        self.horizontalLayout_2 = QHBoxLayout(Widget_NewTrain)
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame_2 = QFrame(Widget_NewTrain)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setStyleSheet(u"#frame_2{\n"
-"	background-color:qlineargradient(spread:pad, x1:0.518, y1:1, x2:0.514, y2:0.00227273, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"		border:none\n"
+"	background-color:qlineargradient(spread:pad, x1:0.518, y1:1, x2:0.514, y2:0.00227273, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255))\n"
 "}")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
@@ -204,9 +205,9 @@ class Ui_Widget_NewTrain(object):
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
         self.frame_3.setSizePolicy(sizePolicy3)
-        self.frame_3.setStyleSheet(u"#frame_3 {\n"
+        self.frame_3.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(255, 255, 255);\n"
-"	border:none;\n"
+"	border:none\n"
 "}\n"
 "\n"
 "QToolButton {\n"
@@ -239,7 +240,6 @@ class Ui_Widget_NewTrain(object):
         self.frame_3.setInputMethodHints(Qt.InputMethodHint.ImhNone)
         self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
-        self.frame_3.setLineWidth(0)
         self.horizontalLayout = QHBoxLayout(self.frame_3)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -304,7 +304,7 @@ class Ui_Widget_NewTrain(object):
         self.verticalLayout.addWidget(self.frame_3)
 
 
-        self.verticalLayout_3.addWidget(self.frame_2)
+        self.horizontalLayout_2.addWidget(self.frame_2)
 
 
         self.retranslateUi(Widget_NewTrain)

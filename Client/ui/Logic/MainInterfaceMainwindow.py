@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QMainWindow, QButtonGroup, QCalendarWidget, QPushButton
 from PySide6.QtCore import QLocale, Qt
-from .ui_MainInterface import Ui_MainWindow
+from Client.ui.Designer.ui_MainInterface import Ui_MainWindow
 from .TrainAndDietDialog import TrainAndDietDialog
-from .MaskWidget import MaskWidget
+from Client.ui.Components.MaskWidget import MaskWidget
 
 class MainInterfaceWindow(QMainWindow):
     def __init__(self):

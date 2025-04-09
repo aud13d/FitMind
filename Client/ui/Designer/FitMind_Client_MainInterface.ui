@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>362</width>
-    <height>701</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -192,7 +192,7 @@ QPushButton:disabled {
                    <string>friend</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="res.qrc">
+                   <iconset resource="../res.qrc">
                     <normaloff>:/icons/icon/user-multiple-group--close-geometric-human-multipl.png</normaloff>:/icons/icon/user-multiple-group--close-geometric-human-multipl.png</iconset>
                   </property>
                  </widget>
@@ -241,7 +241,7 @@ QPushButton:disabled {
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="res.qrc">
+                   <iconset resource="../res.qrc">
                     <normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</iconset>
                   </property>
                  </widget>
@@ -366,7 +366,7 @@ QScrollBar::sub-page:horizontal {
                     <property name="geometry">
                      <rect>
                       <x>0</x>
-                      <y>-2</y>
+                      <y>0</y>
                       <width>340</width>
                       <height>650</height>
                      </rect>
@@ -1261,7 +1261,7 @@ QToolButton:checked {
              <string>train</string>
             </property>
             <property name="icon">
-             <iconset resource="res.qrc">
+             <iconset resource="../res.qrc">
               <normaloff>:/icons/icon/xunlianjihua.png</normaloff>
               <normalon>:/icons/icon/xunlianjihua.png</normalon>:/icons/icon/xunlianjihua.png</iconset>
             </property>
@@ -1294,7 +1294,7 @@ QToolButton:checked {
              <string>sports</string>
             </property>
             <property name="icon">
-             <iconset resource="res.qrc">
+             <iconset resource="../res.qrc">
               <normaloff>:/icons/icon/dongzuo.png</normaloff>
               <normalon>:/icons/icon/dongzuo.png</normalon>:/icons/icon/dongzuo.png</iconset>
             </property>
@@ -1380,7 +1380,7 @@ QPushButton:disabled {
              <string>history</string>
             </property>
             <property name="icon">
-             <iconset resource="res.qrc">
+             <iconset resource="../res.qrc">
               <normaloff>:/icons/icon/os-icon-history.png</normaloff>
               <normalon>:/icons/icon/os-icon-history.png</normalon>:/icons/icon/os-icon-history.png</iconset>
             </property>
@@ -1404,7 +1404,7 @@ QPushButton:disabled {
              <string>user</string>
             </property>
             <property name="icon">
-             <iconset resource="res.qrc">
+             <iconset resource="../res.qrc">
               <normaloff>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normaloff>
               <normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</iconset>
             </property>
@@ -1426,7 +1426,7 @@ QPushButton:disabled {
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../res.qrc"/>
  </resources>
  <connections>
   <connection>

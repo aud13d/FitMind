@@ -19,13 +19,15 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QMainWindow, QPushButton, QSizePolicy,
     QSpacerItem, QSplitter, QStackedWidget, QVBoxLayout,
     QWidget)
-#import res_rc
-from .res_rc import *
+
+from ..res_rc import *
+
 class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
             LoginWindow.setObjectName(u"LoginWindow")
-        LoginWindow.resize(373, 698)
+        LoginWindow.resize(362, 666)
+        LoginWindow.setMinimumSize(QSize(300, 666))
         self.centralwidget = QWidget(LoginWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_10 = QVBoxLayout(self.centralwidget)

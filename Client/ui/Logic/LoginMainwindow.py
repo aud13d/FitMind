@@ -1,9 +1,9 @@
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QMainWindow
 from PySide6 import QtCore
-from .ui_Login import Ui_LoginWindow
-from ..services.server_auth import AuthService
-from ..config import get_error_message, PURPOSE_REGISTER, PURPOSE_RETRIEVE
+from Client.ui.Designer.ui_Login import Ui_LoginWindow
+from Client.services.server_auth import AuthService
+from Client.config import get_error_message, PURPOSE_REGISTER, PURPOSE_RETRIEVE
 from .MainInterfaceMainwindow import MainInterfaceWindow
 
 class LoginWindow(QMainWindow):
