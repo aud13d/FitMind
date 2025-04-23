@@ -25,14 +25,13 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(362, 701)
+        MainWindow.resize(362, 700)
         MainWindow.setMinimumSize(QSize(300, 666))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.verticalLayout_9 = QVBoxLayout(self.centralwidget)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
+        self.frame.setGeometry(QRect(9, 9, 344, 666))
         self.frame.setMinimumSize(QSize(300, 666))
         self.frame.setStyleSheet(u"#frame{\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -182,7 +181,16 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
         self.scrollArea.setSizePolicy(sizePolicy)
         self.scrollArea.setMinimumSize(QSize(0, 0))
-        self.scrollArea.setStyleSheet(u"QScrollBar:vertical {\n"
+        self.scrollArea.setStyleSheet(u"QScrollArea{\n"
+"	border:none\n"
+"}\n"
+"\n"
+"QWidget {\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar:vertical {\n"
 "    background: transparent;\n"
 "    width: 4px;\n"
 "    margin: 0px;\n"
@@ -221,12 +229,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::handle:horizontal:hover {\n"
-"    background: rgba(100, 100, 100, 0.8);\n"
+"    background: rg"
+                        "ba(100, 100, 100, 0.8);\n"
 "}\n"
 "\n"
 "QScrollBar::add-line:horizontal,\n"
-"QScrollBar::sub-line:horizontal,"
-                        "\n"
+"QScrollBar::sub-line:horizontal,\n"
 "QScrollBar::add-page:horizontal,\n"
 "QScrollBar::sub-page:horizontal {\n"
 "    background: none;\n"
@@ -313,12 +321,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.label_2 = QLabel(self.frame_5)
-        self.label_2.setObjectName(u"label_2")
-        sizePolicy2.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy2)
+        self.label_train_diet_record = QLabel(self.frame_5)
+        self.label_train_diet_record.setObjectName(u"label_train_diet_record")
+        sizePolicy2.setHeightForWidth(self.label_train_diet_record.sizePolicy().hasHeightForWidth())
+        self.label_train_diet_record.setSizePolicy(sizePolicy2)
 
-        self.verticalLayout_3.addWidget(self.label_2)
+        self.verticalLayout_3.addWidget(self.label_train_diet_record)
 
         self.frame_6 = QFrame(self.frame_5)
         self.frame_6.setObjectName(u"frame_6")
@@ -329,10 +337,181 @@ class Ui_MainWindow(object):
         self.frame_6.setSizePolicy(sizePolicy3)
         self.frame_6.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_6)
-        self.verticalLayout_2.setSpacing(0)
+        self.frame_13 = QFrame(self.frame_6)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setGeometry(QRect(0, 10, 331, 216))
+        sizePolicy.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
+        self.frame_13.setSizePolicy(sizePolicy)
+        self.frame_13.setStyleSheet(u"#frame_13{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	border-top-right-radius:40px;\n"
+"	border-top-left-radius:40px;\n"
+"	border-bottom-right-radius:40px;\n"
+"	border-bottom-left-radius:40px;\n"
+"}\n"
+"\n"
+"QToolButton{\n"
+"	font:9pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"}")
+        self.frame_13.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_13)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.label_train_already_eaten = QLabel(self.frame_13)
+        self.label_train_already_eaten.setObjectName(u"label_train_already_eaten")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.label_train_already_eaten.sizePolicy().hasHeightForWidth())
+        self.label_train_already_eaten.setSizePolicy(sizePolicy4)
+        self.label_train_already_eaten.setMinimumSize(QSize(0, 35))
+        self.label_train_already_eaten.setMaximumSize(QSize(16777215, 35))
+        self.label_train_already_eaten.setStyleSheet(u"font: 9pt \"\u5fae\u8f6f\u96c5\u9ed1\";")
+        self.label_train_already_eaten.setMargin(8)
+
+        self.verticalLayout_2.addWidget(self.label_train_already_eaten)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setSpacing(9)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(6, 5, 6, 10)
+        self.label_train_protein = QLabel(self.frame_13)
+        self.label_train_protein.setObjectName(u"label_train_protein")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_train_protein.sizePolicy().hasHeightForWidth())
+        self.label_train_protein.setSizePolicy(sizePolicy5)
+        self.label_train_protein.setMinimumSize(QSize(50, 70))
+        self.label_train_protein.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.label_train_protein.setStyleSheet(u"QLabel {\n"
+"    font: 8pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    border-radius: 9px; /* \u5706\u89d2 */\n"
+"    background-color: lightyellow; /* \u80cc\u666f\u989c\u8272 */\n"
+"    color: black; /* \u6587\u5b57\u989c\u8272 */\n"
+"    padding: 5px; /* \u5185\u8fb9\u8ddd */\n"
+"}\n"
+"")
+        self.label_train_protein.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_7.addWidget(self.label_train_protein)
+
+        self.label_train_carbohydrate = QLabel(self.frame_13)
+        self.label_train_carbohydrate.setObjectName(u"label_train_carbohydrate")
+        sizePolicy5.setHeightForWidth(self.label_train_carbohydrate.sizePolicy().hasHeightForWidth())
+        self.label_train_carbohydrate.setSizePolicy(sizePolicy5)
+        self.label_train_carbohydrate.setMinimumSize(QSize(50, 70))
+        self.label_train_carbohydrate.setStyleSheet(u"QLabel {\n"
+"    font: 8pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    border-radius: 9px; /* \u5706\u89d2 */\n"
+"    background-color: lightgreen; /* \u80cc\u666f\u989c\u8272 */\n"
+"    color: black; /* \u6587\u5b57\u989c\u8272 */\n"
+"    padding: 5px; /* \u5185\u8fb9\u8ddd */\n"
+"}\n"
+"")
+        self.label_train_carbohydrate.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_7.addWidget(self.label_train_carbohydrate)
+
+        self.label_train_fat = QLabel(self.frame_13)
+        self.label_train_fat.setObjectName(u"label_train_fat")
+        sizePolicy5.setHeightForWidth(self.label_train_fat.sizePolicy().hasHeightForWidth())
+        self.label_train_fat.setSizePolicy(sizePolicy5)
+        self.label_train_fat.setMinimumSize(QSize(50, 70))
+        self.label_train_fat.setStyleSheet(u"QLabel {\n"
+"    font: 8pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    border-radius: 9px; /* \u5706\u89d2 */\n"
+"\n"
+"	\n"
+"	background-color: rgb(255, 144, 155);\n"
+"    color: black; /* \u6587\u5b57\u989c\u8272 */\n"
+"    padding: 5px; /* \u5185\u8fb9\u8ddd */\n"
+"}\n"
+"")
+        self.label_train_fat.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_7.addWidget(self.label_train_fat)
+
+        self.label_train_water = QLabel(self.frame_13)
+        self.label_train_water.setObjectName(u"label_train_water")
+        sizePolicy5.setHeightForWidth(self.label_train_water.sizePolicy().hasHeightForWidth())
+        self.label_train_water.setSizePolicy(sizePolicy5)
+        self.label_train_water.setMinimumSize(QSize(50, 70))
+        self.label_train_water.setStyleSheet(u"QLabel {\n"
+"    font: 8pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    border-radius: 9px; /* \u5706\u89d2 */\n"
+"    background-color: lightblue; /* \u80cc\u666f\u989c\u8272 */\n"
+"    color: black; /* \u6587\u5b57\u989c\u8272 */\n"
+"    padding: 5px; /* \u5185\u8fb9\u8ddd */\n"
+"}\n"
+"")
+        self.label_train_water.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_7.addWidget(self.label_train_water)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_7)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(-1, 10, -1, 10)
+        self.button_train_breakfast = QToolButton(self.frame_13)
+        self.button_train_breakfast.setObjectName(u"button_train_breakfast")
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/icon/zaocan.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_train_breakfast.setIcon(icon2)
+        self.button_train_breakfast.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
+        self.horizontalLayout_8.addWidget(self.button_train_breakfast)
+
+        self.button_train_lunch = QToolButton(self.frame_13)
+        self.button_train_lunch.setObjectName(u"button_train_lunch")
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/icon/wucan.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_train_lunch.setIcon(icon3)
+        self.button_train_lunch.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
+        self.horizontalLayout_8.addWidget(self.button_train_lunch)
+
+        self.button_train_dinner = QToolButton(self.frame_13)
+        self.button_train_dinner.setObjectName(u"button_train_dinner")
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/icon/hanbao.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_train_dinner.setIcon(icon4)
+        self.button_train_dinner.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
+        self.horizontalLayout_8.addWidget(self.button_train_dinner)
+
+        self.button_train_extra_meal = QToolButton(self.frame_13)
+        self.button_train_extra_meal.setObjectName(u"button_train_extra_meal")
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/icon/jiangmianbaoregou.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_train_extra_meal.setIcon(icon5)
+        self.button_train_extra_meal.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
+        self.horizontalLayout_8.addWidget(self.button_train_extra_meal)
+
+        self.button_train_drink = QToolButton(self.frame_13)
+        self.button_train_drink.setObjectName(u"button_train_drink")
+        icon6 = QIcon()
+        icon6.addFile(u":/icons/icon/yinshui.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_train_drink.setIcon(icon6)
+        self.button_train_drink.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
+        self.horizontalLayout_8.addWidget(self.button_train_drink)
+
+        self.button_train_weight = QToolButton(self.frame_13)
+        self.button_train_weight.setObjectName(u"button_train_weight")
+        icon7 = QIcon()
+        icon7.addFile(u":/icons/icon/tizhong.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_train_weight.setIcon(icon7)
+        self.button_train_weight.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
+        self.horizontalLayout_8.addWidget(self.button_train_weight)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_8)
+
 
         self.verticalLayout_3.addWidget(self.frame_6)
 
@@ -428,26 +607,26 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.splitter_3 = QSplitter(self.frame_8)
         self.splitter_3.setObjectName(u"splitter_3")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.splitter_3.sizePolicy().hasHeightForWidth())
-        self.splitter_3.setSizePolicy(sizePolicy4)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.splitter_3.sizePolicy().hasHeightForWidth())
+        self.splitter_3.setSizePolicy(sizePolicy6)
         self.splitter_3.setOrientation(Qt.Orientation.Horizontal)
         self.splitter_3.setHandleWidth(0)
         self.button_train_plan1 = QToolButton(self.splitter_3)
         self.button_train_plan1.setObjectName(u"button_train_plan1")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.button_train_plan1.sizePolicy().hasHeightForWidth())
-        self.button_train_plan1.setSizePolicy(sizePolicy5)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.button_train_plan1.sizePolicy().hasHeightForWidth())
+        self.button_train_plan1.setSizePolicy(sizePolicy7)
         self.button_train_plan1.setCheckable(True)
         self.splitter_3.addWidget(self.button_train_plan1)
         self.button_train_plan2 = QToolButton(self.splitter_3)
         self.button_train_plan2.setObjectName(u"button_train_plan2")
-        sizePolicy5.setHeightForWidth(self.button_train_plan2.sizePolicy().hasHeightForWidth())
-        self.button_train_plan2.setSizePolicy(sizePolicy5)
+        sizePolicy7.setHeightForWidth(self.button_train_plan2.sizePolicy().hasHeightForWidth())
+        self.button_train_plan2.setSizePolicy(sizePolicy7)
         self.button_train_plan2.setCheckable(True)
         self.splitter_3.addWidget(self.button_train_plan2)
         self.button_train_plan3 = QToolButton(self.splitter_3)
@@ -512,6 +691,178 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_train)
         self.page_sports = QWidget()
         self.page_sports.setObjectName(u"page_sports")
+        self.scrollArea_2 = QScrollArea(self.page_sports)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setGeometry(QRect(9, 9, 324, 61))
+        self.scrollArea_2.setStyleSheet(u"QWidget {\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    font: 550 9pt \"\u5fae\u8f6f\u96c5\u9ed1\"; \n"
+"    border-radius: 6px; /* \u8f7b\u5fae\u5706\u89d2 */\n"
+"	background-color: #f0f0f0;\n"
+"    color: black; /* \u9ed1\u8272\u6587\u5b57 */\n"
+"	border:none;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #e0e0e0; /* \u6d45\u7070\u8272\u60ac\u6d6e\u6548\u679c */\n"
+"    padding-bottom: 2px; /* \u8f7b\u5fae\u4e0b\u79fb\uff0c\u589e\u52a0\u6309\u538b\u611f */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #d0d0d0; /* \u66f4\u6df1\u7684\u7070\u8272\uff0c\u6309\u4e0b\u6548\u679c */\n"
+"    padding-bottom: 1px;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #f8f8f8;\n"
+"    color: gray;\n"
+"    border-color: #ddd;\n"
+"}\n"
+"\n"
+"\n"
+"QScrollArea {\n"
+"	border:none;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    background: transparent;\n"
+"    width: 4px;\n"
+"    margin: 0px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar::handle"
+                        ":vertical {\n"
+"    background: rgba(100, 100, 100, 0.5);\n"
+"    min-height: 20px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: rgba(100, 100, 100, 0.8);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical,\n"
+"QScrollBar::sub-line:vertical,\n"
+"QScrollBar::add-page:vertical,\n"
+"QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    background: transparent;\n"
+"    height: 4px;\n"
+"    margin: 0px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal {\n"
+"    background: rgba(100, 100, 100, 0.5);\n"
+"    min-width: 20px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover {\n"
+"    background: rgba(100, 100, 100, 0.8);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:horizontal,\n"
+"QScrollBar::sub-line:horizontal,\n"
+"QScrollBar::add-page:horizontal,\n"
+"QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"    border: none;\n"
+"}\n"
+"")
+        self.scrollArea_2.setWidgetResizable(False)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 945, 57))
+        self.layoutWidget = QWidget(self.scrollAreaWidgetContents_2)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(9, 11, 931, 37))
+        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout_2.setSpacing(9)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.button_sports_running_outside = QPushButton(self.layoutWidget)
+        self.button_sports_running_outside.setObjectName(u"button_sports_running_outside")
+        self.button_sports_running_outside.setMinimumSize(QSize(125, 35))
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/icon/benpao.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_sports_running_outside.setIcon(icon8)
+        self.button_sports_running_outside.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.button_sports_running_outside)
+
+        self.button_sports_running_inside = QPushButton(self.layoutWidget)
+        self.button_sports_running_inside.setObjectName(u"button_sports_running_inside")
+        self.button_sports_running_inside.setMinimumSize(QSize(125, 35))
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/icon/shineipaobu.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_sports_running_inside.setIcon(icon9)
+        self.button_sports_running_inside.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.button_sports_running_inside)
+
+        self.button_sports_walk = QPushButton(self.layoutWidget)
+        self.button_sports_walk.setObjectName(u"button_sports_walk")
+        self.button_sports_walk.setMinimumSize(QSize(125, 35))
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/icon/walk.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_sports_walk.setIcon(icon10)
+        self.button_sports_walk.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.button_sports_walk)
+
+        self.button_sports_riding = QPushButton(self.layoutWidget)
+        self.button_sports_riding.setObjectName(u"button_sports_riding")
+        self.button_sports_riding.setMinimumSize(QSize(125, 35))
+        icon11 = QIcon()
+        icon11.addFile(u":/icons/icon/\u9a91\u884c.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_sports_riding.setIcon(icon11)
+        self.button_sports_riding.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.button_sports_riding)
+
+        self.button_sports_fitness = QPushButton(self.layoutWidget)
+        self.button_sports_fitness.setObjectName(u"button_sports_fitness")
+        self.button_sports_fitness.setMinimumSize(QSize(125, 35))
+        icon12 = QIcon()
+        icon12.addFile(u":/icons/icon/ticao.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_sports_fitness.setIcon(icon12)
+        self.button_sports_fitness.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.button_sports_fitness)
+
+        self.button_sports_jump_rope = QPushButton(self.layoutWidget)
+        self.button_sports_jump_rope.setObjectName(u"button_sports_jump_rope")
+        self.button_sports_jump_rope.setMinimumSize(QSize(125, 35))
+        icon13 = QIcon()
+        icon13.addFile(u":/icons/icon/tiaosheng.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_sports_jump_rope.setIcon(icon13)
+        self.button_sports_jump_rope.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.button_sports_jump_rope)
+
+        self.button_sports_more = QPushButton(self.layoutWidget)
+        self.button_sports_more.setObjectName(u"button_sports_more")
+        self.button_sports_more.setMinimumSize(QSize(125, 35))
+        icon14 = QIcon()
+        icon14.addFile(u":/icons/icon/\u66f4\u591a\u3001\u5206\u7c7b.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_sports_more.setIcon(icon14)
+        self.button_sports_more.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.button_sports_more)
+
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.stackedWidget.addWidget(self.page_sports)
         self.page_history = QWidget()
         self.page_history.setObjectName(u"page_history")
@@ -523,11 +874,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
         self.frame_11 = QFrame(self.page_history)
         self.frame_11.setObjectName(u"frame_11")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(1)
-        sizePolicy6.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
-        self.frame_11.setSizePolicy(sizePolicy6)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(1)
+        sizePolicy8.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
+        self.frame_11.setSizePolicy(sizePolicy8)
         self.frame_11.setStyleSheet(u"#frame{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	border-top-right-radius:20px;\n"
@@ -582,11 +933,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setContentsMargins(5, 10, 5, 0)
         self.button_history_history = QToolButton(self.frame_11)
         self.button_history_history.setObjectName(u"button_history_history")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.button_history_history.sizePolicy().hasHeightForWidth())
-        self.button_history_history.setSizePolicy(sizePolicy7)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.button_history_history.sizePolicy().hasHeightForWidth())
+        self.button_history_history.setSizePolicy(sizePolicy9)
         self.button_history_history.setMinimumSize(QSize(60, 60))
         self.button_history_history.setCheckable(True)
 
@@ -594,8 +945,8 @@ class Ui_MainWindow(object):
 
         self.button_history_statistics = QToolButton(self.frame_11)
         self.button_history_statistics.setObjectName(u"button_history_statistics")
-        sizePolicy7.setHeightForWidth(self.button_history_statistics.sizePolicy().hasHeightForWidth())
-        self.button_history_statistics.setSizePolicy(sizePolicy7)
+        sizePolicy9.setHeightForWidth(self.button_history_statistics.sizePolicy().hasHeightForWidth())
+        self.button_history_statistics.setSizePolicy(sizePolicy9)
         self.button_history_statistics.setMinimumSize(QSize(60, 60))
         self.button_history_statistics.setCheckable(True)
 
@@ -606,11 +957,11 @@ class Ui_MainWindow(object):
 
         self.frame_12 = QFrame(self.page_history)
         self.frame_12.setObjectName(u"frame_12")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(10)
-        sizePolicy8.setHeightForWidth(self.frame_12.sizePolicy().hasHeightForWidth())
-        self.frame_12.setSizePolicy(sizePolicy8)
+        sizePolicy10 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(10)
+        sizePolicy10.setHeightForWidth(self.frame_12.sizePolicy().hasHeightForWidth())
+        self.frame_12.setSizePolicy(sizePolicy10)
         self.frame_12.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_12.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_12)
@@ -818,12 +1169,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.button_train = QToolButton(self.frame_3)
         self.button_train.setObjectName(u"button_train")
-        sizePolicy7.setHeightForWidth(self.button_train.sizePolicy().hasHeightForWidth())
-        self.button_train.setSizePolicy(sizePolicy7)
-        icon2 = QIcon()
-        icon2.addFile(u":/icons/icon/xunlianjihua.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon2.addFile(u":/icons/icon/xunlianjihua.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.button_train.setIcon(icon2)
+        sizePolicy9.setHeightForWidth(self.button_train.sizePolicy().hasHeightForWidth())
+        self.button_train.setSizePolicy(sizePolicy9)
+        self.button_train.setMinimumSize(QSize(60, 25))
+        icon15 = QIcon()
+        icon15.addFile(u":/icons/icon/xunlianjihua.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon15.addFile(u":/icons/icon/xunlianjihua.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.button_train.setIcon(icon15)
         self.button_train.setIconSize(QSize(16, 16))
         self.button_train.setCheckable(True)
         self.button_train.setChecked(False)
@@ -833,12 +1185,12 @@ class Ui_MainWindow(object):
 
         self.button_sports = QToolButton(self.frame_3)
         self.button_sports.setObjectName(u"button_sports")
-        sizePolicy7.setHeightForWidth(self.button_sports.sizePolicy().hasHeightForWidth())
-        self.button_sports.setSizePolicy(sizePolicy7)
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/icon/dongzuo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon3.addFile(u":/icons/icon/dongzuo.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.button_sports.setIcon(icon3)
+        sizePolicy9.setHeightForWidth(self.button_sports.sizePolicy().hasHeightForWidth())
+        self.button_sports.setSizePolicy(sizePolicy9)
+        icon16 = QIcon()
+        icon16.addFile(u":/icons/icon/dongzuo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon16.addFile(u":/icons/icon/dongzuo.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.button_sports.setIcon(icon16)
         self.button_sports.setCheckable(True)
         self.button_sports.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
@@ -846,8 +1198,8 @@ class Ui_MainWindow(object):
 
         self.button_TrainAndDiet = QPushButton(self.frame_3)
         self.button_TrainAndDiet.setObjectName(u"button_TrainAndDiet")
-        sizePolicy7.setHeightForWidth(self.button_TrainAndDiet.sizePolicy().hasHeightForWidth())
-        self.button_TrainAndDiet.setSizePolicy(sizePolicy7)
+        sizePolicy9.setHeightForWidth(self.button_TrainAndDiet.sizePolicy().hasHeightForWidth())
+        self.button_TrainAndDiet.setSizePolicy(sizePolicy9)
         self.button_TrainAndDiet.setMinimumSize(QSize(62, 47))
         self.button_TrainAndDiet.setMaximumSize(QSize(16777215, 16777215))
         self.button_TrainAndDiet.setStyleSheet(u"QPushButton {\n"
@@ -891,12 +1243,12 @@ class Ui_MainWindow(object):
 
         self.button_history = QToolButton(self.frame_3)
         self.button_history.setObjectName(u"button_history")
-        sizePolicy7.setHeightForWidth(self.button_history.sizePolicy().hasHeightForWidth())
-        self.button_history.setSizePolicy(sizePolicy7)
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/icon/os-icon-history.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon4.addFile(u":/icons/icon/os-icon-history.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.button_history.setIcon(icon4)
+        sizePolicy9.setHeightForWidth(self.button_history.sizePolicy().hasHeightForWidth())
+        self.button_history.setSizePolicy(sizePolicy9)
+        icon17 = QIcon()
+        icon17.addFile(u":/icons/icon/os-icon-history.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon17.addFile(u":/icons/icon/os-icon-history.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.button_history.setIcon(icon17)
         self.button_history.setCheckable(True)
         self.button_history.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
@@ -904,12 +1256,12 @@ class Ui_MainWindow(object):
 
         self.button_user = QToolButton(self.frame_3)
         self.button_user.setObjectName(u"button_user")
-        sizePolicy7.setHeightForWidth(self.button_user.sizePolicy().hasHeightForWidth())
-        self.button_user.setSizePolicy(sizePolicy7)
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/icon/user-circle-single--circle-geometric-human-person-.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon5.addFile(u":/icons/icon/user-circle-single--circle-geometric-human-person-.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.button_user.setIcon(icon5)
+        sizePolicy9.setHeightForWidth(self.button_user.sizePolicy().hasHeightForWidth())
+        self.button_user.setSizePolicy(sizePolicy9)
+        icon18 = QIcon()
+        icon18.addFile(u":/icons/icon/user-circle-single--circle-geometric-human-person-.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon18.addFile(u":/icons/icon/user-circle-single--circle-geometric-human-person-.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.button_user.setIcon(icon18)
         self.button_user.setCheckable(True)
         self.button_user.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
@@ -917,9 +1269,6 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout.addWidget(self.frame_3)
-
-
-        self.verticalLayout_9.addWidget(self.frame)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -938,13 +1287,39 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.button_friend.setText(QCoreApplication.translate("MainWindow", u"friend", None))
         self.pushButton.setText("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u" Diet Record", None))
+        self.label_train_diet_record.setText(QCoreApplication.translate("MainWindow", u" Diet Record", None))
+        self.label_train_already_eaten.setText(QCoreApplication.translate("MainWindow", u"Already eaten 0/-- maximum calories", None))
+        self.label_train_protein.setText(QCoreApplication.translate("MainWindow", u"Pro(g)\n"
+"0\n"
+"0% ", None))
+        self.label_train_carbohydrate.setText(QCoreApplication.translate("MainWindow", u"Carbs(g)\n"
+"0\n"
+"0% ", None))
+        self.label_train_fat.setText(QCoreApplication.translate("MainWindow", u"Fat(g)\n"
+"0\n"
+"0% ", None))
+        self.label_train_water.setText(QCoreApplication.translate("MainWindow", u"H2O(ml)\n"
+"0/0\n"
+"0% ", None))
+        self.button_train_breakfast.setText(QCoreApplication.translate("MainWindow", u"breakfast", None))
+        self.button_train_lunch.setText(QCoreApplication.translate("MainWindow", u"lunch", None))
+        self.button_train_dinner.setText(QCoreApplication.translate("MainWindow", u"dinner", None))
+        self.button_train_extra_meal.setText(QCoreApplication.translate("MainWindow", u"extra-meal", None))
+        self.button_train_drink.setText(QCoreApplication.translate("MainWindow", u"drink", None))
+        self.button_train_weight.setText(QCoreApplication.translate("MainWindow", u"weight", None))
         self.button_train_official_plan.setText(QCoreApplication.translate("MainWindow", u"Official Plan", None))
         self.button_train_personal_plan.setText(QCoreApplication.translate("MainWindow", u"Personal Plan", None))
         self.button_train_plan1.setText(QCoreApplication.translate("MainWindow", u"plan1", None))
         self.button_train_plan2.setText(QCoreApplication.translate("MainWindow", u"plan2", None))
         self.button_train_plan3.setText(QCoreApplication.translate("MainWindow", u"plan3", None))
         self.button_train_plan4.setText(QCoreApplication.translate("MainWindow", u"plan4", None))
+        self.button_sports_running_outside.setText(QCoreApplication.translate("MainWindow", u"Running-outside", None))
+        self.button_sports_running_inside.setText(QCoreApplication.translate("MainWindow", u"Running-inside", None))
+        self.button_sports_walk.setText(QCoreApplication.translate("MainWindow", u"Walk", None))
+        self.button_sports_riding.setText(QCoreApplication.translate("MainWindow", u"Riding", None))
+        self.button_sports_fitness.setText(QCoreApplication.translate("MainWindow", u"Fitness", None))
+        self.button_sports_jump_rope.setText(QCoreApplication.translate("MainWindow", u"Jump-rope", None))
+        self.button_sports_more.setText(QCoreApplication.translate("MainWindow", u"More", None))
         self.button_history_history.setText(QCoreApplication.translate("MainWindow", u"History", None))
         self.button_history_statistics.setText(QCoreApplication.translate("MainWindow", u"Statistics", None))
         self.button_train.setText(QCoreApplication.translate("MainWindow", u"train", None))

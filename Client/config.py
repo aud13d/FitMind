@@ -54,3 +54,7 @@ BASE_URL = "http://127.0.0.1:8000/auth"
 API_TIMEOUT = 10
 PURPOSE_REGISTER = "register"
 PURPOSE_RETRIEVE = "retrieve"
+
+# 图标路径
+CancelTrainingQDialog_IconPath = ":/icons/icon/疑惑.png"
+FinishTrainingQDialog_IconPath = ":/icons/icon/a-haoping1.png"

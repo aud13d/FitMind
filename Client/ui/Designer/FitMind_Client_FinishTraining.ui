@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog_finish_training</class>
+ <widget class="QDialog" name="Dialog_finish_training">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>378</width>
+    <height>278</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">#frame{
+	background-color: rgb(255, 255, 255);
+	border-top-right-radius:40px;
+	border-top-left-radius:40px;
+	border-bottom-right-radius:40px;
+	border-bottom-left-radius:40px;
+}
+
+QPushButton {
+    font: 9pt &quot;微软雅黑&quot;; 
+    border: 1px solid #ccc; /* 细边框 */
+    border-radius: 16px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+	border:none;
+    min-width: 60px;
+    min-height: 35px;
+	margin:0 65px
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    padding-bottom: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 更深的灰色，按下效果 */
+    padding-bottom: 1px;
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+#button_generate_sharing{
+	background-color: #5555ff;
+	    color: white; 
+}
+
+#button_generate_sharing:hover {
+    background-color:#5555ff;
+}
+
+#button_generate_sharing:pressed {
+    background-color: #c9feff; 
+}
+
+
+
+#button_cancel:pressed {
+	color:white;
+	
+}
+
+
+#button_finish:pressed {
+	color:white;
+}
+
+#label_2{
+	
+	font: 700 12pt &quot;微软雅黑&quot;;
+}
+
+#label{
+	font:10pt &quot;微软雅黑&quot;;
+}
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_finish_icon">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Finish Training</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Have you completed the training?</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="button_generate_sharing">
+        <property name="text">
+         <string>Finish and generate a sharing image</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="button_finish">
+        <property name="text">
+         <string>finish</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="button_cancel">
+        <property name="text">
+         <string>return</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../res.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>button_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog_finish_training</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>222</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>376</x>
+     <y>34</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

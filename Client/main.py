@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QApplication
 import sys
 from Client.ui.Logic.MainInterfaceMainwindow import MainInterfaceWindow
+from Client.ui.Logic.CancelTrainingDialog import CancelTrainingDialog
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

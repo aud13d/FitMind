@@ -1,6 +1,9 @@
 from PySide6.QtCore import Qt, Signal, QTime, QTimer
 from Client.ui.Designer.ui_NewTrain import Ui_Widget_NewTrain
 from PySide6.QtWidgets import QWidget
+from Client.ui.Components.MaskWidget import MaskWidget
+from Client.ui.Logic.CancelTrainingDialog import CancelTrainingDialog
+from Client.ui.Logic.FinishTrainingDialog import FinishTrainingDialog
 
 class NewTrainWidget(QWidget):
     minimized_signal = Signal()  # 发送信号给 MainInterfaceWindow
@@ -20,9 +23,11 @@ class NewTrainWidget(QWidget):
 
     def bind(self):
         self.ui.button_newtrain_minimize.clicked.connect(self.minisize_window)
+
         self.ui.button_newtrain_start.clicked.connect(self.start_timer)
         self.timer.timeout.connect(self.update_time) # 每秒更新时间
-        self.ui.button_newtrain_finish.clicked.connect(self.stop_timer)
+
+        self.ui.button_newtrain_finish.clicked.connect(self.finish_training)
 
     def minisize_window(self):
         """最小化窗口并发送信号"""
@@ -55,6 +60,44 @@ class NewTrainWidget(QWidget):
         self.ui.button_newtrain_start.setVisible(True)
 
         self.ui.label_newtrain_time.setStyleSheet("color: black;font: 700 18pt '微软雅黑';")
+
+    def finish_training(self):
+        """完成训练"""
+        self.open_FinishTraining()
+
+    def open_FinishTraining(self):
+        """完成训练：完成"""
+        # 创建遮罩层
+        self.mask = MaskWidget(self)
+        self.mask.show()
+
+        # 创建并显示对话框
+        self.dialog= FinishTrainingDialog(self)
+        self.dialog.setModal(True)
+        self.dialog.show()
+        self.dialog.raise_()
+        self.dialog.exec_()
+
+        # 关闭遮罩层
+        self.mask.close()
+
+    def open_CancelTraining(self):
+        """完成训练：取消"""
+        # 创建遮罩层
+        self.mask = MaskWidget(self)
+        self.mask.show()
+
+        # 创建并显示对话框
+        self.dialog= CancelTrainingDialog(self)
+        self.dialog.setModal(True)
+        self.dialog.show()
+        self.dialog.raise_()
+        self.dialog.exec_()
+
+        # 关闭遮罩层
+        self.mask.close()
+
+
 
 
 

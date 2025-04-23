@@ -1,6 +1,6 @@
 # from PySide6.QtWidgets import QApplication,QMainWindow
-# # PySide6-uic demo.ui -o ui_demo.py 把UI文件转换成python文件
-# # PySide6-rcc demo.qrc -o demo_rc.py 把资源文件转换成python文件
+# # PySide6-uic FitMind_Client_.ui -o ui_.py 把UI文件转换成python文件
+# # PySide6-rcc res.qrc -o res_rc.py 把资源文件转换成python文件
 # # from ui_demo import Ui_MainWindow 引入转换好的UI文件
 # from ui_demo import Ui_MainWindow
 #

@@ -20,106 +20,126 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_9">
-    <item>
-     <widget class="QFrame" name="frame">
-      <property name="minimumSize">
-       <size>
-        <width>300</width>
-        <height>666</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#frame{
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>344</width>
+      <height>666</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>300</width>
+      <height>666</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame{
 	background-color: rgb(255, 255, 255);
 	border-top-right-radius:20px;
 	border-top-left-radius:20px;
 	border-bottom-right-radius:20px;
 	border-bottom-left-radius:20px;
 }</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::Shape::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Shadow::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="spacing">
-        <number>0</number>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="frame_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="leftMargin">
-        <number>0</number>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
        </property>
-       <property name="topMargin">
-        <number>0</number>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
-       <property name="rightMargin">
-        <number>0</number>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
-       <property name="bottomMargin">
-        <number>0</number>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
        </property>
-       <item>
-        <widget class="QFrame" name="frame_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_13" stretch="0">
-          <property name="spacing">
+       <layout class="QVBoxLayout" name="verticalLayout_13" stretch="0">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QStackedWidget" name="stackedWidget">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="currentIndex">
            <number>0</number>
           </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QStackedWidget" name="stackedWidget">
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="currentIndex">
+          <widget class="QWidget" name="page_train">
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::LeftToRight</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,9">
+            <property name="spacing">
              <number>0</number>
             </property>
-            <widget class="QWidget" name="page_train">
-             <property name="layoutDirection">
-              <enum>Qt::LayoutDirection::LeftToRight</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,9">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="8,2,1">
               <property name="spacing">
                <number>0</number>
               </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
               <property name="topMargin">
-               <number>0</number>
+               <number>4</number>
               </property>
               <property name="rightMargin">
                <number>0</number>
@@ -128,175 +148,170 @@
                <number>0</number>
               </property>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="8,2,1">
-                <property name="spacing">
-                 <number>0</number>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
-                <property name="topMargin">
-                 <number>4</number>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>90</width>
+                  <height>20</height>
+                 </size>
                 </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>0</number>
-                </property>
-                <item>
-                 <spacer name="horizontalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Orientation::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>90</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="button_friend">
-                  <property name="styleSheet">
-                   <string notr="true">
-
-QPushButton {
-    font: 9pt &quot;微软雅黑&quot;;
-    border-radius: 6px; /* 轻微圆角 */
-    background-color: white; /* 纯白背景 */
-    color: black; /* 黑色文字 */
-    min-width: 16px;
-    min-height: 16px;
-
-}
-
-QPushButton:hover {
-    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
-    margin-top: 2px; /* 轻微下移，增加按压感 */
-}
-
-QPushButton:pressed {
-    background-color: #e0e0e0; /* 按下时变深灰 */
-    margin-top: 1px; /* 按下时轻微上移 */
-}
-
-QPushButton:disabled {
-    background-color: #f8f8f8;
-    color: gray;
-    border-color: #ddd;
-}
-
-
-</string>
-                  </property>
-                  <property name="text">
-                   <string>friend</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../res.qrc">
-                    <normaloff>:/icons/icon/user-multiple-group--close-geometric-human-multipl.png</normaloff>:/icons/icon/user-multiple-group--close-geometric-human-multipl.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton">
-                  <property name="minimumSize">
-                   <size>
-                    <width>16</width>
-                    <height>16</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">
-
-QPushButton {
-    font: 9pt &quot;微软雅黑&quot;;
-    border-radius: 6px; /* 轻微圆角 */
-    background-color: white; /* 纯白背景 */
-    color: black; /* 黑色文字 */
-    min-width: 16px;
-    min-height: 16px;
-
-}
-
-QPushButton:hover {
-    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
-    margin-top: 2px; /* 轻微下移，增加按压感 */
-}
-
-QPushButton:pressed {
-    background-color: #e0e0e0; /* 按下时变深灰 */
-    margin-top: 1px; /* 按下时轻微上移 */
-}
-
-QPushButton:disabled {
-    background-color: #f8f8f8;
-    color: gray;
-    border-color: #ddd;
-}
-
-
-</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../res.qrc">
-                    <normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               </spacer>
               </item>
               <item>
-               <widget class="QFrame" name="frame_10">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
+               <widget class="QPushButton" name="button_friend">
+                <property name="styleSheet">
+                 <string notr="true">
+
+QPushButton {
+    font: 9pt &quot;微软雅黑&quot;;
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 16px;
+    min-height: 16px;
+
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+
+</string>
                 </property>
-                <property name="frameShape">
-                 <enum>QFrame::Shape::StyledPanel</enum>
+                <property name="text">
+                 <string>friend</string>
                 </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Shadow::Raised</enum>
+                <property name="icon">
+                 <iconset resource="../res.qrc">
+                  <normaloff>:/icons/icon/user-multiple-group--close-geometric-human-multipl.png</normaloff>:/icons/icon/user-multiple-group--close-geometric-human-multipl.png</iconset>
                 </property>
-                <property name="lineWidth">
-                 <number>0</number>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_11">
-                 <property name="spacing">
-                  <number>0</number>
+                <property name="styleSheet">
+                 <string notr="true">
+
+QPushButton {
+    font: 9pt &quot;微软雅黑&quot;;
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 16px;
+    min-height: 16px;
+
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="../res.qrc">
+                  <normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</normaloff>:/icons/icon/delete-1--remove-add-button-buttons-delete-cross-x.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_10">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <property name="lineWidth">
+               <number>0</number>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_11">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QScrollArea" name="scrollArea">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <property name="leftMargin">
-                  <number>0</number>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
                  </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QScrollArea" name="scrollArea">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QScrollBar:vertical {
+                 <property name="styleSheet">
+                  <string notr="true">QScrollArea{
+	border:none
+}
+
+QWidget {
+    background: transparent;
+}
+
+
+QScrollBar:vertical {
     background: transparent;
     width: 4px;
     margin: 0px;
@@ -346,69 +361,69 @@ QScrollBar::sub-page:horizontal {
     border: none;
 }
 </string>
+                 </property>
+                 <property name="lineWidth">
+                  <number>1</number>
+                 </property>
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+                 </property>
+                 <property name="horizontalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
+                 <property name="sizeAdjustPolicy">
+                  <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
+                 </property>
+                 <property name="widgetResizable">
+                  <bool>false</bool>
+                 </property>
+                 <widget class="QWidget" name="scrollAreaWidgetContents">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>340</width>
+                    <height>650</height>
+                   </rect>
+                  </property>
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_6">
+                   <property name="spacing">
+                    <number>0</number>
                    </property>
-                   <property name="lineWidth">
-                    <number>1</number>
+                   <property name="leftMargin">
+                    <number>0</number>
                    </property>
-                   <property name="verticalScrollBarPolicy">
-                    <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+                   <property name="topMargin">
+                    <number>0</number>
                    </property>
-                   <property name="horizontalScrollBarPolicy">
-                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   <property name="rightMargin">
+                    <number>0</number>
                    </property>
-                   <property name="sizeAdjustPolicy">
-                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
+                   <property name="bottomMargin">
+                    <number>0</number>
                    </property>
-                   <property name="widgetResizable">
-                    <bool>false</bool>
-                   </property>
-                   <widget class="QWidget" name="scrollAreaWidgetContents">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>0</y>
-                      <width>340</width>
-                      <height>650</height>
-                     </rect>
-                    </property>
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_6">
-                     <property name="spacing">
-                      <number>0</number>
+                   <item>
+                    <widget class="QFrame" name="frame_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
                      </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <item>
-                      <widget class="QFrame" name="frame_4">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">
+                     <property name="styleSheet">
+                      <string notr="true">
 
 QToolButton {
     font: 9pt &quot;微软雅黑&quot;; 
@@ -446,133 +461,438 @@ QToolButton:checked {
     text-shadow: 0px 0px 5px #4da6ff; /* 轻微发光效果 */
 }
 </string>
-                       </property>
-                       <property name="frameShape">
-                        <enum>QFrame::Shape::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Shadow::Raised</enum>
-                       </property>
-                       <property name="lineWidth">
-                        <number>0</number>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_10">
-                        <property name="spacing">
-                         <number>0</number>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::Shape::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Shadow::Raised</enum>
+                     </property>
+                     <property name="lineWidth">
+                      <number>0</number>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_10">
+                      <property name="spacing">
+                       <number>0</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <widget class="QFrame" name="frame_5">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <property name="leftMargin">
-                         <number>0</number>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>200</height>
+                         </size>
                         </property>
-                        <property name="topMargin">
-                         <number>0</number>
+                        <property name="styleSheet">
+                         <string notr="true">font: 700 12pt &quot;微软雅黑&quot;;</string>
                         </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
+                        <property name="frameShape">
+                         <enum>QFrame::Shape::StyledPanel</enum>
                         </property>
-                        <item>
-                         <widget class="QFrame" name="frame_5">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>200</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">font: 700 12pt &quot;微软雅黑&quot;;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::Shape::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Shadow::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_3">
-                           <property name="spacing">
-                            <number>0</number>
+                        <property name="frameShadow">
+                         <enum>QFrame::Shadow::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_3">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_train_diet_record">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
                            </property>
-                           <property name="leftMargin">
-                            <number>0</number>
+                           <property name="text">
+                            <string> Diet Record</string>
                            </property>
-                           <property name="topMargin">
-                            <number>0</number>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QFrame" name="frame_6">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>8</verstretch>
+                            </sizepolicy>
                            </property>
-                           <property name="rightMargin">
-                            <number>0</number>
+                           <property name="frameShape">
+                            <enum>QFrame::Shape::StyledPanel</enum>
                            </property>
-                           <property name="bottomMargin">
-                            <number>0</number>
+                           <property name="frameShadow">
+                            <enum>QFrame::Shadow::Raised</enum>
                            </property>
-                           <item>
-                            <widget class="QLabel" name="label_2">
-                             <property name="sizePolicy">
-                              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                               <horstretch>0</horstretch>
-                               <verstretch>0</verstretch>
-                              </sizepolicy>
-                             </property>
-                             <property name="text">
-                              <string> Diet Record</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QFrame" name="frame_6">
-                             <property name="sizePolicy">
-                              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                               <horstretch>0</horstretch>
-                               <verstretch>8</verstretch>
-                              </sizepolicy>
-                             </property>
-                             <property name="frameShape">
-                              <enum>QFrame::Shape::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Shadow::Raised</enum>
-                             </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_2">
-                              <property name="spacing">
-                               <number>0</number>
-                              </property>
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                             </layout>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_7">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>0</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">font: 700 12pt &quot;微软雅黑&quot;;
+                           <widget class="QFrame" name="frame_13">
+                            <property name="geometry">
+                             <rect>
+                              <x>0</x>
+                              <y>10</y>
+                              <width>331</width>
+                              <height>216</height>
+                             </rect>
+                            </property>
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">#frame_13{
+	background-color: rgb(255, 255, 255);
+	border-top-right-radius:40px;
+	border-top-left-radius:40px;
+	border-bottom-right-radius:40px;
+	border-bottom-left-radius:40px;
+}
+
+QToolButton{
+	font:9pt &quot;微软雅黑&quot;;
+}</string>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::Shape::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Shadow::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_2">
+                             <item>
+                              <widget class="QLabel" name="label_train_already_eaten">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>35</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>16777215</width>
+                                 <height>35</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
+                               </property>
+                               <property name="text">
+                                <string>Already eaten 0/-- maximum calories</string>
+                               </property>
+                               <property name="margin">
+                                <number>8</number>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <layout class="QHBoxLayout" name="horizontalLayout_7">
+                               <property name="spacing">
+                                <number>9</number>
+                               </property>
+                               <property name="leftMargin">
+                                <number>6</number>
+                               </property>
+                               <property name="topMargin">
+                                <number>5</number>
+                               </property>
+                               <property name="rightMargin">
+                                <number>6</number>
+                               </property>
+                               <property name="bottomMargin">
+                                <number>10</number>
+                               </property>
+                               <item>
+                                <widget class="QLabel" name="label_train_protein">
+                                 <property name="sizePolicy">
+                                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                                   <horstretch>0</horstretch>
+                                   <verstretch>0</verstretch>
+                                  </sizepolicy>
+                                 </property>
+                                 <property name="minimumSize">
+                                  <size>
+                                   <width>50</width>
+                                   <height>70</height>
+                                  </size>
+                                 </property>
+                                 <property name="layoutDirection">
+                                  <enum>Qt::LayoutDirection::LeftToRight</enum>
+                                 </property>
+                                 <property name="styleSheet">
+                                  <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+    background-color: lightyellow; /* 背景颜色 */
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+                                 </property>
+                                 <property name="text">
+                                  <string>Pro(g)
+0
+0% </string>
+                                 </property>
+                                 <property name="alignment">
+                                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QLabel" name="label_train_carbohydrate">
+                                 <property name="sizePolicy">
+                                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                                   <horstretch>0</horstretch>
+                                   <verstretch>0</verstretch>
+                                  </sizepolicy>
+                                 </property>
+                                 <property name="minimumSize">
+                                  <size>
+                                   <width>50</width>
+                                   <height>70</height>
+                                  </size>
+                                 </property>
+                                 <property name="styleSheet">
+                                  <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+    background-color: lightgreen; /* 背景颜色 */
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+                                 </property>
+                                 <property name="text">
+                                  <string>Carbs(g)
+0
+0% </string>
+                                 </property>
+                                 <property name="alignment">
+                                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QLabel" name="label_train_fat">
+                                 <property name="sizePolicy">
+                                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                                   <horstretch>0</horstretch>
+                                   <verstretch>0</verstretch>
+                                  </sizepolicy>
+                                 </property>
+                                 <property name="minimumSize">
+                                  <size>
+                                   <width>50</width>
+                                   <height>70</height>
+                                  </size>
+                                 </property>
+                                 <property name="styleSheet">
+                                  <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+
+	
+	background-color: rgb(255, 144, 155);
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+                                 </property>
+                                 <property name="text">
+                                  <string>Fat(g)
+0
+0% </string>
+                                 </property>
+                                 <property name="alignment">
+                                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QLabel" name="label_train_water">
+                                 <property name="sizePolicy">
+                                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                                   <horstretch>0</horstretch>
+                                   <verstretch>0</verstretch>
+                                  </sizepolicy>
+                                 </property>
+                                 <property name="minimumSize">
+                                  <size>
+                                   <width>50</width>
+                                   <height>70</height>
+                                  </size>
+                                 </property>
+                                 <property name="styleSheet">
+                                  <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+    background-color: lightblue; /* 背景颜色 */
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+                                 </property>
+                                 <property name="text">
+                                  <string>H2O(ml)
+0/0
+0% </string>
+                                 </property>
+                                 <property name="alignment">
+                                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                                 </property>
+                                </widget>
+                               </item>
+                              </layout>
+                             </item>
+                             <item>
+                              <layout class="QHBoxLayout" name="horizontalLayout_8">
+                               <property name="topMargin">
+                                <number>10</number>
+                               </property>
+                               <property name="bottomMargin">
+                                <number>10</number>
+                               </property>
+                               <item>
+                                <widget class="QToolButton" name="button_train_breakfast">
+                                 <property name="text">
+                                  <string>breakfast</string>
+                                 </property>
+                                 <property name="icon">
+                                  <iconset resource="../res.qrc">
+                                   <normaloff>:/icons/icon/zaocan.png</normaloff>:/icons/icon/zaocan.png</iconset>
+                                 </property>
+                                 <property name="toolButtonStyle">
+                                  <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QToolButton" name="button_train_lunch">
+                                 <property name="text">
+                                  <string>lunch</string>
+                                 </property>
+                                 <property name="icon">
+                                  <iconset resource="../res.qrc">
+                                   <normaloff>:/icons/icon/wucan.png</normaloff>:/icons/icon/wucan.png</iconset>
+                                 </property>
+                                 <property name="toolButtonStyle">
+                                  <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QToolButton" name="button_train_dinner">
+                                 <property name="text">
+                                  <string>dinner</string>
+                                 </property>
+                                 <property name="icon">
+                                  <iconset resource="../res.qrc">
+                                   <normaloff>:/icons/icon/hanbao.png</normaloff>:/icons/icon/hanbao.png</iconset>
+                                 </property>
+                                 <property name="toolButtonStyle">
+                                  <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QToolButton" name="button_train_extra_meal">
+                                 <property name="text">
+                                  <string>extra-meal</string>
+                                 </property>
+                                 <property name="icon">
+                                  <iconset resource="../res.qrc">
+                                   <normaloff>:/icons/icon/jiangmianbaoregou.png</normaloff>:/icons/icon/jiangmianbaoregou.png</iconset>
+                                 </property>
+                                 <property name="toolButtonStyle">
+                                  <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QToolButton" name="button_train_drink">
+                                 <property name="text">
+                                  <string>drink</string>
+                                 </property>
+                                 <property name="icon">
+                                  <iconset resource="../res.qrc">
+                                   <normaloff>:/icons/icon/yinshui.png</normaloff>:/icons/icon/yinshui.png</iconset>
+                                 </property>
+                                 <property name="toolButtonStyle">
+                                  <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QToolButton" name="button_train_weight">
+                                 <property name="text">
+                                  <string>weight</string>
+                                 </property>
+                                 <property name="icon">
+                                  <iconset resource="../res.qrc">
+                                   <normaloff>:/icons/icon/tizhong.png</normaloff>:/icons/icon/tizhong.png</iconset>
+                                 </property>
+                                 <property name="toolButtonStyle">
+                                  <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+                                 </property>
+                                </widget>
+                               </item>
+                              </layout>
+                             </item>
+                            </layout>
+                           </widget>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="frame_7">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">font: 700 12pt &quot;微软雅黑&quot;;
 
 
 QToolButton {
@@ -611,273 +931,561 @@ QToolButton:checked {
 }
 
 </string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::Shape::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Shadow::Raised</enum>
-                          </property>
-                          <property name="lineWidth">
-                           <number>0</number>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_4">
-                           <property name="spacing">
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::Shape::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Shadow::Raised</enum>
+                        </property>
+                        <property name="lineWidth">
+                         <number>0</number>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_4">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QSplitter" name="splitter_2">
+                           <property name="orientation">
+                            <enum>Qt::Orientation::Horizontal</enum>
+                           </property>
+                           <property name="handleWidth">
                             <number>0</number>
                            </property>
-                           <property name="leftMargin">
+                           <widget class="QToolButton" name="button_train_official_plan">
+                            <property name="text">
+                             <string>Official Plan</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="toolButtonStyle">
+                             <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
+                            </property>
+                           </widget>
+                           <widget class="QToolButton" name="button_train_personal_plan">
+                            <property name="text">
+                             <string>Personal Plan</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QStackedWidget" name="stackedWidget_2">
+                           <property name="currentIndex">
                             <number>0</number>
                            </property>
-                           <property name="topMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="rightMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>0</number>
-                           </property>
-                           <item>
-                            <widget class="QSplitter" name="splitter_2">
-                             <property name="orientation">
-                              <enum>Qt::Orientation::Horizontal</enum>
-                             </property>
-                             <property name="handleWidth">
+                           <widget class="QWidget" name="page_official_plan">
+                            <layout class="QVBoxLayout" name="verticalLayout_8">
+                             <property name="spacing">
                               <number>0</number>
                              </property>
-                             <widget class="QToolButton" name="button_train_official_plan">
-                              <property name="text">
-                               <string>Official Plan</string>
-                              </property>
-                              <property name="checkable">
-                               <bool>true</bool>
-                              </property>
-                              <property name="toolButtonStyle">
-                               <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
-                              </property>
-                             </widget>
-                             <widget class="QToolButton" name="button_train_personal_plan">
-                              <property name="text">
-                               <string>Personal Plan</string>
-                              </property>
-                              <property name="checkable">
-                               <bool>true</bool>
-                              </property>
-                             </widget>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QStackedWidget" name="stackedWidget_2">
-                             <property name="currentIndex">
+                             <property name="leftMargin">
                               <number>0</number>
                              </property>
-                             <widget class="QWidget" name="page_official_plan">
-                              <layout class="QVBoxLayout" name="verticalLayout_8">
-                               <property name="spacing">
-                                <number>0</number>
+                             <property name="topMargin">
+                              <number>9</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QFrame" name="frame_8">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>8</verstretch>
+                                </sizepolicy>
                                </property>
-                               <property name="leftMargin">
-                                <number>0</number>
+                               <property name="styleSheet">
+                                <string notr="true">font: 290 9pt &quot;微软雅黑&quot;;</string>
                                </property>
-                               <property name="topMargin">
-                                <number>9</number>
+                               <property name="frameShape">
+                                <enum>QFrame::Shape::StyledPanel</enum>
                                </property>
-                               <property name="rightMargin">
-                                <number>0</number>
+                               <property name="frameShadow">
+                                <enum>QFrame::Shadow::Raised</enum>
                                </property>
-                               <property name="bottomMargin">
-                                <number>0</number>
-                               </property>
-                               <item>
-                                <widget class="QFrame" name="frame_8">
-                                 <property name="sizePolicy">
-                                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                                   <horstretch>0</horstretch>
-                                   <verstretch>8</verstretch>
-                                  </sizepolicy>
-                                 </property>
-                                 <property name="styleSheet">
-                                  <string notr="true">font: 290 9pt &quot;微软雅黑&quot;;</string>
-                                 </property>
-                                 <property name="frameShape">
-                                  <enum>QFrame::Shape::StyledPanel</enum>
-                                 </property>
-                                 <property name="frameShadow">
-                                  <enum>QFrame::Shadow::Raised</enum>
-                                 </property>
-                                 <layout class="QVBoxLayout" name="verticalLayout_7">
-                                  <property name="spacing">
+                               <layout class="QVBoxLayout" name="verticalLayout_7">
+                                <property name="spacing">
+                                 <number>0</number>
+                                </property>
+                                <property name="leftMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="topMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="rightMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="bottomMargin">
+                                 <number>0</number>
+                                </property>
+                                <item>
+                                 <widget class="QSplitter" name="splitter_3">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="orientation">
+                                   <enum>Qt::Orientation::Horizontal</enum>
+                                  </property>
+                                  <property name="handleWidth">
                                    <number>0</number>
                                   </property>
-                                  <property name="leftMargin">
+                                  <widget class="QToolButton" name="button_train_plan1">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="text">
+                                    <string>plan1</string>
+                                   </property>
+                                   <property name="checkable">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                  <widget class="QToolButton" name="button_train_plan2">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="text">
+                                    <string>plan2</string>
+                                   </property>
+                                   <property name="checkable">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                  <widget class="QToolButton" name="button_train_plan3">
+                                   <property name="text">
+                                    <string>plan3</string>
+                                   </property>
+                                   <property name="checkable">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                  <widget class="QToolButton" name="button_train_plan4">
+                                   <property name="text">
+                                    <string>plan4</string>
+                                   </property>
+                                   <property name="checkable">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QStackedWidget" name="stackedWidget_3">
+                                  <property name="lineWidth">
                                    <number>0</number>
                                   </property>
-                                  <property name="topMargin">
-                                   <number>0</number>
+                                  <property name="currentIndex">
+                                   <number>1</number>
                                   </property>
-                                  <property name="rightMargin">
-                                   <number>0</number>
-                                  </property>
-                                  <property name="bottomMargin">
-                                   <number>0</number>
-                                  </property>
-                                  <item>
-                                   <widget class="QSplitter" name="splitter_3">
-                                    <property name="sizePolicy">
-                                     <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
-                                      <horstretch>0</horstretch>
-                                      <verstretch>0</verstretch>
-                                     </sizepolicy>
-                                    </property>
-                                    <property name="orientation">
-                                     <enum>Qt::Orientation::Horizontal</enum>
-                                    </property>
-                                    <property name="handleWidth">
-                                     <number>0</number>
-                                    </property>
-                                    <widget class="QToolButton" name="button_train_plan1">
-                                     <property name="sizePolicy">
-                                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                       <horstretch>0</horstretch>
-                                       <verstretch>0</verstretch>
-                                      </sizepolicy>
-                                     </property>
-                                     <property name="text">
-                                      <string>plan1</string>
-                                     </property>
-                                     <property name="checkable">
-                                      <bool>true</bool>
-                                     </property>
-                                    </widget>
-                                    <widget class="QToolButton" name="button_train_plan2">
-                                     <property name="sizePolicy">
-                                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                       <horstretch>0</horstretch>
-                                       <verstretch>0</verstretch>
-                                      </sizepolicy>
-                                     </property>
-                                     <property name="text">
-                                      <string>plan2</string>
-                                     </property>
-                                     <property name="checkable">
-                                      <bool>true</bool>
-                                     </property>
-                                    </widget>
-                                    <widget class="QToolButton" name="button_train_plan3">
-                                     <property name="text">
-                                      <string>plan3</string>
-                                     </property>
-                                     <property name="checkable">
-                                      <bool>true</bool>
-                                     </property>
-                                    </widget>
-                                    <widget class="QToolButton" name="button_train_plan4">
-                                     <property name="text">
-                                      <string>plan4</string>
-                                     </property>
-                                     <property name="checkable">
-                                      <bool>true</bool>
-                                     </property>
-                                    </widget>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QStackedWidget" name="stackedWidget_3">
-                                    <property name="lineWidth">
-                                     <number>0</number>
-                                    </property>
-                                    <property name="currentIndex">
-                                     <number>1</number>
-                                    </property>
-                                    <widget class="QWidget" name="page_plan1"/>
-                                    <widget class="QWidget" name="page_plan2"/>
-                                   </widget>
-                                  </item>
-                                 </layout>
-                                </widget>
-                               </item>
-                              </layout>
-                             </widget>
-                             <widget class="QWidget" name="page_personal_plan">
-                              <layout class="QVBoxLayout" name="verticalLayout_6">
-                               <property name="spacing">
-                                <number>0</number>
+                                  <widget class="QWidget" name="page_plan1"/>
+                                  <widget class="QWidget" name="page_plan2"/>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                           <widget class="QWidget" name="page_personal_plan">
+                            <layout class="QVBoxLayout" name="verticalLayout_6">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QFrame" name="frame_9">
+                               <property name="frameShape">
+                                <enum>QFrame::Shape::StyledPanel</enum>
                                </property>
-                               <property name="leftMargin">
-                                <number>0</number>
+                               <property name="frameShadow">
+                                <enum>QFrame::Shadow::Raised</enum>
                                </property>
-                               <property name="topMargin">
-                                <number>0</number>
-                               </property>
-                               <property name="rightMargin">
-                                <number>0</number>
-                               </property>
-                               <property name="bottomMargin">
-                                <number>0</number>
-                               </property>
-                               <item>
-                                <widget class="QFrame" name="frame_9">
-                                 <property name="frameShape">
-                                  <enum>QFrame::Shape::StyledPanel</enum>
-                                 </property>
-                                 <property name="frameShadow">
-                                  <enum>QFrame::Shadow::Raised</enum>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
-                             </widget>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-            <widget class="QWidget" name="page_sports"/>
-            <widget class="QWidget" name="page_history">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_sports">
+           <widget class="QScrollArea" name="scrollArea_2">
+            <property name="geometry">
+             <rect>
+              <x>9</x>
+              <y>9</y>
+              <width>324</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QWidget {
+    background: transparent;
+}
+
+QPushButton {
+    font: 550 9pt &quot;微软雅黑&quot;; 
+    border-radius: 6px; /* 轻微圆角 */
+	background-color: #f0f0f0;
+    color: black; /* 黑色文字 */
+	border:none;
+}
+
+QPushButton:hover {
+    background-color: #e0e0e0; /* 浅灰色悬浮效果 */
+    padding-bottom: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #d0d0d0; /* 更深的灰色，按下效果 */
+    padding-bottom: 1px;
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+
+QScrollArea {
+	border:none;
+}
+
+
+
+
+QScrollBar:vertical {
+    background: transparent;
+    width: 4px;
+    margin: 0px;
+    border: none;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(100, 100, 100, 0.5);
+    min-height: 20px;
+    border-radius: 2px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(100, 100, 100, 0.8);
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
+    border: none;
+}
+
+QScrollBar:horizontal {
+    background: transparent;
+    height: 4px;
+    margin: 0px;
+    border: none;
+}
+
+QScrollBar::handle:horizontal {
+    background: rgba(100, 100, 100, 0.5);
+    min-width: 20px;
+    border-radius: 2px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: rgba(100, 100, 100, 0.8);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal,
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: none;
+    border: none;
+}
+</string>
+            </property>
+            <property name="widgetResizable">
+             <bool>false</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents_2">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>945</width>
+               <height>57</height>
+              </rect>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_12">
-              <property name="spacing">
-               <number>0</number>
+             <widget class="QWidget" name="layoutWidget">
+              <property name="geometry">
+               <rect>
+                <x>9</x>
+                <y>11</y>
+                <width>931</width>
+                <height>37</height>
+               </rect>
               </property>
-              <property name="leftMargin">
-               <number>0</number>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <property name="spacing">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="button_sports_running_outside">
+                 <property name="minimumSize">
+                  <size>
+                   <width>125</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Running-outside</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../res.qrc">
+                   <normaloff>:/icons/icon/benpao.png</normaloff>:/icons/icon/benpao.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="button_sports_running_inside">
+                 <property name="minimumSize">
+                  <size>
+                   <width>125</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Running-inside</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../res.qrc">
+                   <normaloff>:/icons/icon/shineipaobu.png</normaloff>:/icons/icon/shineipaobu.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="button_sports_walk">
+                 <property name="minimumSize">
+                  <size>
+                   <width>125</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Walk</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../res.qrc">
+                   <normaloff>:/icons/icon/walk.png</normaloff>:/icons/icon/walk.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="button_sports_riding">
+                 <property name="minimumSize">
+                  <size>
+                   <width>125</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Riding</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../res.qrc">
+                   <normaloff>:/icons/icon/骑行.png</normaloff>:/icons/icon/骑行.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="button_sports_fitness">
+                 <property name="minimumSize">
+                  <size>
+                   <width>125</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Fitness</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../res.qrc">
+                   <normaloff>:/icons/icon/ticao.png</normaloff>:/icons/icon/ticao.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="button_sports_jump_rope">
+                 <property name="minimumSize">
+                  <size>
+                   <width>125</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Jump-rope</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../res.qrc">
+                   <normaloff>:/icons/icon/tiaosheng.png</normaloff>:/icons/icon/tiaosheng.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="button_sports_more">
+                 <property name="minimumSize">
+                  <size>
+                   <width>125</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>More</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../res.qrc">
+                   <normaloff>:/icons/icon/更多、分类.png</normaloff>:/icons/icon/更多、分类.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_history">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="frame_11">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
               </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QFrame" name="frame_11">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>1</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">#frame{
+              <property name="styleSheet">
+               <string notr="true">#frame{
 	background-color: rgb(255, 255, 255);
 	border-top-right-radius:20px;
 	border-top-left-radius:20px;
@@ -921,113 +1529,113 @@ QToolButton:checked {
 }
 
 </string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Shape::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Shadow::Raised</enum>
-                </property>
-                <property name="lineWidth">
-                 <number>0</number>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_4">
-                 <property name="spacing">
-                  <number>0</number>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <property name="lineWidth">
+               <number>0</number>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>5</number>
+               </property>
+               <property name="topMargin">
+                <number>10</number>
+               </property>
+               <property name="rightMargin">
+                <number>5</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QToolButton" name="button_history_history">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <property name="leftMargin">
-                  <number>5</number>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
                  </property>
-                 <property name="topMargin">
-                  <number>10</number>
+                 <property name="text">
+                  <string>History</string>
                  </property>
-                 <property name="rightMargin">
-                  <number>5</number>
+                 <property name="checkable">
+                  <bool>true</bool>
                  </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="button_history_statistics">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <item>
-                  <widget class="QToolButton" name="button_history_history">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>60</width>
-                     <height>60</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>History</string>
-                   </property>
-                   <property name="checkable">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="button_history_statistics">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>60</width>
-                     <height>60</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Statistics</string>
-                   </property>
-                   <property name="checkable">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="frame_12">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>10</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Shape::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Shadow::Raised</enum>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_5">
-                 <property name="spacing">
-                  <number>0</number>
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
                  </property>
-                 <property name="leftMargin">
-                  <number>0</number>
+                 <property name="text">
+                  <string>Statistics</string>
                  </property>
-                 <property name="topMargin">
-                  <number>0</number>
+                 <property name="checkable">
+                  <bool>true</bool>
                  </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QCalendarWidget" name="calendarWidget">
-                   <property name="styleSheet">
-                    <string notr="true">/*顶部导航区域*/
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_12">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>10</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QCalendarWidget" name="calendarWidget">
+                 <property name="styleSheet">
+                  <string notr="true">/*顶部导航区域*/
 #qt_calendar_navigationbar {
     background-color: white;
     min-height: 10px;
@@ -1150,42 +1758,42 @@ QCalendarWidget QAbstractItemView::item:selected {
     padding: 2px;
 }
 </string>
-                   </property>
-                   <property name="gridVisible">
-                    <bool>false</bool>
-                   </property>
-                   <property name="selectionMode">
-                    <enum>QCalendarWidget::SelectionMode::NoSelection</enum>
-                   </property>
-                   <property name="navigationBarVisible">
-                    <bool>true</bool>
-                   </property>
-                   <property name="dateEditEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-            <widget class="QWidget" name="page_user"/>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">
+                 </property>
+                 <property name="gridVisible">
+                  <bool>false</bool>
+                 </property>
+                 <property name="selectionMode">
+                  <enum>QCalendarWidget::SelectionMode::NoSelection</enum>
+                 </property>
+                 <property name="navigationBarVisible">
+                  <bool>true</bool>
+                 </property>
+                 <property name="dateEditEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_user"/>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
 
 QToolButton {
     font: 9pt &quot;微软雅黑&quot;;
@@ -1223,111 +1831,117 @@ QToolButton:checked {
 }
 
 </string>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::InputMethodHint::ImhNone</set>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <property name="spacing">
-           <number>0</number>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::InputMethodHint::ImhNone</set>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="button_train">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <property name="leftMargin">
-           <number>0</number>
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>25</height>
+           </size>
           </property>
-          <property name="topMargin">
-           <number>0</number>
+          <property name="text">
+           <string>train</string>
           </property>
-          <property name="rightMargin">
-           <number>0</number>
+          <property name="icon">
+           <iconset resource="../res.qrc">
+            <normaloff>:/icons/icon/xunlianjihua.png</normaloff>
+            <normalon>:/icons/icon/xunlianjihua.png</normalon>:/icons/icon/xunlianjihua.png</iconset>
           </property>
-          <property name="bottomMargin">
-           <number>0</number>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
           </property>
-          <item>
-           <widget class="QToolButton" name="button_train">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>train</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../res.qrc">
-              <normaloff>:/icons/icon/xunlianjihua.png</normaloff>
-              <normalon>:/icons/icon/xunlianjihua.png</normalon>:/icons/icon/xunlianjihua.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>16</width>
-              <height>16</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="button_sports">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>sports</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../res.qrc">
-              <normaloff>:/icons/icon/dongzuo.png</normaloff>
-              <normalon>:/icons/icon/dongzuo.png</normalon>:/icons/icon/dongzuo.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="button_TrainAndDiet">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>62</width>
-              <height>47</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="button_sports">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>sports</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../res.qrc">
+            <normaloff>:/icons/icon/dongzuo.png</normaloff>
+            <normalon>:/icons/icon/dongzuo.png</normalon>:/icons/icon/dongzuo.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="button_TrainAndDiet">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>62</width>
+            <height>47</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
     font: 700 16pt &quot;微软雅黑&quot;; 
     border: 1px solid #ccc; /* 细边框 */
     border-radius: 16px; /* 更圆的圆角，增加质感 */
@@ -1362,67 +1976,65 @@ QPushButton:disabled {
     box-shadow: none; /* 禁用时去除阴影 */
 }
 </string>
-            </property>
-            <property name="text">
-             <string>T/D</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="button_history">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>history</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../res.qrc">
-              <normaloff>:/icons/icon/os-icon-history.png</normaloff>
-              <normalon>:/icons/icon/os-icon-history.png</normalon>:/icons/icon/os-icon-history.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="button_user">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>user</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../res.qrc">
-              <normaloff>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normaloff>
-              <normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-   </layout>
+          </property>
+          <property name="text">
+           <string>T/D</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="button_history">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>history</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../res.qrc">
+            <normaloff>:/icons/icon/os-icon-history.png</normaloff>
+            <normalon>:/icons/icon/os-icon-history.png</normalon>:/icons/icon/os-icon-history.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="button_user">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>user</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../res.qrc">
+            <normaloff>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normaloff>
+            <normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</normalon>:/icons/icon/user-circle-single--circle-geometric-human-person-.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources>
