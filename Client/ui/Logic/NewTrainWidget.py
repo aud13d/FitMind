@@ -2,11 +2,12 @@ from PySide6.QtCore import Qt, Signal, QTime, QTimer
 from Client.ui.Designer.ui_NewTrain import Ui_Widget_NewTrain
 from PySide6.QtWidgets import QWidget
 from Client.ui.Components.MaskWidget import MaskWidget
+from Client.ui.Logic.AddActionDialog import AddActionDialog
 from Client.ui.Logic.CancelTrainingDialog import CancelTrainingDialog
 from Client.ui.Logic.FinishTrainingDialog import FinishTrainingDialog
 
 class NewTrainWidget(QWidget):
-    minimized_signal = Signal()  # 发送信号给 MainInterfaceWindow
+    minimized_signal = Signal()  # 发送最小化信号给 MainInterfaceWindow
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -23,10 +24,10 @@ class NewTrainWidget(QWidget):
 
     def bind(self):
         self.ui.button_newtrain_minimize.clicked.connect(self.minisize_window)
+        self.ui.button_newtrain_add_action.clicked.connect(self.open_addaction_dialog)
 
         self.ui.button_newtrain_start.clicked.connect(self.start_timer)
         self.timer.timeout.connect(self.update_time) # 每秒更新时间
-
         self.ui.button_newtrain_finish.clicked.connect(self.finish_training)
 
     def minisize_window(self):
@@ -96,6 +97,15 @@ class NewTrainWidget(QWidget):
 
         # 关闭遮罩层
         self.mask.close()
+
+    def open_addaction_dialog(self):
+        """弹出添加动作界面，宽度一致，底部对齐"""
+        self.dialog = AddActionDialog(self)
+        self.dialog.setModal(True)
+        self.dialog.exec_()
+
+
+
 
 
 

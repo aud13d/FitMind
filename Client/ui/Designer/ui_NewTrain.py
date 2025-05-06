@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QPushButton, QSizePolicy, QToolButton,
     QVBoxLayout, QWidget)
-
+from ..res_rc import *
 
 class Ui_Widget_NewTrain(object):
     def setupUi(self, Widget_NewTrain):
@@ -33,7 +33,11 @@ class Ui_Widget_NewTrain(object):
         self.frame_2 = QFrame(Widget_NewTrain)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setStyleSheet(u"#frame_2{\n"
-"	background-color:qlineargradient(spread:pad, x1:0.518, y1:1, x2:0.514, y2:0.00227273, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255))\n"
+"	background-color:qlineargradient(spread:pad, x1:0.518, y1:1, x2:0.514, y2:0.00227273, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	border-top-right-radius:20px;\n"
+"	border-top-left-radius:20px;\n"
+"	border-bottom-right-radius:20px;\n"
+"	border-bottom-left-radius:20px;\n"
 "}")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
@@ -74,7 +78,7 @@ class Ui_Widget_NewTrain(object):
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(-1, -1, 190, 30)
+        self.horizontalLayout_3.setContentsMargins(10, -1, 150, 30)
         self.label_newtrain_time = QLabel(self.frame)
         self.label_newtrain_time.setObjectName(u"label_newtrain_time")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
@@ -207,6 +211,8 @@ class Ui_Widget_NewTrain(object):
         self.frame_3.setSizePolicy(sizePolicy3)
         self.frame_3.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(255, 255, 255);\n"
+"	border-bottom-right-radius:20px;\n"
+"	border-bottom-left-radius:20px;\n"
 "	border:none\n"
 "}\n"
 "\n"
@@ -243,7 +249,7 @@ class Ui_Widget_NewTrain(object):
         self.horizontalLayout = QHBoxLayout(self.frame_3)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setContentsMargins(5, 5, 5, 5)
         self.button_newtrain_minimize = QToolButton(self.frame_3)
         self.button_newtrain_minimize.setObjectName(u"button_newtrain_minimize")
         sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)

@@ -31,8 +31,6 @@ class MainInterfaceWindow(QMainWindow):
         self.new_train_widget_mini_floating_button.setVisible(False)  # 默认隐藏
         self.new_train_widget = None
 
-        self.new_train_widget = None
-
         self.bind()
 
 
@@ -141,8 +139,13 @@ class MainInterfaceWindow(QMainWindow):
 
     def show_floating_button(self):
         """显示悬浮按钮"""
+        if not self.new_train_widget:
+            self.new_train_widget_mini_floating_button.setVisible(False)
+            return
+
         self.new_train_widget_mini_floating_button.setText("Training in progress")
         self.new_train_widget_mini_floating_button.setVisible(True)
+        self.new_train_widget_mini_floating_button.raise_()  # 确保悬浮按钮在最上层
 
     def restore_NewTrain(self):
         """恢复 NewTrainWidget"""

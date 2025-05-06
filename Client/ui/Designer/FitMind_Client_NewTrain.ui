@@ -39,7 +39,11 @@
     <widget class="QFrame" name="frame_2">
      <property name="styleSheet">
       <string notr="true">#frame_2{
-	background-color:qlineargradient(spread:pad, x1:0.518, y1:1, x2:0.514, y2:0.00227273, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255))
+	background-color:qlineargradient(spread:pad, x1:0.518, y1:1, x2:0.514, y2:0.00227273, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
 }</string>
      </property>
      <property name="frameShape">
@@ -127,8 +131,11 @@
              <property name="spacing">
               <number>0</number>
              </property>
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
              <property name="rightMargin">
-              <number>190</number>
+              <number>150</number>
              </property>
              <property name="bottomMargin">
               <number>30</number>
@@ -341,6 +348,8 @@ QPushButton:disabled {
         <property name="styleSheet">
          <string notr="true">QFrame {
 	background-color: rgb(255, 255, 255);
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
 	border:none
 }
 
@@ -386,16 +395,16 @@ QToolButton:disabled {
           <number>0</number>
          </property>
          <property name="leftMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="topMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="bottomMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <item>
           <widget class="QToolButton" name="button_newtrain_minimize">

@@ -58,3 +58,5 @@ PURPOSE_RETRIEVE = "retrieve"
 # 图标路径
 CancelTrainingQDialog_IconPath = ":/icons/icon/疑惑.png"
 FinishTrainingQDialog_IconPath = ":/icons/icon/a-haoping1.png"
+MoveAddActionQDialog_IconPath = ":/icons/icon/移动.png"
+GoAddActionQDialog_IconPath =":/icons/icon/back.png"

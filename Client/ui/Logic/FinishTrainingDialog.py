@@ -35,8 +35,6 @@ class FinishTrainingDialog(QDialog, Ui_Dialog_finish_training):
 
             self.move(center_x, center_y)
 
-        self.new_train_widget = None
-
     def bind(self):
         """绑定事件"""
         self.button_finish.clicked.connect(self.handle_finish_clicked)
