@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QToolButton,
-    QVBoxLayout, QWidget)
+    QLineEdit, QPushButton, QScrollArea, QSizePolicy,
+    QToolButton, QVBoxLayout, QWidget)
 from ..res_rc import *
 
 class Ui_Widget_NewTrain(object):
@@ -199,6 +199,79 @@ class Ui_Widget_NewTrain(object):
         self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
         self.frame_4.setLineWidth(0)
+        self.horizontalLayout_5 = QHBoxLayout(self.frame_4)
+        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea = QScrollArea(self.frame_4)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setStyleSheet(u"QScrollArea {\n"
+"	border:none;\n"
+"	background-color: none;\n"
+"	border-top-right-radius:15px;\n"
+"	border-top-left-radius:15px;\n"
+"	border-bottom-right-radius:15px;\n"
+"	border-bottom-left-radius:15px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    background: none;\n"
+"    width: 4px;\n"
+"    margin: 0px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: rgba(100, 100, 100, 0.5);\n"
+"    min-height: 20px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: rgba(100, 100, 100, 0.8);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical,\n"
+"QScrollBar::sub-line:vertical,\n"
+"QScrollBar::add-page:vertical,\n"
+"QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    background: transparent;\n"
+"    height: 4px;\n"
+"    margin: 0px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal {\n"
+"    background: rgba(100, 100, 100, 0.5);\n"
+"    min-width: 20px"
+                        ";\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover {\n"
+"    background: rgba(100, 100, 100, 0.8);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:horizontal,\n"
+"QScrollBar::sub-line:horizontal,\n"
+"QScrollBar::add-page:horizontal,\n"
+"QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"    border: none;\n"
+"}")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 362, 529))
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.horizontalLayout_5.addWidget(self.scrollArea)
+
 
         self.verticalLayout.addWidget(self.frame_4)
 

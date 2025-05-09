@@ -1,6 +1,8 @@
 from PySide6.QtCore import Qt, Signal, QTime, QTimer
+
+from Client.ui.Components.ActionFrame import ActionFrame
 from Client.ui.Designer.ui_NewTrain import Ui_Widget_NewTrain
-from PySide6.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget, QVBoxLayout
 from Client.ui.Components.MaskWidget import MaskWidget
 from Client.ui.Logic.AddActionDialog import AddActionDialog
 from Client.ui.Logic.CancelTrainingDialog import CancelTrainingDialog
@@ -19,6 +21,16 @@ class NewTrainWidget(QWidget):
         self.timer = QTimer(self)  # 创建定时器
         self.time = QTime(0, 0)  # 计时初始时间设为00:00
         self.timer_running = False
+
+        # 初始化动作列表
+        self.layout_actions = QVBoxLayout(self.ui.scrollAreaWidgetContents)
+        self.layout_actions.setAlignment(Qt.AlignTop)
+        self.layout_actions.setSpacing(10)
+        self.layout_actions.setContentsMargins(10, 10, 10, 0)
+        self.dialog = None
+
+        # 初始化计划状态
+        self.has_planned_exercise = False  # 默认没有计划运动
 
         self.bind()
 
@@ -64,7 +76,10 @@ class NewTrainWidget(QWidget):
 
     def finish_training(self):
         """完成训练"""
-        self.open_FinishTraining()
+        if self.has_planned_exercise:  # 判断是否有运动计划
+            self.open_FinishTraining()
+        else:
+            self.open_CancelTraining()
 
     def open_FinishTraining(self):
         """完成训练：完成"""
@@ -101,8 +116,19 @@ class NewTrainWidget(QWidget):
     def open_addaction_dialog(self):
         """弹出添加动作界面，宽度一致，底部对齐"""
         self.dialog = AddActionDialog(self)
+        self.dialog.addaction_signal.connect(self.add_action_frame)
         self.dialog.setModal(True)
         self.dialog.exec_()
+
+    def add_action_frame(self, action_name,action_icon):
+        """添加动作"""
+        action_frame = ActionFrame(action_name,action_icon)
+        if action_frame:
+            action_frame.setFixedSize(335,55)
+            self.layout_actions.addWidget(action_frame)
+
+            # 设置有计划运动
+            self.has_planned_exercise = True  # 添加了运动动作，设定为有计划
 
 
 

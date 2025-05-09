@@ -24,7 +24,7 @@ class Ui_Dialog_add_action(object):
     def setupUi(self, Dialog_add_action):
         if not Dialog_add_action.objectName():
             Dialog_add_action.setObjectName(u"Dialog_add_action")
-        Dialog_add_action.resize(362, 700)
+        Dialog_add_action.resize(361, 697)
         Dialog_add_action.setMinimumSize(QSize(300, 666))
         self.horizontalLayout = QHBoxLayout(Dialog_add_action)
         self.horizontalLayout.setSpacing(0)
@@ -89,7 +89,7 @@ class Ui_Dialog_add_action(object):
         self.horizontalLayout_2.setContentsMargins(10, -1, 0, -1)
         self.button_back = QPushButton(self.frame)
         self.button_back.setObjectName(u"button_back")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.MinimumExpanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.button_back.sizePolicy().hasHeightForWidth())
@@ -121,9 +121,7 @@ class Ui_Dialog_add_action(object):
         self.frame_2 = QFrame(self.frame)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setStyleSheet(u"#frame_2{\n"
-"	background-color:white;\n"
-"	border-top-right-radius:20px;\n"
-"	border-top-left-radius:20px;\n"
+"background-color:white;\n"
 "	border-bottom-right-radius:20px;\n"
 "	border-bottom-left-radius:20px;\n"
 "}\n"
@@ -161,12 +159,12 @@ class Ui_Dialog_add_action(object):
 "}\n"
 "\n"
 "QScrollBar::handle:vertical:hover {\n"
-"    background: rgba(100, "
-                        "100, 100, 0.8);\n"
+"    background: rgba(100, 100, 100, 0.8);\n"
 "}\n"
 "\n"
 "QScrollBar::add-line:vertical,\n"
-"QScrollBar::sub-line:vertical,\n"
+"QScr"
+                        "ollBar::sub-line:vertical,\n"
 "QScrollBar::add-page:vertical,\n"
 "QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
@@ -214,7 +212,15 @@ class Ui_Dialog_add_action(object):
         sizePolicy1.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
         self.scrollArea.setSizePolicy(sizePolicy1)
         self.scrollArea.setMinimumSize(QSize(362, 646))
-        self.scrollArea.setStyleSheet(u"QFrame{\n"
+        self.scrollArea.setStyleSheet(u"\n"
+"\n"
+"QWidget{\n"
+"		background-color: #f5f5f5;\n"
+"	border-bottom-right-radius:20px;\n"
+"	border-bottom-left-radius:20px;\n"
+"}\n"
+"\n"
+"QFrame{\n"
 "	background-color:white;\n"
 "	border-top-right-radius:15px;\n"
 "	border-top-left-radius:15px;\n"
@@ -222,11 +228,8 @@ class Ui_Dialog_add_action(object):
 "	border-bottom-left-radius:15px;\n"
 "}\n"
 "\n"
-"QWidget{\n"
-"	border-top-right-radius:20px;\n"
-"	border-top-left-radius:20px;\n"
-"	border-bottom-right-radius:20px;\n"
-"	border-bottom-left-radius:20px;\n"
+"QPushButton{\n"
+"	background-color:white;\n"
 "}")
         self.scrollArea.setLineWidth(0)
         self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
@@ -246,13 +249,13 @@ class Ui_Dialog_add_action(object):
 "")
         self.frame_running_outside = QFrame(self.scrollAreaWidgetContents)
         self.frame_running_outside.setObjectName(u"frame_running_outside")
-        self.frame_running_outside.setGeometry(QRect(9, 35, 350, 55))
+        self.frame_running_outside.setGeometry(QRect(9, 35, 335, 55))
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.frame_running_outside.sizePolicy().hasHeightForWidth())
         self.frame_running_outside.setSizePolicy(sizePolicy2)
-        self.frame_running_outside.setMinimumSize(QSize(350, 55))
+        self.frame_running_outside.setMinimumSize(QSize(335, 55))
         self.frame_running_outside.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_running_outside.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.frame_running_outside)
@@ -291,10 +294,10 @@ class Ui_Dialog_add_action(object):
         self.horizontalLayout_4.setStretch(2, 2)
         self.frame_running_inside = QFrame(self.scrollAreaWidgetContents)
         self.frame_running_inside.setObjectName(u"frame_running_inside")
-        self.frame_running_inside.setGeometry(QRect(10, 100, 350, 55))
+        self.frame_running_inside.setGeometry(QRect(10, 100, 335, 55))
         sizePolicy2.setHeightForWidth(self.frame_running_inside.sizePolicy().hasHeightForWidth())
         self.frame_running_inside.setSizePolicy(sizePolicy2)
-        self.frame_running_inside.setMinimumSize(QSize(350, 55))
+        self.frame_running_inside.setMinimumSize(QSize(335, 55))
         self.frame_running_inside.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_running_inside.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_running_inside)
@@ -330,10 +333,10 @@ class Ui_Dialog_add_action(object):
         self.horizontalLayout_5.setStretch(2, 2)
         self.frame_walk = QFrame(self.scrollAreaWidgetContents)
         self.frame_walk.setObjectName(u"frame_walk")
-        self.frame_walk.setGeometry(QRect(10, 170, 350, 55))
+        self.frame_walk.setGeometry(QRect(10, 170, 335, 55))
         sizePolicy2.setHeightForWidth(self.frame_walk.sizePolicy().hasHeightForWidth())
         self.frame_walk.setSizePolicy(sizePolicy2)
-        self.frame_walk.setMinimumSize(QSize(350, 55))
+        self.frame_walk.setMinimumSize(QSize(335, 55))
         self.frame_walk.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_walk.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_walk)
@@ -369,10 +372,10 @@ class Ui_Dialog_add_action(object):
         self.horizontalLayout_6.setStretch(2, 2)
         self.frame_riding = QFrame(self.scrollAreaWidgetContents)
         self.frame_riding.setObjectName(u"frame_riding")
-        self.frame_riding.setGeometry(QRect(10, 240, 350, 55))
+        self.frame_riding.setGeometry(QRect(10, 240, 335, 55))
         sizePolicy2.setHeightForWidth(self.frame_riding.sizePolicy().hasHeightForWidth())
         self.frame_riding.setSizePolicy(sizePolicy2)
-        self.frame_riding.setMinimumSize(QSize(350, 55))
+        self.frame_riding.setMinimumSize(QSize(335, 55))
         self.frame_riding.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_riding.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_riding)
@@ -408,10 +411,10 @@ class Ui_Dialog_add_action(object):
         self.horizontalLayout_7.setStretch(2, 2)
         self.frame_fitness = QFrame(self.scrollAreaWidgetContents)
         self.frame_fitness.setObjectName(u"frame_fitness")
-        self.frame_fitness.setGeometry(QRect(10, 310, 351, 55))
+        self.frame_fitness.setGeometry(QRect(10, 320, 335, 55))
         sizePolicy2.setHeightForWidth(self.frame_fitness.sizePolicy().hasHeightForWidth())
         self.frame_fitness.setSizePolicy(sizePolicy2)
-        self.frame_fitness.setMinimumSize(QSize(350, 55))
+        self.frame_fitness.setMinimumSize(QSize(335, 55))
         self.frame_fitness.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_fitness.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_8 = QHBoxLayout(self.frame_fitness)
@@ -447,10 +450,10 @@ class Ui_Dialog_add_action(object):
         self.horizontalLayout_8.setStretch(2, 2)
         self.frame_jump_rope = QFrame(self.scrollAreaWidgetContents)
         self.frame_jump_rope.setObjectName(u"frame_jump_rope")
-        self.frame_jump_rope.setGeometry(QRect(10, 380, 350, 55))
+        self.frame_jump_rope.setGeometry(QRect(10, 390, 335, 55))
         sizePolicy2.setHeightForWidth(self.frame_jump_rope.sizePolicy().hasHeightForWidth())
         self.frame_jump_rope.setSizePolicy(sizePolicy2)
-        self.frame_jump_rope.setMinimumSize(QSize(350, 55))
+        self.frame_jump_rope.setMinimumSize(QSize(335, 55))
         self.frame_jump_rope.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_jump_rope.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_jump_rope)

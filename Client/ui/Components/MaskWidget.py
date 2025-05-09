@@ -1,3 +1,5 @@
+"""""自定义半透明黑色遮层，用来在弹出窗口时遮住背景"""""
+
 from PySide6.QtWidgets import QWidget
 from PySide6.QtCore import Qt
 class MaskWidget(QWidget):

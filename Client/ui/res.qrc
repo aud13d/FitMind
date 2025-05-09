@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icon/进入.png</file>
     <file>icon/移动.png</file>
     <file>icon/back.png</file>
     <file>icon/a-haoping1.png</file>

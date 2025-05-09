@@ -20,7 +20,6 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCalendarWidge
     QScrollArea, QSizePolicy, QSpacerItem, QSplitter,
     QStackedWidget, QToolButton, QVBoxLayout, QWidget)
 from ..res_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():

@@ -37,9 +37,11 @@ class CancelTrainingDialog(QDialog, Ui_Dialog_cancel_training):
 
         self.new_train_widget = None
 
+
     def bind(self):
         """绑定事件"""
         self.button_cancel_training.clicked.connect(self.handle_cancel_clicked)
+        self.button_cancel.clicked.connect(self.close)
 
     def handle_cancel_clicked(self):
         """点击了取消按钮"""
@@ -47,6 +49,7 @@ class CancelTrainingDialog(QDialog, Ui_Dialog_cancel_training):
 
         if parent_widget:
             parent_widget.stop_timer()  # 停止计时
+            parent_widget.close()  # 关闭 NewTrainWidget
         self.accept()  # 关闭对话框
 
 
