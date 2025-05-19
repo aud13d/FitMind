@@ -50,7 +50,7 @@ def get_error_message(error_code):
     return ERROR_MESSAGES.get(error_code, "An unexpected error occurred!")
 
 # 网络请求
-BASE_URL = "http://127.0.0.1:8000/auth"
+BASE_URL = "http://127.0.0.1:8000/"
 API_TIMEOUT = 10
 PURPOSE_REGISTER = "register"
 PURPOSE_RETRIEVE = "retrieve"
@@ -60,3 +60,6 @@ CancelTrainingQDialog_IconPath = ":/icons/icon/疑惑.png"
 FinishTrainingQDialog_IconPath = ":/icons/icon/a-haoping1.png"
 MoveAddActionQDialog_IconPath = ":/icons/icon/移动.png"
 GoAddActionQDialog_IconPath =":/icons/icon/进入.png"
+TypeSelectionNewAerobicDialog_IconPath = ":/icons/icon/type.png"
+TimeSettingNewAerobicDialog_IconPath = ":/icons/icon/clock.png"
+BodyQFrame_ImagePath = "../image/body.png"

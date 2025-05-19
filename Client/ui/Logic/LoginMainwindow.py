@@ -5,6 +5,8 @@ from Client.ui.Designer.ui_Login import Ui_LoginWindow
 from Client.services.server_auth import AuthService
 from Client.config import get_error_message, PURPOSE_REGISTER, PURPOSE_RETRIEVE
 from .MainInterfaceMainwindow import MainInterfaceWindow
+from Client.services.user_session import UserSession
+
 
 class LoginWindow(QMainWindow):
     def __init__(self):
@@ -14,6 +16,7 @@ class LoginWindow(QMainWindow):
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
+        self.user_id = None
         self.bind()
         self.ui.button_login_confirm.setEnabled(False)
 
@@ -146,6 +149,15 @@ class LoginWindow(QMainWindow):
         if response.status_code == 200:
             message = data.get("message", "Login successful!")
             color = "green"
+
+            user_info = data.get("user_id")
+            if isinstance(user_info, dict):
+                user_id = user_info.get("id")
+            else:
+                user_id = user_info
+
+            UserSession.set_user(user_id=user_id, username=username)
+
             QTimer.singleShot(2000, self.move_to_MainInterfaceWindow)
         else:
             message = data.get("detail", "Invalid username or password!")

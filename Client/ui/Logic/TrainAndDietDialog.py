@@ -2,6 +2,8 @@ from PySide6 import QtCore
 from PySide6.QtWidgets import QDialog
 from Client.ui.Designer.ui_TrainAndDiet import Ui_Dialog_TD
 from .NewTrainWidget import NewTrainWidget
+from .NewAerobicDialog import NewAerobicDialog
+from .NewRestDialog import NewRestDialog
 
 class TrainAndDietDialog(QDialog,Ui_Dialog_TD):
     def __init__(self, parent=None):
@@ -16,10 +18,14 @@ class TrainAndDietDialog(QDialog,Ui_Dialog_TD):
             self.move(parent.x(), parent.y()+100)  # 位置对齐
 
         self.new_train_widget = None
+        self.new_aerobic_widget = None
+        self.new_rest_widget = None
 
     def bind(self):
         """ 绑定事件 """
         self.button_new_train.clicked.connect(self.move_new_train)
+        self.button_new_aerobic.clicked.connect(self.move_new_aerobic)
+        self.button_new_rest.clicked.connect(self.move_new_rest)
 
     def move_new_train(self):
         """ 打开新的训练窗口 """
@@ -31,7 +37,19 @@ class TrainAndDietDialog(QDialog,Ui_Dialog_TD):
 
         self.close()  # 关闭自己
 
+    def move_new_aerobic(self):
+        """ 打开新的有氧界面 """
+        self.new_aerobic_widget = NewAerobicDialog(self.parent())
+        self.new_aerobic_widget.show()
 
+        self.close()
+
+    def move_new_rest(self):
+        """ 打开新的休息界面 """
+        self.new_rest_widget = NewRestDialog(self.parent())
+        self.new_rest_widget.show()
+
+        self.close()
 
 
 

@@ -399,7 +399,7 @@ QToolButton:pressed {
           </widget>
          </item>
          <item>
-          <widget class="QToolButton" name="button_new_break">
+          <widget class="QToolButton" name="button_new_rest">
            <property name="styleSheet">
             <string notr="true">background-color: rgb(255, 170, 255);</string>
            </property>

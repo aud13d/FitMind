@@ -65,3 +65,8 @@ class User(Model):
 
         await user.save()  # 保存更改
         return True  # 如果没有找到用户，返回 False
+
+    @classmethod
+    async def get_user_id(cls, username):
+        return await cls.filter(username=username).first()
+

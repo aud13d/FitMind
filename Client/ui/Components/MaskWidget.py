@@ -1,8 +1,11 @@
 """""自定义半透明黑色遮层，用来在弹出窗口时遮住背景"""""
 
 from PySide6.QtWidgets import QWidget
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, Signal
+
+
 class MaskWidget(QWidget):
+    clicked = Signal()
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowFlag(Qt.FramelessWindowHint, True)  # 去掉边框
@@ -25,4 +28,8 @@ class MaskWidget(QWidget):
         parent_rect = self.parent().geometry()
         self.setGeometry(0, 0, parent_rect.width(), parent_rect.height())
         super().show()
+
+    def mousePressEvent(self, event):
+        self.clicked.emit()
+
 

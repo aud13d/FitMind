@@ -1,12 +1,16 @@
-from PySide6.QtCore import Qt, Signal, QTime, QTimer
+from PySide6.QtCore import Qt, Signal, QTime, QTimer, QDateTime
 
 from Client.ui.Components.ActionFrame import ActionFrame
 from Client.ui.Designer.ui_NewTrain import Ui_Widget_NewTrain
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 from Client.ui.Components.MaskWidget import MaskWidget
+from Client.ui.Components.AcationSettingFrame import ActionSettingFrame
 from Client.ui.Logic.AddActionDialog import AddActionDialog
 from Client.ui.Logic.CancelTrainingDialog import CancelTrainingDialog
 from Client.ui.Logic.FinishTrainingDialog import FinishTrainingDialog
+from Client.services.server_train import TrainService
+from Client.ui.Components.NetworkErrorTipLabel import NetworkErrorTipLabel
+from Client.services.user_session import UserSession
 
 class NewTrainWidget(QWidget):
     minimized_signal = Signal()  # 发送最小化信号给 MainInterfaceWindow
@@ -21,6 +25,8 @@ class NewTrainWidget(QWidget):
         self.timer = QTimer(self)  # 创建定时器
         self.time = QTime(0, 0)  # 计时初始时间设为00:00
         self.timer_running = False
+        self.start_datetime = None
+        self.end_datetime = None
 
         # 初始化动作列表
         self.layout_actions = QVBoxLayout(self.ui.scrollAreaWidgetContents)
@@ -31,6 +37,13 @@ class NewTrainWidget(QWidget):
 
         # 初始化计划状态
         self.has_planned_exercise = False  # 默认没有计划运动
+
+        # 网络错误提示初始化（悬浮小标签，默认隐藏）
+        self.network_error_tip = NetworkErrorTipLabel(self)
+        self.network_error_tip.hide()
+
+        # 用户ID
+        self.user_id = UserSession.get_user_id()
 
         self.bind()
 
@@ -51,6 +64,7 @@ class NewTrainWidget(QWidget):
         """开始计时"""
         self.timer.start(1000)
         self.timer_running = True
+        self.start_datetime = QDateTime.currentDateTime()
         self.ui.button_newtrain_start.setEnabled(False)
         self.ui.button_newtrain_start.setVisible(False)
         self.ui.label_newtrain_time.setStyleSheet("color: blue;font: 700 18pt '微软雅黑';")
@@ -89,6 +103,8 @@ class NewTrainWidget(QWidget):
 
         # 创建并显示对话框
         self.dialog= FinishTrainingDialog(self)
+
+        self.dialog.training_finished_signal.connect(self.handle_train_finish)
         self.dialog.setModal(True)
         self.dialog.show()
         self.dialog.raise_()
@@ -96,6 +112,83 @@ class NewTrainWidget(QWidget):
 
         # 关闭遮罩层
         self.mask.close()
+
+    def calculate_training_times(self):
+        """计算训练时长、结束时间和格式化时间字符串"""
+        duration = self.time.hour() * 60 + self.time.minute() + self.time.second() / 60.0
+        end_datetime = self.start_datetime.addSecs(
+            self.time.hour() * 3600 + self.time.minute() * 60 + self.time.second()
+        )
+        start_date_str = self.start_datetime.toString("yyyy-MM-dd HH:mm:ss") if self.start_datetime else ""
+        end_date_str = end_datetime.toString("yyyy-MM-dd HH:mm:ss") if end_datetime else ""
+        return duration, end_datetime, start_date_str, end_date_str
+
+    def handle_train_finish(self):
+        """封装完成训练后调用接口的整个流程"""
+        user_id = self.user_id
+        name = self.ui.lineEdit_newtrain_trainging_title.text()
+
+        duration, self.end_datetime, start_date, end_date = self.calculate_training_times()
+
+        actions = self.get_action_data()
+        if not actions:
+            self.show_tip("Please add at least one action!", success=False)
+            return
+
+        response = TrainService.request_train_finish(user_id, name, duration, start_date, end_date, actions)
+
+        if response is None:
+            self.show_tip("Network error, please try again!", success=False)
+            return
+
+        try:
+            data = response.json()
+        except ValueError:
+            self.show_tip("Invalid server response.", success=False)
+            return
+
+        if response.status_code == 200:
+            message = data.get("message", "Training completed!")
+            self.show_tip(message, success=True)
+            print("Successfully!", message)
+        else:
+            message = data.get("detail", "Training submission failed.")
+            self.show_tip(message, success=False)
+            print("Failed:", message)
+
+    def show_tip(self, message, success=True):
+        """用NetworkErrorTipLabel显示提示，自动处理消息类型和样式"""
+        # 如果是列表或者字典，转成字符串显示，防止setText报错
+        if not isinstance(message, str):
+            if isinstance(message, list) or isinstance(message, dict):
+                import json
+                message = json.dumps(message, ensure_ascii=False, indent=2)
+            else:
+                message = str(message)
+
+        if success:
+            self.network_error_tip.setStyleSheet("color: white; background-color: rgba(0, 128, 0, 180);")
+        else:
+            self.network_error_tip.setStyleSheet("color: white; background-color: rgba(255, 0, 0, 180);")
+
+        self.network_error_tip.show_message(message)
+
+    def get_action_data(self):
+        """遍历 layout 中所有 ActionFrame，提取动作信息"""
+        actions = []
+        for i in range(self.layout_actions.count()):
+            item = self.layout_actions.itemAt(i).widget()
+            if isinstance(item, ActionFrame):
+                action_info = {
+                    "name": item.name,
+                    "sets": item.sets,
+                    "reps": item.reps,
+                    "rest_time": item.rest_time,
+                    "order": i + 1, # 按照添加顺序排序
+                    "note": item.note,
+                }
+                actions.append(action_info)
+        return actions
 
     def open_CancelTraining(self):
         """完成训练：取消"""
@@ -120,15 +213,19 @@ class NewTrainWidget(QWidget):
         self.dialog.setModal(True)
         self.dialog.exec_()
 
-    def add_action_frame(self, action_name,action_icon):
+    def add_action_frame(self, action_name, action_icon):
         """添加动作"""
-        action_frame = ActionFrame(action_name,action_icon)
-        if action_frame:
-            action_frame.setFixedSize(335,55)
-            self.layout_actions.addWidget(action_frame)
+        action_frame = ActionFrame(action_name, action_icon)
+        action_frame.setFixedSize(335, 55)
 
-            # 设置有计划运动
-            self.has_planned_exercise = True  # 添加了运动动作，设定为有计划
+        self.layout_actions.addWidget(action_frame)
+
+        self.last_action_frame = action_frame
+        self.has_planned_exercise = True
+
+
+
+
 
 
 

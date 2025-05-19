@@ -54,7 +54,7 @@ class AuthService:
     @staticmethod
     def request_login(username, password):
         """向服务器发送登录请求"""
-        url = f"{BASE_URL}/login"
+        url = f"{BASE_URL}/auth/login"
         data = {"username": username, "password": password}
         try:
             response = requests.post(url, json=data, timeout=API_TIMEOUT)
@@ -67,7 +67,7 @@ class AuthService:
     @staticmethod
     def request_register(username, password, okpassword, email, verification):
         """向服务器发送注册请求"""
-        url = f"{BASE_URL}/register"
+        url = f"{BASE_URL}/auth/register"
         data = {
             "email": email,
             "username": username,
@@ -87,7 +87,7 @@ class AuthService:
     @staticmethod
     def request_retrieve(email, verification, password, okpassword):
         """向服务器发送找回密码请求"""
-        url = f"{BASE_URL}/retrieve_password"
+        url = f"{BASE_URL}/auth/retrieve_password"
         data = {
             "email": email,
             "verification": verification,
@@ -106,7 +106,7 @@ class AuthService:
     @staticmethod
     def request_verification(email,purpose):
         """向服务器发送验证码请求"""
-        url = f"{BASE_URL}/send_verification"
+        url = f"{BASE_URL}/auth/send_verification"
         data = {
             "email": email,
             "purpose": purpose

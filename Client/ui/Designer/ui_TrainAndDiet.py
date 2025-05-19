@@ -18,7 +18,6 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
     QLabel, QPushButton, QSizePolicy, QToolButton,
     QVBoxLayout, QWidget)
-
 from ..res_rc import *
 
 class Ui_Dialog_TD(object):
@@ -220,15 +219,15 @@ class Ui_Dialog_TD(object):
 
         self.horizontalLayout.addWidget(self.button_new_aerobic)
 
-        self.button_new_break = QToolButton(self.frame_2)
-        self.button_new_break.setObjectName(u"button_new_break")
-        self.button_new_break.setStyleSheet(u"background-color: rgb(255, 170, 255);")
+        self.button_new_rest = QToolButton(self.frame_2)
+        self.button_new_rest.setObjectName(u"button_new_rest")
+        self.button_new_rest.setStyleSheet(u"background-color: rgb(255, 170, 255);")
         icon2 = QIcon()
         icon2.addFile(u":/icons/icon/xiuxi.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.button_new_break.setIcon(icon2)
-        self.button_new_break.setIconSize(QSize(32, 32))
+        self.button_new_rest.setIcon(icon2)
+        self.button_new_rest.setIconSize(QSize(32, 32))
 
-        self.horizontalLayout.addWidget(self.button_new_break)
+        self.horizontalLayout.addWidget(self.button_new_rest)
 
         self.button_body_data = QToolButton(self.frame_2)
         self.button_body_data.setObjectName(u"button_body_data")
@@ -326,7 +325,7 @@ class Ui_Dialog_TD(object):
 " training", None))
         self.button_new_aerobic.setText(QCoreApplication.translate("Dialog_TD", u"New\n"
 " aerobic", None))
-        self.button_new_break.setText(QCoreApplication.translate("Dialog_TD", u"New\n"
+        self.button_new_rest.setText(QCoreApplication.translate("Dialog_TD", u"New\n"
 " break", None))
         self.button_body_data.setText(QCoreApplication.translate("Dialog_TD", u"Body\n"
 "data", None))

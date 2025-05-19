@@ -35,10 +35,15 @@ class AuthService:
         if not await DataService.verify_user_password(username, password):
             raise HTTPException(status_code=400, detail=INVALID_USERNAME_OR_PASSWORD)
 
+        user_id = await DataService.get_user_id(username)
+
+        if not user_id:
+            raise HTTPException(status_code=400, detail=USER_NOT_FOUND)
+
         print("User logged in successfully")
 
         await DataService.set_user_logged_in(username)
-        return {"message": LOGIN_SUCCESSFULLY}
+        return {"message": LOGIN_SUCCESSFULLY,"user_id": user_id,"username": username}
 
     @staticmethod
     async def retrieve_password(email: str, verification: str, password: str, confirm_password: str):

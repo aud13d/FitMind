@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icon/clock.png</file>
+    <file>icon/type.png</file>
     <file>icon/进入.png</file>
     <file>icon/移动.png</file>
     <file>icon/back.png</file>

@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 import uvicorn
 from Server.api.authRouter import router as auth_router
+from Server.api.trainRouter import router as train_router
 from Server.database.postgreSql import Database
 from Server.database.redisClient import RedisClient
 
@@ -22,6 +23,7 @@ app = FastAPI(lifespan=lifespan)
 
 # 注册路由
 app.include_router(auth_router)
+app.include_router(train_router)
 
 if __name__ == "__main__":
     uvicorn.run("main.py:app", host="127.0.0.1", port=8000, reload=True)

@@ -32,6 +32,7 @@ CODE_EXPIRATION = 300
 # 用户名相关
 USERNAME_ALREADY_EXISTS = "Username already exists!"
 USERNAME_MIN_LENGTH_AND_ALPHANUMERIC = "Username must be at least 4 characters,\n and only contain letters and numbers!"
+USER_NOT_FOUND = "User not found!"
 
 # 邮箱相关
 EMAIL_ALREADY_EXISTS = "Email already exists!"
@@ -56,11 +57,21 @@ VERIFICATION_CODE_INCORRECT = "Verification code is incorrect!"
 # 验证相关
 INVALID_USERNAME_OR_PASSWORD = "Invalid username or password!"
 
+# 训练相关
+TRAINING_ACTION_EXIST = "Training action cannot be empty!"
+TRAINING_START_DATE_AFTER_END_DATE = "The start time cannot be later than the end time!"
+TRAINING_DURATION_MUST_BE_POSITIVE = "Training duration must be positive!"
+TRAINING_CREATE_FAILED = "Training creation failed!"
+
+# 运动数据相关
+TRAINING_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
+
 # 成功提示
 VERIFICATION_SENT = "Verification has been sent to your email!"
 VERIFICATION_CODE_FAILED = "Verification code could not be sent!"
 REGISTRATION_SUCCESSFULLY = "Registration successfully!"
 PASSWORD_RESET_SUCCESSFULLY = "Password reset successfully!"
 LOGIN_SUCCESSFULLY = "Login successfully!"
+TRAINING_FINISH = "Training finished successfully!"
 
 

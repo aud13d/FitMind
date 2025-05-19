@@ -1,6 +1,11 @@
+from typing import List
+
 from ..models.user import User
 from ..database.redisClient import RedisClient
 from .config import CODE_EXPIRATION
+from ..models.userSportsInfo import UserSportsInfo
+from ..models.train import Train
+
 class DataService:
     @staticmethod
     async def check_email_exists(email: str):
@@ -35,6 +40,11 @@ class DataService:
         await User.create_user(email, username, password)
 
     @staticmethod
+    async def get_user_id(username: str):
+        """获取用户ID"""
+        return await User.get_user_id(username)
+
+    @staticmethod
     async def set_user_logged_in(username:str):
         """设置用户登录状态"""
         await User.set_logged_in(username)
@@ -59,3 +69,26 @@ class DataService:
     async def set_verification_code_to_redis(email: str, code: str, expire: int = CODE_EXPIRATION):
         """将验证码存储到Redis中"""
         await RedisClient.set(email, code, expire=expire)
+
+    @staticmethod
+    async def get_or_create_sports_info(user_id: int):
+        """获取/创建用户运动信息"""
+        return await UserSportsInfo.get_or_create_sports_info(user_id=user_id)
+
+    @staticmethod
+    async def create_new_train(sports_info, name: str, duration: float, start_date, end_date, actions: List[dict]):
+        """新建训练"""
+        return await Train.create_new_train(
+            sports_info=sports_info,
+            name=name,
+            duration=duration,
+            start_date=start_date,
+            end_date=end_date,
+            actions=actions
+        )
+
+    @staticmethod
+    async def add_duration(user_id: int, duration: float):
+        """增加运动时长"""
+        await UserSportsInfo.add_duration(user_id, duration)
+

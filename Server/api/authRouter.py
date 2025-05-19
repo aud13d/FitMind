@@ -36,7 +36,6 @@ async def retrieve(user: RetrieveRequest):
         password=user.password,
         confirm_password=user.okpassword
     )
-
     return response
 
 # 发送验证码
@@ -45,4 +44,6 @@ async def send_verification(user: SendVerificationRequest):
     """接收客户端的发送验证码请求"""
     response = await AuthService.send_verification_code(user.email,user.purpose)
     return response
+
+
 

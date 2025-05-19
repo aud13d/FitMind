@@ -1,4 +1,5 @@
 from PySide6 import QtCore
+from PySide6.QtCore import Signal
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QDialog
 from Client.ui.Designer.ui_FinishTraining import Ui_Dialog_finish_training
@@ -7,6 +8,7 @@ from ..res_rc import *
 
 
 class FinishTrainingDialog(QDialog, Ui_Dialog_finish_training):
+    training_finished_signal = Signal()
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
@@ -45,6 +47,7 @@ class FinishTrainingDialog(QDialog, Ui_Dialog_finish_training):
 
         if parent_widget:
             parent_widget.stop_timer()  # 停止计时
+            self.training_finished_signal.emit()
             parent_widget.close()  # 关闭 NewTrainWidget
         self.accept()  # 关闭对话框
 
