@@ -1,5 +1,6 @@
-from typing import List
+from typing import List, Literal
 
+from ..models.aerobic import Aerobic
 from ..models.user import User
 from ..database.redisClient import RedisClient
 from .config import CODE_EXPIRATION
@@ -85,6 +86,21 @@ class DataService:
             start_date=start_date,
             end_date=end_date,
             actions=actions
+        )
+
+    @staticmethod
+    async def create_new_aerobic(sports_info,name:str,aerobic_type: Literal["steady", "interval"],really_time:float,target_time:int,start_date,end_date,interval:int,interval_items:List[dict]):
+        """新建有氧记录"""
+        return await Aerobic.create_new_aerobic(
+            sports_info=sports_info,
+            name=name,
+            type=aerobic_type,
+            really_time=really_time,
+            target_time=target_time,
+            start_date=start_date,
+            end_date=end_date,
+            interval_reminder=interval if type == "interval" else None,
+            items=interval_items if type == "interval" else None
         )
 
     @staticmethod

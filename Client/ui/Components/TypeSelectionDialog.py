@@ -116,8 +116,8 @@ class TypeSelectionDialog(QDialog):
         frame_layout.addLayout(title_layout)
 
         # 类型选择按钮横排
-        self.btn_uniform = QPushButton("Uniform Aerobic")
-        self.btn_variable = QPushButton("Variable Speed")
+        self.btn_uniform = QPushButton("Steady aerobic")
+        self.btn_variable = QPushButton("Interval spead")
         for btn in (self.btn_uniform, self.btn_variable):
             btn.setCheckable(True)
             btn.setProperty("typeButton", "true")
@@ -170,8 +170,8 @@ class TypeSelectionDialog(QDialog):
 
     def on_confirm(self):
         if self.btn_uniform.isChecked():
-            self.type_confirmed.emit("匀速有氧", 0)
+            self.type_confirmed.emit("Steady aerobic", 0)
         else:
             seconds = self.slider.value()
-            self.type_confirmed.emit("变速有氧", seconds)
+            self.type_confirmed.emit("Interval spead", seconds)
         self.accept()

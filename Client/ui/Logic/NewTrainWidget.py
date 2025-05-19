@@ -124,7 +124,7 @@ class NewTrainWidget(QWidget):
         return duration, end_datetime, start_date_str, end_date_str
 
     def handle_train_finish(self):
-        """封装完成训练后调用接口的整个流程"""
+        """完成训练后调用接口的整个流程"""
         user_id = self.user_id
         name = self.ui.lineEdit_newtrain_trainging_title.text()
 

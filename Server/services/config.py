@@ -63,8 +63,16 @@ TRAINING_START_DATE_AFTER_END_DATE = "The start time cannot be later than the en
 TRAINING_DURATION_MUST_BE_POSITIVE = "Training duration must be positive!"
 TRAINING_CREATE_FAILED = "Training creation failed!"
 
+# 有氧相关
+AEROBIC_START_DATE_AFTER_END_DATE = "The start time cannot be later than the end time!"
+AEROBIC_DURATION_MUST_BE_POSITIVE = "Aerobics duration must be positive!"
+AEROBIC_INTERVAL_REMINDER_INVALID = "Interval reminder must be a positive integer!"
+AEROBIC_INTERVAL_ITEMS_REQUIRED = "Interval items are required!"
+AEROBIC_CREATE_FAILED = "Aerobic creation failed!"
+
 # 运动数据相关
 TRAINING_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
+AEROBIC_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 
 # 成功提示
 VERIFICATION_SENT = "Verification has been sent to your email!"
@@ -73,5 +81,6 @@ REGISTRATION_SUCCESSFULLY = "Registration successfully!"
 PASSWORD_RESET_SUCCESSFULLY = "Password reset successfully!"
 LOGIN_SUCCESSFULLY = "Login successfully!"
 TRAINING_FINISH = "Training finished successfully!"
+AEROBIC_CONFIRM = "Aerobic confirmed successfully!"
 
 

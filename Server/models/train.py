@@ -8,7 +8,7 @@ from Server.models.trainItem import TrainItem
 
 class Train(Model):
     id = fields.IntField(pk=True)
-    sports_info = fields.ForeignKeyField('models.UserSportsInfo', related_name='train_plans')
+    sports_info = fields.ForeignKeyField('models.UserSportsInfo', related_name='trains')
     name = fields.CharField(max_length=255)
     duration = fields.FloatField()
     start_date = fields.DatetimeField()
@@ -37,7 +37,7 @@ class Train(Model):
 
         daily_count = today_count + 1
         if not name:
-            name = f"第{daily_count}次训练"
+            name = f"第{daily_count}练"
 
         train = await cls.create(
             sports_info=sports_info,
