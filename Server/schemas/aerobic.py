@@ -16,4 +16,4 @@ class AerobicConfirmRequest(BaseModel):
     start_date: datetime         # 开始时间
     end_date: datetime           # 结束时间
     interval_reminder: Optional[int] = None  # 变速提醒间隔秒数
-    items: Optional[List[AerobicItem]] = None  # 子项详情
+    interval_items: Optional[List[AerobicItem]] = None  # 子项详情

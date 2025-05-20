@@ -42,3 +42,8 @@ class UserSportsInfo(Model):
             return info
         return None
 
+    @classmethod
+    async def get_full_sports_info(cls, user_id: int):
+        return await cls.get(user_id=user_id).prefetch_related('trains', 'aerobics')
+
+

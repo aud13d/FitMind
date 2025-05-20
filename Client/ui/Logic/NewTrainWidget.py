@@ -11,6 +11,7 @@ from Client.ui.Logic.FinishTrainingDialog import FinishTrainingDialog
 from Client.services.server_train import TrainService
 from Client.ui.Components.NetworkErrorTipLabel import NetworkErrorTipLabel
 from Client.services.user_session import UserSession
+import json
 
 class NewTrainWidget(QWidget):
     minimized_signal = Signal()  # 发送最小化信号给 MainInterfaceWindow
@@ -161,7 +162,6 @@ class NewTrainWidget(QWidget):
         # 如果是列表或者字典，转成字符串显示，防止setText报错
         if not isinstance(message, str):
             if isinstance(message, list) or isinstance(message, dict):
-                import json
                 message = json.dumps(message, ensure_ascii=False, indent=2)
             else:
                 message = str(message)

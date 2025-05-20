@@ -1,8 +1,8 @@
 from PySide6 import QtCore
-from PySide6.QtCore import QDate, Qt
+from PySide6.QtCore import QDate, Qt, QDateTime
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import (
-    QDialog
+    QDialog, QApplication
 )
 from datetime import datetime
 from Client.config import TypeSelectionNewAerobicDialog_IconPath, TimeSettingNewAerobicDialog_IconPath
@@ -13,7 +13,10 @@ from Client.ui.Designer.ui_NewAerobic import Ui_NewAerobicDialog
 from Client.ui.Components.TypeSelectionDialog import TypeSelectionDialog
 from Client.ui.Components.DateDialog import DateDialog
 from Client.ui.Components.TimeSettingDialog import TimeSettingDialog
-from Server.services.aerobicService import AerobicService
+from Client.services.server_aerobic import AerobicService
+import json
+
+from Client.ui.Logic.ImplementAerobicDialog import ImplementAerobicDialog
 
 
 class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
@@ -37,10 +40,11 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         self.icon_training_date.setPixmap(dateSetting)
 
         # 初始化状态
-        self.current_mode = "Steady aerobic"
-        self.init_mode = "Steady aerobic >"
+        self.init_mode = "Steady aerobic"
+        self.current_mode = self.init_mode
+        self.init_mode_text = "Steady aerobic >"
         self.target_time_value = 1
-        self.button_type_selection.setText(self.init_mode)
+        self.button_type_selection.setText(self.init_mode_text)
         self.button_time_setting.setText("1 minute >")
         self.button_trainging_date.setText(QDate.currentDate().toString("MMM d, yyyy >"))
 
@@ -50,12 +54,11 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
 
         # 用户ID
         self.user_id = UserSession.get_user_id()
-        self.start_time = datetime.now()
-        self.end_time = datetime.now()
+        self.start_time = QDateTime.currentDateTime()
+        self.end_time = QDateTime.currentDateTime()
+        self.really_time = 0.0
 
         self.bind()
-
-
 
     def bind(self):
         # 绑定信号
@@ -63,10 +66,38 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         self.button_time_setting.clicked.connect(self.open_time_dialog)
         self.button_trainging_date.clicked.connect(self.open_date_dialog)
         self.button_complete.clicked.connect(self.complete_aerobic)
+        self.button_start.clicked.connect(self.start_aerobic)
+
+    def start_aerobic(self):
+        """转至有氧运动运行界面"""
+        if not self.validate_aerobic_name():
+            return
+
+        name = self.lineEdit_Aerobic_name.text()
+        mode = self.current_mode
+        target_time = self.target_time_value
+
+        dialog = ImplementAerobicDialog(self, aerobic_name=name, aerobic_mode=mode, target_time=target_time)
+        dialog.setWindowFlags(Qt.Window | Qt.FramelessWindowHint)
+
+        dialog.aerobic_finished.connect(self.handle_aerobic_finished)
+
+        dialog.show()
+        dialog.raise_()
+        dialog.activateWindow()
+
+    def handle_aerobic_finished(self, really_time, start_date):
+        """处理有氧运动完成信号"""
+        # 记录开始时间和结束时间
+        self.start_time = start_date
+        self.really_time = really_time
+
+        # 调用发送请求函数
+        self.complete_aerobic()
 
     def validate_aerobic_name(self):
         """验证有氧名称是否为空"""
-        return self.aerobic_name.text() != ""
+        return self.lineEdit_Aerobic_name.text() != ""
 
     def open_type_dialog(self):
         """打开类型选择对话框"""
@@ -133,40 +164,50 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         self.mask.close()
 
     def calculate_aerobic_times(self):
-        """计算开始时间和结束时间，返回实际运动时间（分钟，float）"""
-        # TODO:从执行有氧运动界面获取
-        if self.start_time is None or self.end_time is None:
-            return None
-        start_time = self.start_time
-        end_time = self.end_time
-        return start_time, end_time
+        """计算有氧运动的实际时长、结束时间及格式化时间字符串"""
+        if self.start_time is None or self.really_time is None:
+            return None, None, "", ""
+
+        # 直接用秒数计算结束时间
+        self.end_time = self.start_time.addSecs(int(self.really_time))
+
+        # 转成分钟用于显示和传输
+        really_time_minutes = self.really_time / 60.0
+
+        start_date_str = self.start_time.toString("yyyy-MM-dd HH:mm:ss")
+        end_date_str = self.end_time.toString("yyyy-MM-dd HH:mm:ss")
+
+        return really_time_minutes, self.end_time, start_date_str, end_date_str
 
     def complete_aerobic(self):
-        """完成有氧"""
+        """完成有氧，使用成员变量self.start_time和self.really_time计算"""
         if not self.validate_aerobic_name():
+            self.show_tip("Please enter aerobic name.", success=False)
             return
+
         user_id = self.user_id
-        name = self.aerobic_name.text()
-        type = "steady" if self.current_mode == self.init_mode else "interval"
-        really_time= 1.5 # TODO: 获取实际时间
+        name = self.lineEdit_Aerobic_name.text()
+        type_ = "steady" if self.current_mode == self.init_mode else "interval"
         target_time = self.target_time_value
-        start_date,end_date = self.calculate_aerobic_times()
 
-        # TODO: 判断若为变速则获取子项列表
+        really_time, end_time, start_date, end_date = self.calculate_aerobic_times()
 
-        # 构造请求数据
+        if really_time is None or start_date == "" or end_date == "":
+            self.show_tip("Start time or duration not set.", success=False)
+            return
+
         response = AerobicService.request_aerobic_complete(
             user_id,
             name,
-            type,
-            really_time,  # TODO：后续替换为实际时间计算
+            type_,
+            really_time,
             target_time,
             start_date,
             end_date,
         )
 
         if response is None:
-            self.show_tip("Network error, please try again!",success=False)
+            self.show_tip("Network error, please try again!", success=False)
             return
 
         try:
@@ -179,6 +220,7 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
             message = data.get("message", "Aerobic completed!")
             self.show_tip(message, success=True)
             print("Successfully!", message)
+            self.close()  # 完成后关闭窗口
         else:
             message = data.get("detail", "Aerobic submission failed.")
             self.show_tip(message, success=False)
@@ -189,7 +231,6 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         # 如果是列表或者字典，转成字符串显示，防止setText报错
         if not isinstance(message, str):
             if isinstance(message, list) or isinstance(message, dict):
-                import json
                 message = json.dumps(message, ensure_ascii=False, indent=2)
             else:
                 message = str(message)

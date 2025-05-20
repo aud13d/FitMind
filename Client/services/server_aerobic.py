@@ -3,14 +3,14 @@ from Client.config import BASE_URL, API_TIMEOUT
 
 class AerobicService:
     @staticmethod
-    def request_aerobic_complete(user_id: int, name: str, type_: str, really_time: float, target_time: int,
+    def request_aerobic_complete(user_id: int, name: str, type: str, really_time: float, target_time: int,
                                start_date: str, end_date: str, interval_reminder: int = None, items: list = None):
         """向服务端发送有氧训练完成请求"""
         url = f"{BASE_URL}/aerobic/complete"
         data = {
             "user_id": user_id,
             "name": name,
-            "type": type_,
+            "type": type,
             "really_time": really_time,
             "target_time": target_time,
             "start_date": start_date,
