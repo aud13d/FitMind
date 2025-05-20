@@ -16,7 +16,6 @@ async def confirm(aerobic: AerobicConfirmRequest):
         target_time=aerobic.target_time,
         start_date=aerobic.start_date,
         end_date=aerobic.end_date,
-        interval_reminder=aerobic.interval_reminder,
         interval_items=aerobic.interval_items
     )
     return response

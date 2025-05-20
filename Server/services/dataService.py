@@ -89,7 +89,7 @@ class DataService:
         )
 
     @staticmethod
-    async def create_new_aerobic(sports_info,name:str,aerobic_type: Literal["steady", "interval"],really_time:float,target_time:int,start_date,end_date,interval_reminder:int=None,interval_items:List[dict]=None):
+    async def create_new_aerobic(sports_info,name:str,aerobic_type: Literal["steady", "interval"],really_time:float,target_time:int,start_date,end_date,interval_items:List[dict]=None):
         """新建有氧记录"""
         return await Aerobic.create_new_aerobic(
             sports_info=sports_info,
@@ -99,7 +99,6 @@ class DataService:
             target_time=target_time,
             start_date=start_date,
             end_date=end_date,
-            interval_reminder=interval_reminder if type == "interval" else None,
             items=interval_items if type == "interval" else None
         )
 

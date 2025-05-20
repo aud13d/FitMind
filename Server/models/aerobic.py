@@ -16,7 +16,7 @@ class Aerobic(Model):
     target_time = fields.FloatField()
     start_date = fields.DatetimeField()
     end_date = fields.DatetimeField()
-    interval_reminder = fields.IntField(null=True)
+
     created_at = fields.DatetimeField(auto_now_add=True)
     updated_at = fields.DatetimeField(auto_now=True)
     daily_count = fields.IntField()
@@ -26,7 +26,7 @@ class Aerobic(Model):
         table = "aerobics"
 
     @classmethod
-    async def create_new_aerobic(cls,sports_info,name: str,type: Literal["steady", "interval"],really_time: float,target_time:int,start_date: datetime,end_date: datetime,interval_reminder: Optional[int] = None,items: Optional[List[dict]] = None ):
+    async def create_new_aerobic(cls,sports_info,name: str,type: Literal["steady", "interval"],really_time: float,target_time:int,start_date: datetime,end_date: datetime,items: Optional[List[dict]] = None ):
         """创建有氧记录，并在变速类型下创建子项"""
         aerobic_date: date = start_date.date()
 
@@ -49,7 +49,6 @@ class Aerobic(Model):
             target_time=target_time,
             start_date=start_date,
             end_date=end_date,
-            interval_reminder=interval_reminder if type == "interval" else None,
             daily_count=daily_count
         )
 

@@ -58,6 +58,10 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         self.end_time = QDateTime.currentDateTime()
         self.really_time = 0.0
 
+        self.spead=0
+        self.interval=0
+        self.interval_items = None
+
         self.bind()
 
     def bind(self):
@@ -71,13 +75,15 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
     def start_aerobic(self):
         """转至有氧运动运行界面"""
         if not self.validate_aerobic_name():
+            self.show_tip("Please enter aerobic name.", success=False)
             return
 
         name = self.lineEdit_Aerobic_name.text()
         mode = self.current_mode
         target_time = self.target_time_value
+        interval = self.interval
 
-        dialog = ImplementAerobicDialog(self, aerobic_name=name, aerobic_mode=mode, target_time=target_time)
+        dialog = ImplementAerobicDialog(self, aerobic_name=name, aerobic_mode=mode, target_time=target_time, interval = interval)
         dialog.setWindowFlags(Qt.Window | Qt.FramelessWindowHint)
 
         dialog.aerobic_finished.connect(self.handle_aerobic_finished)
@@ -119,8 +125,9 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
     def update_type_display(self, type_name, seconds):
         """更新类型显示"""
         self.current_mode = type_name
-        if type_name == "Interval spead":
-            self.button_type_selection.setText(f"Interval spead，{seconds }seconds >")
+        self.interval=seconds
+        if self.current_mode == "Interval spead":
+            self.button_type_selection.setText(f"Interval spead，{seconds} seconds >")
         else:
             self.button_type_selection.setText(f"{type_name} >")
 
@@ -190,11 +197,15 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         type_ = "steady" if self.current_mode == self.init_mode else "interval"
         target_time = self.target_time_value
 
+        self.interval_items = [self.spead,self.interval] if type_ == "interval" else None
+
         really_time, end_time, start_date, end_date = self.calculate_aerobic_times()
 
         if really_time is None or start_date == "" or end_date == "":
             self.show_tip("Start time or duration not set.", success=False)
             return
+
+        interval_items = self.interval_items if type_ == "interval" else None
 
         response = AerobicService.request_aerobic_complete(
             user_id,
@@ -204,6 +215,7 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
             target_time,
             start_date,
             end_date,
+            interval_items
         )
 
         if response is None:

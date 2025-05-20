@@ -9,7 +9,7 @@ from Client.ui.Designer.ui_ImplementAerobic import Ui_ImplementAerobicDialog
 
 class ImplementAerobicDialog(QDialog, Ui_ImplementAerobicDialog):
     aerobic_finished = QtCore.Signal(float, QtCore.QDateTime)
-    def __init__(self, parent=None,aerobic_name="", aerobic_mode="Steady aerobic",target_time=1):
+    def __init__(self, parent=None,aerobic_name="", aerobic_mode="Steady aerobic",target_time=1, interval=None):
         super().__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(Qt.FramelessWindowHint)
@@ -43,6 +43,7 @@ class ImplementAerobicDialog(QDialog, Ui_ImplementAerobicDialog):
         self.set_aerobic_name()
         self.aerobic_mode = aerobic_mode
         self.target_time = target_time
+        self.interval = interval
 
         self.elapsed_seconds = 0
         self.is_running = False
@@ -82,8 +83,8 @@ class ImplementAerobicDialog(QDialog, Ui_ImplementAerobicDialog):
     def set_aerobic_hint(self):
         if self.aerobic_mode == "Steady aerobic":
             self.label_aerobic_hint.setText(f"Steady aerobic,Target time: {self.target_time}min")
-        elif self.aerobic_mode == "Interval aerobic":
-            self.label_aerobic_hint.setText(f"Interval aerobic,Target time: {self.target_time}min")
+        elif self.aerobic_mode == "Interval spead":
+            self.label_aerobic_hint.setText(f"Change speed every {self.interval} seconds")
 
     def start_aerobic(self):
         self.start_datetime = QDateTime.currentDateTime()  # 记录开始时间
