@@ -70,9 +70,13 @@ AEROBIC_INTERVAL_REMINDER_INVALID = "Interval reminder must be a positive intege
 AEROBIC_INTERVAL_ITEMS_REQUIRED = "Interval items are required!"
 AEROBIC_CREATE_FAILED = "Aerobic creation failed!"
 
+# 休息相关
+REST_CREATE_FAILED = "Rest creation failed!"
+
 # 运动数据相关
 TRAINING_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 AEROBIC_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
+REST_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 
 # 成功提示
 VERIFICATION_SENT = "Verification has been sent to your email!"
@@ -82,5 +86,6 @@ PASSWORD_RESET_SUCCESSFULLY = "Password reset successfully!"
 LOGIN_SUCCESSFULLY = "Login successfully!"
 TRAINING_FINISH = "Training finished successfully!"
 AEROBIC_CONFIRM = "Aerobic confirmed successfully!"
+REST_SAVE="Rest saved successfully!"
 
 

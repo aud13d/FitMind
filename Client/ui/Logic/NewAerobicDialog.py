@@ -187,7 +187,7 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         return really_time_minutes, self.end_time, start_date_str, end_date_str
 
     def complete_aerobic(self):
-        """完成有氧，使用成员变量self.start_time和self.really_time计算"""
+        """完成有氧"""
         if not self.validate_aerobic_name():
             self.show_tip("Please enter aerobic name.", success=False)
             return

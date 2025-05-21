@@ -1,6 +1,7 @@
 from typing import List, Literal
 
 from ..models.aerobic import Aerobic
+from ..models.rest import Rest
 from ..models.user import User
 from ..database.redisClient import RedisClient
 from .config import CODE_EXPIRATION
@@ -100,6 +101,16 @@ class DataService:
             start_date=start_date,
             end_date=end_date,
             items=interval_items if type == "interval" else None
+        )
+
+    @staticmethod
+    async def create_new_rest(sports_info, title:str, date, color:str):
+        """新建休息记录"""
+        return await Rest.create_new_rest(
+            sports_info=sports_info,
+            title=title,
+            date=date,
+            color=color
         )
 
     @staticmethod

@@ -4,7 +4,8 @@ TORTOISE_MODELS = ["Server.models.user",
                    "Server.models.train",
                    "Server.models.trainItem",
                    "Server.models.aerobic",
-                   "Server.models.aerobicItem"]  # 将模型路径添加到列表中
+                   "Server.models.aerobicItem",
+                   "Server.models.rest"]  # 将模型路径添加到列表中
 
 # PostgreSQL数据库
 DATABASE_CONFIG = {

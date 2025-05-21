@@ -1,13 +1,19 @@
+import json
+
 from PySide6.QtCore import QDate, QLocale, Qt
 from PySide6.QtWidgets import (QDialog, QCalendarWidget,
                                QVBoxLayout, QDialogButtonBox, QApplication,  QDateEdit)
-from Client.ui.Designer.ui_NewRest import Ui_Dialog_add_action
+
+from Client.services.server_rest import RestService
+from Client.services.user_session import UserSession
+from Client.ui.Components.NetworkErrorTipLabel import NetworkErrorTipLabel
+from Client.ui.Designer.ui_NewRest import Ui_Dialog_NewRest
 
 
 class NewRestDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.ui = Ui_Dialog_add_action()
+        self.ui = Ui_Dialog_NewRest()
         self.ui.setupUi(self)
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -17,28 +23,100 @@ class NewRestDialog(QDialog):
 
         # 初始化设置
         self.init_date()
-        self.connect_reason_buttons()
-        self.ui.pushButton_8.clicked.connect(self.show_calendar_dialog)
         self.init_color_buttons()
-        self.ui.pushButton.clicked.connect(self.reject)
-        self.ui.pushButton_2.clicked.connect(self.accept)
+
+        # 用户ID
+        self.user_id = UserSession.get_user_id()
+
+        # 网络错误提示初始化（悬浮小标签，默认隐藏）
+        self.network_error_tip = NetworkErrorTipLabel(self)
+        self.network_error_tip.hide()
+
+        self.bind()
+
+
+    def bind(self):
+        self.connect_reason_buttons()
+        self.ui.button_date_setting.clicked.connect(self.show_calendar_dialog)
+        self.ui.button_return.clicked.connect(self.reject)
+        self.ui.button_save.clicked.connect(self.save_rest)
+
+    def save_rest(self):
+        """保存休息"""
+        user_id = self.user_id
+        title = self.ui.lineEdit_rest_title.text()
+        date_text = self.ui.button_date_setting.text()
+
+        # 使用 QLocale 英文解析按钮上的日期文本（如 "May 21, 2025"）
+        locale = QLocale(QLocale.English)
+        qdate = locale.toDate(date_text, "MMM d, yyyy")
+
+        if not qdate.isValid():
+            qdate = QDate.currentDate()  # fallback，避免出错
+
+        # 转换为 ISO 格式字符串："2025-05-21"
+        date = qdate.toString(Qt.ISODate)
+
+        color = self.get_selected_color()
+
+        if not title:
+            title = "Rest Day"
+
+        response = RestService.request_rest_save(user_id, title, date, color)
+
+        if response is None:
+            self.show_tip("Network Error,please try again!", success=False)
+            return
+
+        try:
+            data = response.json()
+        except ValueError:
+            self.show_tip("Invalid server response.", success=False)
+            return
+
+        if response.status_code == 200:
+            message = data.get("message", "Rest saved!")
+            self.show_tip(message, success=True)
+            print("Successfully!", message)
+            self.close()
+        else:
+            message = data.get("detail", "Rest save failed.")
+            self.show_tip(message, success=False)
+            print("Failed:", message)
+
+    def show_tip(self, message, success=True):
+        """用NetworkErrorTipLabel显示提示，自动处理消息类型和样式"""
+        # 如果是列表或者字典，转成字符串显示，防止setText报错
+        if not isinstance(message, str):
+            if isinstance(message, list) or isinstance(message, dict):
+                message = json.dumps(message, ensure_ascii=False, indent=2)
+            else:
+                message = str(message)
+
+        if success:
+            self.network_error_tip.setStyleSheet("color: white; background-color: rgba(0, 128, 0, 180);")
+        else:
+            self.network_error_tip.setStyleSheet("color: white; background-color: rgba(255, 0, 0, 180);")
+
+        self.network_error_tip.show_message(message)
+
 
     def init_date(self):
         """初始化日期显示"""
         locale = QLocale(QLocale.English)
         current_date = locale.toString(QDate.currentDate(), "MMM d, yyyy")
-        self.ui.pushButton_8.setText(current_date)
+        self.ui.button_date_setting.setText(current_date)
 
     def connect_reason_buttons(self):
         """连接原因按钮到文本框"""
         reason_buttons = [
-            self.ui.pushButton_9,  # Rest Day
-            self.ui.pushButton_10,  # Busy
-            self.ui.pushButton_12,  # Fall Ill
-            self.ui.pushButton_11  # Be Injured
+            self.ui.button_choice_1,  # Rest Day
+            self.ui.button_choice_2,  # Busy
+            self.ui.button_choice_3,  # Fall Ill
+            self.ui.button_choice_4  # Be Injured
         ]
         for btn in reason_buttons:
-            btn.clicked.connect(lambda _, b=btn: self.ui.lineEdit.setText(b.text()))
+            btn.clicked.connect(lambda _, b=btn: self.ui.lineEdit_rest_title.setText(b.text()))
 
     def show_calendar_dialog(self):
         """显示自定义日历对话框"""
@@ -53,7 +131,7 @@ class NewRestDialog(QDialog):
 
         # 解析当前日期
         locale = QLocale(QLocale.English)
-        current_text = self.ui.pushButton_8.text()
+        current_text = self.ui.button_date_setting.text()
         current_date = locale.toDate(current_text, "MMM d, yyyy")
 
         # 无效日期处理
@@ -78,25 +156,25 @@ class NewRestDialog(QDialog):
         if dialog.exec() == QDialog.DialogCode.Accepted:
             selected_date = calendar.selectedDate()
             formatted_date = locale.toString(selected_date, "MMM d, yyyy")
-            self.ui.pushButton_8.setText(formatted_date)
+            self.ui.button_date_setting.setText(formatted_date)
 
     def init_color_buttons(self):
         """初始化颜色选择按钮"""
         self.color_buttons = [
-            self.ui.pushButton_4,  # Red
-            self.ui.pushButton_5,  # Orange
-            self.ui.pushButton_6,  # Green
-            self.ui.pushButton_7,  # Blue
-            self.ui.pushButton_3  # Purple
+            self.ui.button_rest_setred,  # Red
+            self.ui.button_rest_setroange,  # Orange
+            self.ui.button_rest_setgreen,  # Green
+            self.ui.button_rest_setblue,  # Blue
+            self.ui.button_rest_setpurple  # Purple
         ]
 
         # 颜色映射表
         self.color_map = {
-            self.ui.pushButton_4: "#FF0000",
-            self.ui.pushButton_5: "#FFA500",
-            self.ui.pushButton_6: "#90EE90",
-            self.ui.pushButton_7: "#87CEEB",
-            self.ui.pushButton_3: "#DDA0DD"
+            self.ui.button_rest_setred: "#FF0000",
+            self.ui.button_rest_setroange: "#FFA500",
+            self.ui.button_rest_setgreen: "#90EE90",
+            self.ui.button_rest_setblue: "#87CEEB",
+            self.ui.button_rest_setpurple: "#DDA0DD"
         }
 
         # 设置按钮样式和属性
@@ -133,14 +211,7 @@ class NewRestDialog(QDialog):
         sender.style().unpolish(sender)
         sender.style().polish(sender)
 
-    def get_rest_data(self):
-        """获取最终数据"""
-        return {
-            "title": self.ui.lineEdit.text(),
-            "date": self.ui.pushButton_8.text(),
-            "color": self.get_selected_color(),
-            "reason": self.ui.lineEdit.text()
-        }
+
 
     def get_selected_color(self):
         """获取当前选中颜色"""
