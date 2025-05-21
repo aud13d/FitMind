@@ -4,7 +4,7 @@ from Client.config import BASE_URL, API_TIMEOUT
 class AerobicService:
     @staticmethod
     def request_aerobic_complete(user_id: int, name: str, type: str, really_time: float, target_time: int,
-                               start_date: str, end_date: str, items: list = None):
+                               start_date: str, end_date: str, interval_items: list = None):
         """向服务端发送有氧训练完成请求"""
         url = f"{BASE_URL}/aerobic/complete"
         data = {
@@ -15,7 +15,7 @@ class AerobicService:
             "target_time": target_time,
             "start_date": start_date,
             "end_date": end_date,
-            "items": items,
+            "interval_items": interval_items,
         }
         try:
             response = requests.post(url, json=data, timeout=API_TIMEOUT)

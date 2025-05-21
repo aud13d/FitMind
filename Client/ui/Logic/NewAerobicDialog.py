@@ -197,7 +197,7 @@ class NewAerobicDialog(QDialog, Ui_NewAerobicDialog):
         type_ = "steady" if self.current_mode == self.init_mode else "interval"
         target_time = self.target_time_value
 
-        self.interval_items = [self.spead,self.interval] if type_ == "interval" else None
+        self.interval_items = [{"speed": self.spead, "interval": self.interval}] if type_ == "interval" else None
 
         really_time, end_time, start_date, end_date = self.calculate_aerobic_times()
 
