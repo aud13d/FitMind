@@ -100,7 +100,7 @@ class DataService:
             target_time=target_time,
             start_date=start_date,
             end_date=end_date,
-            items=interval_items if type == "interval" else None
+            items=interval_items if aerobic_type == "interval" else None
         )
 
     @staticmethod

@@ -17,6 +17,7 @@ class AerobicService:
             "end_date": end_date,
             "interval_items": interval_items,
         }
+        print("interval_items:", interval_items)
         try:
             response = requests.post(url, json=data, timeout=API_TIMEOUT)
             print("服务端返回内容：", response.text)

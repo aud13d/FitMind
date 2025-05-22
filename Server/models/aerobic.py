@@ -53,6 +53,7 @@ class Aerobic(Model):
         )
 
         if type == "interval" and items:
+            items = [item.dict() if not isinstance(item, dict) else item for item in items]
             await AerobicItem.bulk_create_items(aerobic, items)
 
         return aerobic

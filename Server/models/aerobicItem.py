@@ -24,3 +24,4 @@ class AerobicItem(Model):
             for item in items
         ]
         await cls.bulk_create(aerobic_items)
+
