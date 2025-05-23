@@ -6,6 +6,6 @@ from Client.ui.Logic.LoginMainwindow import LoginWindow
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = LoginWindow()
+    window = MainInterfaceWindow()
     window.show()
     sys.exit(app.exec())

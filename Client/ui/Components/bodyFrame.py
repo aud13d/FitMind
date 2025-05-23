@@ -1,4 +1,5 @@
 """""身体数据图"""""
+from datetime import datetime
 
 from PySide6.QtWidgets import QApplication, QLabel, QFrame
 from PySide6.QtGui import QPixmap, QPainter, QPen,  QColor
@@ -6,6 +7,7 @@ from PySide6.QtCore import Qt, QPoint, QRect
 import sys
 
 from Client.config import BodyQFrame_ImagePath
+from Client.ui.Components.RecordListDialog import RecordListDialog
 
 
 class BodyFrame(QFrame):
@@ -19,7 +21,7 @@ class BodyFrame(QFrame):
 
         self.pixmap = QPixmap(BodyQFrame_ImagePath)  # 替换成你的图片路径
         if self.pixmap.isNull():
-            print("警告: 图片加载失败，使用空白图像")
+            print("警告: 图片加载失败")
             self.pixmap = QPixmap(362, 512)
             self.pixmap.fill(Qt.gray)
 
@@ -28,19 +30,19 @@ class BodyFrame(QFrame):
         # 格式: 名称 => (身体部位点比例, 标签位置比例)
         # 单点部位
         self.single_parts = {
-            "肩宽": ((0.58, 0.2), (0.75, 0.10)),
-            "脖围": ((0.49, 0.16), (0.1, 0.07)),
-            "胸围": ((0.5, 0.25), (0.75, 0.19)),
-            "腰围": ((0.57, 0.40), (0.75, 0.34)),
-            "臀围": ((0.43, 0.48), (0.1, 0.42)),
+            "Shoulder": ((0.58, 0.2), (0.75, 0.10)),                # 肩宽
+            "Neck": ((0.49, 0.16), (0.1, 0.07)),                    # 脖围
+            "Chest": ((0.5, 0.25), (0.75, 0.19)),                   # 胸围
+            "Waist": ((0.57, 0.40), (0.75, 0.34)),                  # 腰围
+            "Hip": ((0.43, 0.48), (0.1, 0.42)),                     # 臀围
         }
 
         # 双点部位
         self.paired_parts = {
-            "臂围": ((0.395, 0.28), (0.1, 0.19)),  # 用左点
-            "小臂": ((0.39, 0.4), (0.1, 0.31)),  # 用左点
-            "腿围": ((0.56, 0.62), (0.75, 0.52)),   # 用右点
-            "小腿": ((0.45, 0.8), (0.1, 0.7)),   # 用左点
+            "Arms": ((0.395, 0.28), (0.1, 0.19)),                   # 臂围
+            "Forearms": ((0.39, 0.4), (0.1, 0.31)),                 # 小臂
+            "Legs": ((0.56, 0.62), (0.75, 0.52)),                   # 腿围
+            "Calfs": ((0.45, 0.8), (0.1, 0.7)),                     # 小腿
         }
 
         self.body_points = {}
@@ -57,7 +59,7 @@ class BodyFrame(QFrame):
 
         # 创建成对部位标签，左右两行文字
         for name in self.paired_parts:
-            text = f"{name}-左\n{name}-右"
+            text = f"{name}-L\n{name}-R"
             label = QLabel(text, self)
             label.setStyleSheet("background: white; border: none; border-radius: 4px; padding: 2px;")
             label.setAlignment(Qt.AlignLeft)
@@ -70,16 +72,84 @@ class BodyFrame(QFrame):
         # 为所有标签绑定点击事件
         for name in self.labels:
             label = self.labels[name]
-            label.mousePressEvent = self.set_body_part_data(name, label)
+            label.mousePressEvent = self.set_body_part_data(name)
 
-    def set_body_part_data(self, name, label):
-        """设置身体部位数据"""
+    def set_body_part_data(self, name):
+        """点击身体部位标签打开记录列表"""
         def handler(event):
-            cx = label.x() + label.width() // 2
-            cy = label.y() + label.height() // 2
-            print(f"点击部位: {name}，中心坐标: ({cx}, {cy})")
+            top_widget = self.parent().parent().parent()
+            self.dialog = RecordListDialog(
+                parent=top_widget,
+                input_title=name,
+                unit="cm",
+                date_text=datetime.today().strftime("%Y-%m-%d")
+            )
+
+            # 映射表：name -> 信号连接信息
+            single_part_signals = {
+                "Neck": self.dialog.save_current_neck_signal,
+                "Shoulder": self.dialog.save_current_shoulder_signal,
+                "Chest": self.dialog.save_current_chest_signal,
+                "Waist": self.dialog.save_current_waist_signal,
+                "Hip": self.dialog.save_current_hip_signal,
+            }
+
+            paired_part_signals = {
+                "Arms": (
+                    self.dialog.save_current_arm_left_signal,
+                    self.dialog.save_current_arm_right_signal,
+                ),
+                "Forearms": (
+                    self.dialog.save_current_forearm_left_signal,
+                    self.dialog.save_current_forearm_right_signal,
+                ),
+                "Legs": (
+                    self.dialog.save_current_leg_left_signal,
+                    self.dialog.save_current_leg_right_signal,
+                ),
+                "Calfs": (
+                    self.dialog.save_current_calf_left_signal,
+                    self.dialog.save_current_calf_right_signal,
+                ),
+            }
+
+            if name in single_part_signals:
+                single_part_signals[name].connect(
+                    lambda value: self.update_label_value(name, value)
+                )
+
+            elif name in paired_part_signals:
+                left_signal, right_signal = paired_part_signals[name]
+                left_signal.connect(lambda value: self.update_label_value(name, value, "L"))
+                right_signal.connect(lambda value: self.update_label_value(name, value, "R"))
+
+            else:
+                print(f"未知部位：{name}")
+
+            self.dialog.setModal(True)
+            self.dialog.exec()
 
         return handler
+
+    def update_label_value(self, name: str, value: float,LorR: str=None):
+        """更新标签显示，如：脖围 -> 脖围 35.0"""
+        if name in self.single_parts:
+            self.labels[name].setText(f"{name} {value:.1f}")
+            self.labels[name].adjustSize()
+            self.update_labels()  # 重新布局位置
+
+        if name in self.paired_parts:
+            label = self.labels[name]
+            current_text = label.text()
+            lines = current_text.split("\n")
+            if LorR == "L" and len(lines) >= 1:
+                lines[0] = f"{name}-L {value:.1f}"
+            elif LorR == "R" and len(lines) == 2:
+                lines[1] = f"{name}-R {value:.1f}"
+            label.setText("\n".join(lines))
+            label.adjustSize()
+            self.update_labels()
+
 
     def resizeEvent(self, event):
         """综合调整大小"""
