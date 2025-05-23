@@ -1,3 +1,5 @@
+""""有氧选择类型的弹窗"""""
+
 from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QPushButton,
     QSlider, QLabel, QButtonGroup, QSizePolicy, QWidget, QFrame

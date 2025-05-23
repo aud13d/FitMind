@@ -5,6 +5,7 @@ from Server.api.authRouter import router as auth_router
 from Server.api.trainRouter import router as train_router
 from Server.api.aerobicRouter import router as aerobic_router
 from Server.api.restRouter import router as rest_router
+from Server.api.weightRouter import router as weight_router
 from Server.database.postgreSql import Database
 from Server.database.redisClient import RedisClient
 
@@ -28,6 +29,7 @@ app.include_router(auth_router)
 app.include_router(train_router)
 app.include_router(aerobic_router)
 app.include_router(rest_router)
+app.include_router(weight_router)
 
 if __name__ == "__main__":
     uvicorn.run("main.py:app", host="127.0.0.1", port=8000, reload=True)

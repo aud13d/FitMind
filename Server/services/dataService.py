@@ -1,3 +1,4 @@
+from datetime import date
 from typing import List, Literal
 
 from ..models.aerobic import Aerobic
@@ -5,8 +6,12 @@ from ..models.rest import Rest
 from ..models.user import User
 from ..database.redisClient import RedisClient
 from .config import CODE_EXPIRATION
+from ..models.userBodyInfo import UserBodyInfo
 from ..models.userSportsInfo import UserSportsInfo
 from ..models.train import Train
+from ..models.weightHistory import WeightHistory
+from ..models.weight import Weight
+
 
 class DataService:
     @staticmethod
@@ -118,3 +123,58 @@ class DataService:
         """增加运动时长"""
         await UserSportsInfo.add_duration(user_id, duration)
 
+    @staticmethod
+    async def get_or_create_body_info(user_id: int):
+        """获取/创建用户身体数据"""
+        return await UserBodyInfo.get_or_create_body_info(user_id=user_id)
+
+    @staticmethod
+    async def create_or_update_current_weight(body_info: int, current_weight: float):
+        """创建/更新当前体重"""
+        return await Weight.create_or_update(body_info, current_weight=current_weight)
+
+    @staticmethod
+    async def create_or_update_target_weight(body_info, target_weight: float):
+        """创建/更新目标体重"""
+        return await Weight.create_or_update(body_info, target_weight=target_weight)
+
+    @staticmethod
+    async def create_or_update_body_fat_rate(body_info, body_fat_rate: float):
+        """创建/更新体脂率"""
+        return await Weight.create_or_update(body_info, body_fat_rate=body_fat_rate)
+
+    @staticmethod
+    async def get_current_weight(body_info):
+        """获取当前体重"""
+        return await Weight.get_current_weight(body_info)
+
+    @staticmethod
+    async def get_target_weight(body_info):
+        """获取目标体重"""
+        return await Weight.get_target_weight(body_info)
+
+    @staticmethod
+    async def get_current_body_fat_rate(body_info):
+        """获取当前体脂率"""
+        return await Weight.get_current_body_fat_rate(body_info)
+
+    @staticmethod
+    async def get_weight_history(body_info):
+        """获取历史体重"""
+        return await WeightHistory.get_weight_history(body_info)
+
+    @staticmethod
+    async def get_body_fat_rate_history(body_info):
+        """获取历史体脂率"""
+        return await WeightHistory.get_body_fat_rate_history(body_info)
+
+    @staticmethod
+    async def delete_weight_history_by_date(user_id: int, target_date: date):
+        """删除特定日期的体重记录"""
+        return await WeightHistory.delete_weight_history_by_date(user_id, target_date)
+
+
+    @staticmethod
+    async  def delete_body_fat_rate_history_by_date(user_id: int, target_date: date):
+        """删除特定日期的体脂率记录"""
+        return await WeightHistory.delete_body_fat_rate_history_by_date(user_id, target_date)

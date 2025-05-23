@@ -53,3 +53,5 @@ class FinishTrainingDialog(QDialog, Ui_Dialog_finish_training):
 
 
 
+
+

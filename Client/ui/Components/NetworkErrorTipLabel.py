@@ -1,3 +1,5 @@
+""""这是一个网络错误提示窗口"""""
+
 from PySide6.QtWidgets import QLabel
 from PySide6.QtCore import QTimer, Qt, Property, QEasingCurve, QPropertyAnimation
 from PySide6.QtGui import QColor

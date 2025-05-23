@@ -1,3 +1,5 @@
+"""“”设置时间的弹窗"""""
+
 from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QPushButton,
     QSlider, QLabel, QSizePolicy, QFrame, QWidget

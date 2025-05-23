@@ -1,3 +1,5 @@
+"""""身体数据图"""""
+
 from PySide6.QtWidgets import QApplication, QLabel, QFrame
 from PySide6.QtGui import QPixmap, QPainter, QPen,  QColor
 from PySide6.QtCore import Qt, QPoint, QRect
@@ -10,12 +12,15 @@ class BodyFrame(QFrame):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("身体数据图")
-        self.setMinimumSize(362, 700)
+        self.setMinimumSize(362, 512)
+
+        self.setAttribute(Qt.WA_TranslucentBackground, True)
+        self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint)
 
         self.pixmap = QPixmap(BodyQFrame_ImagePath)  # 替换成你的图片路径
         if self.pixmap.isNull():
             print("警告: 图片加载失败，使用空白图像")
-            self.pixmap = QPixmap(362, 700)
+            self.pixmap = QPixmap(362, 512)
             self.pixmap.fill(Qt.gray)
 
         self.image_rect = QRect()
@@ -52,7 +57,7 @@ class BodyFrame(QFrame):
 
         # 创建成对部位标签，左右两行文字
         for name in self.paired_parts:
-            text = f"{name}-20cm左\n{name}-20cm右"
+            text = f"{name}-左\n{name}-右"
             label = QLabel(text, self)
             label.setStyleSheet("background: white; border: none; border-radius: 4px; padding: 2px;")
             label.setAlignment(Qt.AlignLeft)
@@ -129,8 +134,9 @@ class BodyFrame(QFrame):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
 
-        painter.fillRect(self.rect(), Qt.white)
+        painter.fillRect(self.rect(), Qt.transparent)
         painter.drawPixmap(self.image_rect, self.pixmap)
+
 
         pen = QPen(Qt.darkGray, 1.5)
         painter.setPen(pen)

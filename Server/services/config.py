@@ -78,6 +78,19 @@ TRAINING_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 AEROBIC_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 REST_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 
+# 体重相关
+BODY_INFO_NOT_EXIST = "Body info does not exist!"
+CURRENT_WEIGHT_CREATE_FAILED = "Current weight creation failed!"
+TARGET_WEIGHT_CREATE_FAILED = "Target weight creation failed!"
+BODY_FAT_RATE_CREATE_FAILED = "Body fat rate creation failed!"
+CURRENT_WEIGHT_NOT_EXIST = "Current weight does not exist!"
+TARGET_WEIGHT_NOT_EXIST = "Target weight does not exist!"
+CURRENT_FAT_NOT_EXIST = "Current fat does not exist!"
+WEIGHT_HISTORY_NOT_EXIST = "Weight history does not exist!"
+BODY_FAT_RATE_HISTORY_NOT_EXIST = "Body fat rate history does not exist!"
+
+# 身体数据相关
+
 # 成功提示
 VERIFICATION_SENT = "Verification has been sent to your email!"
 VERIFICATION_CODE_FAILED = "Verification code could not be sent!"
@@ -87,5 +100,13 @@ LOGIN_SUCCESSFULLY = "Login successfully!"
 TRAINING_FINISH = "Training finished successfully!"
 AEROBIC_CONFIRM = "Aerobic confirmed successfully!"
 REST_SAVE="Rest saved successfully!"
-
-
+TARGET_WEIGHT_CREATE_SUCCESSFULLY = "Target weight created successfully!"
+CURRENT_WEIGHT_CREATE_SUCCESSFULLY = "Current weight created successfully!"
+BODY_FAT_RATE_CREATE_SUCCESSFULLY = "Body fat rate created successfully!"
+CURRENT_WEIGHT_GET_SUCCESSFULLY = "Current weight get successfully!"
+TARGET_WEIGHT_GET_SUCCESSFULLY = "Target weight get successfully!"
+CURRENT_BODY_FAT_RATE_GET_SUCCESSFULLY = "Current fat get successfully!"
+WEIGHT_HISTORY_GET_SUCCESSFULLY = "Weight history get successfully!"
+BODY_FAT_RATE_HISTORY_GET_SUCCESSFULLY = "Body fat rate history get successfully!"
+WEIGHT_HISTORY_DELETED_SUCCESSFULLY = "Weight history deleted successfully!"
+BODY_FAT_RATE_HISTORY_DELETED_SUCCESSFULLY = "Body fat rate history deleted successfully!"

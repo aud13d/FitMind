@@ -1,8 +1,9 @@
-# action_setting_frame.py
+"""""这是一个动作的抽屉面板组件"""""
 from PySide6.QtWidgets import QFrame, QVBoxLayout, QPushButton
 from PySide6.QtCore import Qt, Signal
 
 class ActionSettingFrame(QFrame):
+
     closed = Signal()  # 点击遮罩层外部时触发关闭
 
     def __init__(self, parent=None):

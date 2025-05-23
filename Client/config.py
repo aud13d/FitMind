@@ -1,4 +1,6 @@
 # 错误码
+import os
+
 ERROR_CODES = {
     "ERROR_USERNAME_TOO_SHORT": 1001, #用户名太短
     "ERROR_USERNAME_NOT_ALNUM": 1002, #用户名不是字母和数字
@@ -62,4 +64,5 @@ MoveAddActionQDialog_IconPath = ":/icons/icon/移动.png"
 GoAddActionQDialog_IconPath =":/icons/icon/进入.png"
 TypeSelectionNewAerobicDialog_IconPath = ":/icons/icon/type.png"
 TimeSettingNewAerobicDialog_IconPath = ":/icons/icon/clock.png"
-BodyQFrame_ImagePath = "../image/body.png"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # .../Client
+BodyQFrame_ImagePath = os.path.join(BASE_DIR, "ui", "image", "body.png")

@@ -4,6 +4,7 @@ from Client.ui.Designer.ui_TrainAndDiet import Ui_Dialog_TD
 from .NewTrainWidget import NewTrainWidget
 from .NewAerobicDialog import NewAerobicDialog
 from .NewRestDialog import NewRestDialog
+from .BodyDataWidget import BodyDataWidget
 
 class TrainAndDietDialog(QDialog,Ui_Dialog_TD):
     def __init__(self, parent=None):
@@ -26,6 +27,7 @@ class TrainAndDietDialog(QDialog,Ui_Dialog_TD):
         self.button_new_train.clicked.connect(self.move_new_train)
         self.button_new_aerobic.clicked.connect(self.move_new_aerobic)
         self.button_new_rest.clicked.connect(self.move_new_rest)
+        self.button_body_data.clicked.connect(self.move_body_data)
 
     def move_new_train(self):
         """ 打开新的训练窗口 """
@@ -48,6 +50,13 @@ class TrainAndDietDialog(QDialog,Ui_Dialog_TD):
         """ 打开新的休息界面 """
         self.new_rest_widget = NewRestDialog(self.parent())
         self.new_rest_widget.show()
+
+        self.close()
+
+    def move_body_data(self):
+        """ 打开身体数据界面 """
+        self.body_data_widget = BodyDataWidget(self.parent())
+        self.body_data_widget.show()
 
         self.close()
 

@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget_BodyData</class>
+ <widget class="QWidget" name="Widget_BodyData">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>362</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>666</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+	background-color: rgb(255, 255, 255);
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border:none
+}
+
+QPushButton {
+    font: 9pt &quot;微软雅黑&quot;;
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 60px;
+    min-height: 25px;
+
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,2,9">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <property name="leftMargin">
+         <number>6</number>
+        </property>
+        <property name="rightMargin">
+         <number>6</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="button_body_back">
+            <property name="styleSheet">
+             <string notr="true">padding-left: -16px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../res.qrc">
+              <normaloff>:/icons/icon/back.png</normaloff>:/icons/icon/back.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>218</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_4">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    	background-color: #dedede;
+    border: 0 solid transparent;  /* 透明边框 */
+    border-radius: 6px;
+font: 9pt &quot;微软雅黑&quot;;
+	    min-width: 30px;
+    min-height: 15px;
+}
+
+QFrame{
+	background-color :#dedede;
+	border-radius:6px;
+}
+
+QPushButton:checked {
+	background-color: white;  
+	font: 700 9pt &quot;微软雅黑&quot;;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>4</number>
+             </property>
+             <property name="rightMargin">
+              <number>6</number>
+             </property>
+             <property name="bottomMargin">
+              <number>4</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="button_body_kg">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>15</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Kg</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="button_body_g">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>15</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>G</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_3">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    border: 0 solid transparent;  /* 透明边框 */
+    border-radius: 6px;
+font: 9pt &quot;微软雅黑&quot;;
+	background-color: #dedede;
+}
+
+QFrame{
+	background-color :#dedede;
+	border-radius:6px;
+    margin-left: 6px;
+    margin-right: 6px;
+	
+}
+
+QPushButton:checked {
+	background-color: white;  
+	font: 700 9pt &quot;微软雅黑&quot;;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>6</number>
+           </property>
+           <property name="topMargin">
+            <number>4</number>
+           </property>
+           <property name="rightMargin">
+            <number>6</number>
+           </property>
+           <property name="bottomMargin">
+            <number>4</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="button_body_data">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>data</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_body_graph">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>graph</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <property name="leftMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="ClickableLabel" name="label_body_current_weight">
+            <property name="styleSheet">
+             <string notr="true">#label_body_current_weight {
+    background-color: #dedede;
+    width: 100px;
+    height: 40x;
+    border-radius: 6px;      /* 圆角 */
+    text-align: left;       /* 文字靠左 */
+    padding-left: 8px;      /* 加点内边距让文字不贴边 */
+}</string>
+            </property>
+            <property name="text">
+             <string>Current weight,
+Date,
+
+Data kg</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="ClickableLabel" name="label_body_target_weight">
+            <property name="styleSheet">
+             <string notr="true">#label_body_target_weight {
+    background-color: #dedede;
+    width: 100px;
+    height: 40x;
+    border-radius: 6px;      /* 圆角 */
+    text-align: left;       /* 文字靠左 */
+    padding-left: 8px;      /* 加点内边距让文字不贴边 */
+}</string>
+            </property>
+            <property name="text">
+             <string>Target weight,
+Date,
+
+Data kg</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="ClickableLabel" name="label_body_body_fat">
+            <property name="styleSheet">
+             <string notr="true">#label_body_body_fat {
+    background-color: #dedede;
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;      /* 圆角 */
+    text-align: left;       /* 文字靠左 */
+    padding-left: 8px;      /* 加点内边距让文字不贴边 */
+}</string>
+            </property>
+            <property name="text">
+             <string>Body fat,
+date,
+
+Data %</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <widget class="QWidget" name="page_body_data"/>
+        <widget class="QWidget" name="page_body_graph"/>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">Client.ui.Components.ClickableLabel</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../res.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>button_body_back</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget_BodyData</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>25</x>
+     <y>21</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>14</x>
+     <y>-7</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
