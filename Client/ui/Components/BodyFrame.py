@@ -3,7 +3,7 @@ from datetime import datetime
 
 from PySide6.QtWidgets import QApplication, QLabel, QFrame
 from PySide6.QtGui import QPixmap, QPainter, QPen,  QColor
-from PySide6.QtCore import Qt, QPoint, QRect
+from PySide6.QtCore import Qt, QPoint, QRect, Signal
 import sys
 
 from Client.config import BodyQFrame_ImagePath
@@ -11,6 +11,7 @@ from Client.ui.Components.RecordListDialog import RecordListDialog
 
 
 class BodyFrame(QFrame):
+    body_part_clicked = Signal(str)  # 发射部位名称
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("身体数据图")
@@ -69,94 +70,57 @@ class BodyFrame(QFrame):
         self.bind()
 
     def bind(self):
-        # 为所有标签绑定点击事件
-        for name in self.labels:
-            label = self.labels[name]
-            label.mousePressEvent = self.set_body_part_data(name)
+        for name, label in self.labels.items():
+            label.mousePressEvent = self.signal_emit_click(name)
 
-    def set_body_part_data(self, name):
-        """点击身体部位标签打开记录列表"""
+    def signal_emit_click(self, part_name):
         def handler(event):
-            top_widget = self.parent().parent().parent()
-            self.dialog = RecordListDialog(
-                parent=top_widget,
-                input_title=name,
-                unit="cm",
-                date_text=datetime.today().strftime("%Y-%m-%d")
-            )
-
-            # 映射表：name -> 信号连接信息
-            single_part_signals = {
-                "Neck": self.dialog.save_current_neck_signal,
-                "Shoulder": self.dialog.save_current_shoulder_signal,
-                "Chest": self.dialog.save_current_chest_signal,
-                "Waist": self.dialog.save_current_waist_signal,
-                "Hip": self.dialog.save_current_hip_signal,
-            }
-
-            paired_part_signals = {
-                "Arms": (
-                    self.dialog.save_current_arm_left_signal,
-                    self.dialog.save_current_arm_right_signal,
-                ),
-                "Forearms": (
-                    self.dialog.save_current_forearm_left_signal,
-                    self.dialog.save_current_forearm_right_signal,
-                ),
-                "Legs": (
-                    self.dialog.save_current_leg_left_signal,
-                    self.dialog.save_current_leg_right_signal,
-                ),
-                "Calfs": (
-                    self.dialog.save_current_calf_left_signal,
-                    self.dialog.save_current_calf_right_signal,
-                ),
-            }
-
-            if name in single_part_signals:
-                single_part_signals[name].connect(
-                    lambda value: self.update_label_value(name, value)
-                )
-
-            elif name in paired_part_signals:
-                left_signal, right_signal = paired_part_signals[name]
-                left_signal.connect(lambda value: self.update_label_value(name, value, "L"))
-                right_signal.connect(lambda value: self.update_label_value(name, value, "R"))
-
-            else:
-                print(f"未知部位：{name}")
-
-            self.dialog.setModal(True)
-            self.dialog.exec()
-
+            self.body_part_clicked.emit(part_name)
         return handler
 
-    def update_label_value(self, name: str, value: float,LorR: str=None):
-        """更新标签显示，如：脖围 -> 脖围 35.0"""
+    def update_label_value_by_part_name(self, part: str, value: float):
+        part_to_label = {
+            "neck": "Neck",
+            "shoulder": "Shoulder",
+            "chest": "Chest",
+            "waist": "Waist",
+            "hip": "Hip",
+            "arm_left": ("Arms", "L"),
+            "arm_right": ("Arms", "R"),
+            "forearm_left": ("Forearms", "L"),
+            "forearm_right": ("Forearms", "R"),
+            "thigh_left": ("Legs", "L"),
+            "thigh_right": ("Legs", "R"),
+            "calf_left": ("Calfs", "L"),
+            "calf_right": ("Calfs", "R"),
+        }
+
+        if part in part_to_label:
+            mapping = part_to_label[part]
+            if isinstance(mapping, tuple):
+                name, side = mapping
+                self.update_label_value(name, value, side)
+            else:
+                self.update_label_value(mapping, value)
+        else:
+            print(f"未知部位：{part}")
+
+    def update_label_value(self, name: str, value: float, LorR: str = None):
         if name in self.single_parts:
             self.labels[name].setText(f"{name} {value:.1f}")
-            self.labels[name].adjustSize()
-            self.update_labels()  # 重新布局位置
+        elif name in self.paired_parts:
+            current_text = self.labels[name].text().split("\n")
+            if LorR == "L":
+                current_text[0] = f"{name}-L {value:.1f}"
+            elif LorR == "R":
+                if len(current_text) == 2:
+                    current_text[1] = f"{name}-R {value:.1f}"
+                else:
+                    current_text.append(f"{name}-R {value:.1f}")
+            self.labels[name].setText("\n".join(current_text))
 
-        if name in self.paired_parts:
-            label = self.labels[name]
-            current_text = label.text()
-            lines = current_text.split("\n")
-            if LorR == "L" and len(lines) >= 1:
-                lines[0] = f"{name}-L {value:.1f}"
-            elif LorR == "R" and len(lines) == 2:
-                lines[1] = f"{name}-R {value:.1f}"
-            label.setText("\n".join(lines))
-            label.adjustSize()
-            self.update_labels()
-
-
-    def resizeEvent(self, event):
-        """综合调整大小"""
-        self.update_image_rect()
+        self.labels[name].adjustSize()
         self.update_labels()
-        self.update()
-        super().resizeEvent(event)
 
     def update_image_rect(self):
         """更新图片矩形区域"""
@@ -265,6 +229,13 @@ class BodyFrame(QFrame):
                 painter.drawEllipse(QPoint(bx, by), 5, 5)
 
         painter.setBrush(Qt.NoBrush)
+
+    def resizeEvent(self, event):
+        """综合调整大小"""
+        self.update_image_rect()
+        self.update_labels()
+        self.update()
+        super().resizeEvent(event)
 
 
 if __name__ == "__main__":

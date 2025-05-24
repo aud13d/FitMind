@@ -2,11 +2,10 @@ from PySide6 import QtCore
 from PySide6.QtCore import QDate, Qt, QDateTime
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import (
-    QDialog, QApplication
+    QDialog
 )
-from datetime import datetime
 from Client.config import TypeSelectionNewAerobicDialog_IconPath, TimeSettingNewAerobicDialog_IconPath
-from Client.services.user_session import UserSession
+from Client.cache.user_session import UserSession
 from Client.ui.Components.MaskWidget import MaskWidget
 from Client.ui.Components.NetworkErrorTipLabel import NetworkErrorTipLabel
 from Client.ui.Designer.ui_NewAerobic import Ui_NewAerobicDialog

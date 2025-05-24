@@ -2,6 +2,8 @@ from datetime import date
 from typing import List, Literal
 
 from ..models.aerobic import Aerobic
+from ..models.circumference import Circumference
+from ..models.circumferenceHistory import CircumferenceHistory
 from ..models.rest import Rest
 from ..models.user import User
 from ..database.redisClient import RedisClient
@@ -169,12 +171,43 @@ class DataService:
         return await WeightHistory.get_body_fat_rate_history(body_info)
 
     @staticmethod
-    async def delete_weight_history_by_date(user_id: int, target_date: date):
+    async def delete_weight_history_by_date(body_info, target_date: date):
         """删除特定日期的体重记录"""
-        return await WeightHistory.delete_weight_history_by_date(user_id, target_date)
-
+        return await WeightHistory.delete_weight_history_by_date(body_info, target_date)
 
     @staticmethod
-    async  def delete_body_fat_rate_history_by_date(user_id: int, target_date: date):
+    async  def delete_body_fat_rate_history_by_date(body_info, target_date: date):
         """删除特定日期的体脂率记录"""
-        return await WeightHistory.delete_body_fat_rate_history_by_date(user_id, target_date)
+        return await WeightHistory.delete_body_fat_rate_history_by_date(body_info, target_date)
+
+    @staticmethod
+    async def create_or_update_current_circumference(body_info,data:dict):
+        """创建/更新当前身体围度"""
+        return await Circumference.create_or_update(body_info, data)
+
+    @staticmethod
+    async def get_weight_by_user(body_info):
+        """获取用户体重表"""
+        return await Weight.get_by_user(body_info)
+
+    @staticmethod
+    async def get_latest_weight(body_info):
+        """根据体重表从对应的历史记录中获取最新体重"""
+        return await WeightHistory.get_latest_weight(body_info)
+
+    @staticmethod
+    async def get_latest_body_fat_rate(weight_data):
+        """根据体重表从对应的历史记录中获取最新体脂率"""
+        return await WeightHistory.get_latest_body_fat_rate(weight_data)
+
+    @staticmethod
+    async def get_circumferences_by_user(body_info):
+        """获取用户身体围度表"""
+        return await Circumference.get_by_user(body_info)
+
+    @staticmethod
+    async def get_latest_circumference(circumference_data):
+        """根据身体围度表从对应的历史记录中获取最新的身体围度"""
+        return await CircumferenceHistory.get_latest_circumference(circumference_data)
+
+

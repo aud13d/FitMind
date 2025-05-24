@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from datetime import date
 
+
+
 class SaveCurrentWeightRequest(BaseModel):
     """保存当前体重请求体"""
     user_id: int

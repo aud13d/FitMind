@@ -1,9 +1,12 @@
 from tortoise.models import Model
 from tortoise import fields
 
+from Server.models.circumferenceHistory import CircumferenceHistory
+
+
 class Circumference(Model):
     id = fields.IntField(pk=True)
-    body_info = fields.OneToOneField('models.UserBodyInfo', related_name='circumference_data')
+    body_info = fields.OneToOneField('models.UserBodyInfo', related_name='circumference')
 
     neck = fields.FloatField(default=0.0)
     shoulder = fields.FloatField(default=0.0)
@@ -36,6 +39,8 @@ class Circumference(Model):
             await obj.save()
         else:
             obj = await cls.create(body_info=body_info, **data)
+
+        await CircumferenceHistory.record_history(obj, data)
         return obj
 
     @classmethod

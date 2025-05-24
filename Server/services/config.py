@@ -79,7 +79,6 @@ AEROBIC_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 REST_SPORTS_INFO_NOT_EXIST = "Sports info does not exist!"
 
 # 体重相关
-BODY_INFO_NOT_EXIST = "Body info does not exist!"
 CURRENT_WEIGHT_CREATE_FAILED = "Current weight creation failed!"
 TARGET_WEIGHT_CREATE_FAILED = "Target weight creation failed!"
 BODY_FAT_RATE_CREATE_FAILED = "Body fat rate creation failed!"
@@ -89,7 +88,11 @@ CURRENT_FAT_NOT_EXIST = "Current fat does not exist!"
 WEIGHT_HISTORY_NOT_EXIST = "Weight history does not exist!"
 BODY_FAT_RATE_HISTORY_NOT_EXIST = "Body fat rate history does not exist!"
 
+# 围度相关
+SAVE_CURRENT_CIRCUMFERENCE_FAILED = "Save current circumference failed!"
+
 # 身体数据相关
+BODY_INFO_NOT_EXIST = "Body info does not exist!"
 
 # 成功提示
 VERIFICATION_SENT = "Verification has been sent to your email!"
@@ -110,3 +113,4 @@ WEIGHT_HISTORY_GET_SUCCESSFULLY = "Weight history get successfully!"
 BODY_FAT_RATE_HISTORY_GET_SUCCESSFULLY = "Body fat rate history get successfully!"
 WEIGHT_HISTORY_DELETED_SUCCESSFULLY = "Weight history deleted successfully!"
 BODY_FAT_RATE_HISTORY_DELETED_SUCCESSFULLY = "Body fat rate history deleted successfully!"
+CURRENT_CIRCUMFERENCE_SAVE_SUCCESSFULLY = "Current circumference saved successfully!"

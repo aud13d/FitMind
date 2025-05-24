@@ -3,7 +3,6 @@ from ..schemas.weight import *
 from ..services.weightService import WeightService
 
 router = APIRouter(prefix="/body/weight", tags=["Weight"])
-
 # 保存当前体重
 @router.post("/save_current_weight")
 async def save_current_weight(weight: SaveCurrentWeightRequest):
@@ -26,7 +25,7 @@ async def save_target_weight(target_weight: SaveTargetWeightRequest):
     return response
 
 # 保存体脂率
-@router.post("/save_body_fat_rate")
+@router.post("/save_current_body_fat_rate")
 async def save_body_fat_rate(body_fat_rate: SaveBodyFatRateRequest):
     """接收客户端的保存体脂率请求"""
     response = await WeightService.save_body_fat_rate(

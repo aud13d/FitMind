@@ -6,6 +6,31 @@ from Server.services.dataService import  DataService
 
 class WeightService:
     @staticmethod
+    async def get_latest_weight_and_fat(user_id: int):
+        body_info = await DataService.get_or_create_body_info(user_id=user_id)
+        if not body_info:
+            raise HTTPException(status_code=400, detail=BODY_INFO_NOT_EXIST)
+
+        weight_data = await DataService.get_weight_by_user(body_info)
+        weight_history = await DataService.get_latest_weight(weight_data) if weight_data else None
+        fat_history = await DataService.get_latest_body_fat_rate(weight_data) if weight_data else None
+
+        def wrap(value, date):
+            return {"value": value, "date": str(date) if date else None}
+
+        return {
+            "current_weight": wrap(
+                weight_history.weight if weight_history else None,
+                weight_history.record_date if weight_history else None
+            ),
+            "body_fat_rate": wrap(
+                fat_history.body_fat_rate if fat_history else None,
+                fat_history.record_date if fat_history else None
+            ),
+            "target_weight": weight_data.target_weight if weight_data else None,
+        }
+
+    @staticmethod
     async def save_current_weight(user_id:int, current_weight:float):
         """保存当前体重逻辑"""
         # 获取用户身体信息对象
@@ -16,7 +41,7 @@ class WeightService:
         if not await DataService.create_or_update_current_weight(body_info, current_weight):
             raise HTTPException(status_code=400, detail=CURRENT_WEIGHT_CREATE_FAILED)
 
-        return {"message": CURRENT_WEIGHT_CREATE_SUCCESSFULLY}
+        return {"message": CURRENT_WEIGHT_CREATE_SUCCESSFULLY, "current_weight": current_weight}
 
     @staticmethod
     async def save_target_weight(user_id:int, target_weight:float):
@@ -28,7 +53,7 @@ class WeightService:
         if not await DataService.create_or_update_target_weight(body_info, target_weight):
             raise HTTPException(status_code=400, detail=TARGET_WEIGHT_CREATE_FAILED)
 
-        return {"message": TARGET_WEIGHT_CREATE_SUCCESSFULLY}
+        return {"message": TARGET_WEIGHT_CREATE_SUCCESSFULLY, "target_weight": target_weight}
 
     @staticmethod
     async def save_body_fat_rate(user_id:int, body_fat_rate:float):
@@ -40,7 +65,7 @@ class WeightService:
         if not await DataService.create_or_update_body_fat_rate(body_info, body_fat_rate):
             raise HTTPException(status_code=400, detail=BODY_FAT_RATE_CREATE_FAILED)
 
-        return {"message": BODY_FAT_RATE_CREATE_SUCCESSFULLY}
+        return {"message": BODY_FAT_RATE_CREATE_SUCCESSFULLY, "body_fat_rate": body_fat_rate}
 
     @staticmethod
     async def get_current_weight(user_id: int):

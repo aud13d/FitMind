@@ -11,24 +11,11 @@ from Client.ui.Components.ClickableLabel import ClickableLabel
 
 class RecordListDialog(QDialog):
     # 保存
-    save_current_weight_signal = Signal(float)
-    save_target_weight_signal  = Signal(float)
+    save_current_weight_signal =Signal(float)
+    save_target_weight_signal = Signal(float)
     save_current_body_fat_rate_signal = Signal(float)
-    save_current_neck_signal = Signal(float)            # 保存脖围
-    save_current_shoulder_signal = Signal(float)        # 保存肩宽
-    save_current_waist_signal = Signal(float)           # 保存腰围
-    save_current_hip_signal = Signal(float)             # 保存臀围
-    save_current_chest_signal = Signal(float)           # 保存胸围
 
-    save_current_arm_left_signal = Signal(float)        # 保存左臂围
-    save_current_arm_right_signal = Signal(float)       # 保存右臂围
-    save_current_forearm_left_signal = Signal(float)    # 保存左小臂围
-    save_current_forearm_right_signal = Signal(float)   # 保存右小臂围
-    save_current_leg_left_signal = Signal(float)        # 保存左腿围
-    save_current_leg_right_signal = Signal(float)       # 保存右腿围
-    save_current_calf_left_signal = Signal(float)       # 保存左小腿围
-    save_current_calf_right_signal = Signal(float)      # 保存右小腿围
-
+    save_current_circumference_signal = Signal(str, float)
 
     # 获取当前
     get_current_weight_signal = Signal()
@@ -264,6 +251,8 @@ class RecordListDialog(QDialog):
             self.left_button.setEnabled(True)
             self.right_button.setEnabled(True)
         else:
+            self.left_button.setCheckable(False)
+            self.right_button.setCheckable(False)
             self.left_button.setEnabled(False)
             self.right_button.setEnabled(False)
 
@@ -346,46 +335,35 @@ class RecordListDialog(QDialog):
         try:
             percent = float(percent_text)
         except ValueError:
-            return  # 非法输入
+            return
 
         self.add_record(date, percent_text)
         self.percent_input.clear()
 
-        title = self.input_title.strip()
-
-        # 标准部位/数据（无左右）
-        standard_signals = {
-            "current_weight": self.save_current_weight_signal,
-            "target_weight": self.save_target_weight_signal,
-            "body_fat_rate": self.save_current_body_fat_rate_signal,
-            "Neck": self.save_current_neck_signal,
-            "Shoulder": self.save_current_shoulder_signal,
-            "Chest": self.save_current_chest_signal,
-            "Waist": self.save_current_waist_signal,
-            "Hip": self.save_current_hip_signal,
+        title_to_part = {
+            "Neck": "neck",
+            "Shoulder": "shoulder",
+            "Chest": "chest",
+            "Waist": "waist",
+            "Hip": "hip",
+            "Arms": "arm_left" if self.left_button.isChecked() else "arm_right",
+            "Forearms": "forearm_left" if self.left_button.isChecked() else "forearm_right",
+            "Legs": "thigh_left" if self.left_button.isChecked() else "thigh_right",
+            "Calfs": "calf_left" if self.left_button.isChecked() else "calf_right",
         }
 
-        # 成对部位（有左右）
-        paired_signals = {
-            "Arms": (self.save_current_arm_left_signal, self.save_current_arm_right_signal),
-            "Forearms": (self.save_current_forearm_left_signal, self.save_current_forearm_right_signal),
-            "Legs": (self.save_current_leg_left_signal, self.save_current_leg_right_signal),
-            "Calfs": (self.save_current_calf_left_signal, self.save_current_calf_right_signal),
-        }
+        part = title_to_part.get(self.input_title.strip())
+        if part:
+            self.save_current_circumference_signal.emit(part, percent)
+        elif self.input_title.strip() == "weight":
+            self.save_current_weight_signal.emit(percent)
+        elif self.input_title.strip() == "target weight":
+            self.save_target_weight_signal.emit(percent)
+        elif self.input_title.strip() == "body fat":
+            self.save_current_body_fat_rate_signal.emit(percent)
 
-        # 处理标准信号
-        if title in standard_signals:
-            standard_signals[title].emit(percent)
-
-        # 处理成对信号
-        elif title in paired_signals:
-            left_signal, right_signal = paired_signals[title]
-            if self.left_button.isChecked():
-                left_signal.emit(percent)
-            elif self.right_button.isChecked():
-                right_signal.emit(percent)
         else:
-            print(f"未知标题：{title}")
+            print(f"未知标题：{self.input_title}")
 
         self.close()
 

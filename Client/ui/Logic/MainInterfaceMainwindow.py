@@ -3,6 +3,9 @@ from PySide6.QtCore import QLocale, Qt
 from Client.ui.Designer.ui_MainInterface import Ui_MainWindow
 from .TrainAndDietDialog import TrainAndDietDialog
 from Client.ui.Components.MaskWidget import MaskWidget
+from ...cache.user_bodydata import UserBodyData
+from ...cache.user_session import UserSession
+
 
 class MainInterfaceWindow(QMainWindow):
     def __init__(self):
@@ -153,6 +156,14 @@ class MainInterfaceWindow(QMainWindow):
             self.new_train_widget.showNormal()
             self.new_train_widget.raise_()
             self.new_train_widget_mini_floating_button.setVisible(False)
+
+    def closeEvent(self, event):
+        """当主窗口关闭时触发"""
+        UserBodyData.clear()
+        UserSession.clear()
+        print("用户缓存已清空")
+        super().closeEvent(event)
+
 
 
 

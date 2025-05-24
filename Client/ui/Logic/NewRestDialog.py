@@ -2,10 +2,10 @@ import json
 
 from PySide6.QtCore import QDate, QLocale, Qt
 from PySide6.QtWidgets import (QDialog, QCalendarWidget,
-                               QVBoxLayout, QDialogButtonBox, QApplication,  QDateEdit)
+                               QVBoxLayout, QDialogButtonBox)
 
 from Client.services.server_rest import RestService
-from Client.services.user_session import UserSession
+from Client.cache.user_session import UserSession
 from Client.ui.Components.NetworkErrorTipLabel import NetworkErrorTipLabel
 from Client.ui.Designer.ui_NewRest import Ui_Dialog_NewRest
 

@@ -6,7 +6,7 @@ from Server.models.weightHistory import WeightHistory
 
 class Weight(Model):
     id = fields.IntField(pk=True)
-    body_info = fields.OneToOneField('models.UserBodyInfo', related_name='weight_data')
+    body_info = fields.OneToOneField('models.UserBodyInfo', related_name='weight')
     current_weight = fields.FloatField(default=0.0)  # 当前体重
     target_weight = fields.FloatField(default=0.0)  # 目标体重
     body_fat_rate = fields.FloatField(default=0.0)  # 体脂率
@@ -86,3 +86,5 @@ class Weight(Model):
         if not weight_data:
             return None
         return weight_data.body_fat_rate
+
+

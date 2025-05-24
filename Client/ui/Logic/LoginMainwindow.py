@@ -5,7 +5,7 @@ from Client.ui.Designer.ui_Login import Ui_LoginWindow
 from Client.services.server_auth import AuthService
 from Client.config import get_error_message, PURPOSE_REGISTER, PURPOSE_RETRIEVE
 from .MainInterfaceMainwindow import MainInterfaceWindow
-from Client.services.user_session import UserSession
+from Client.cache.user_session import UserSession
 
 
 class LoginWindow(QMainWindow):

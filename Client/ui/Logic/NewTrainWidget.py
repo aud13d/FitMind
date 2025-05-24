@@ -4,13 +4,12 @@ from Client.ui.Components.ActionFrame import ActionFrame
 from Client.ui.Designer.ui_NewTrain import Ui_Widget_NewTrain
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 from Client.ui.Components.MaskWidget import MaskWidget
-from Client.ui.Components.AcationSettingFrame import ActionSettingFrame
 from Client.ui.Logic.AddActionDialog import AddActionDialog
 from Client.ui.Logic.CancelTrainingDialog import CancelTrainingDialog
 from Client.ui.Logic.FinishTrainingDialog import FinishTrainingDialog
 from Client.services.server_train import TrainService
 from Client.ui.Components.NetworkErrorTipLabel import NetworkErrorTipLabel
-from Client.services.user_session import UserSession
+from Client.cache.user_session import UserSession
 import json
 
 class NewTrainWidget(QWidget):
