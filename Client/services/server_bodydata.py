@@ -1,5 +1,6 @@
 import requests
 from Client.config import BASE_URL, API_TIMEOUT
+from datetime import date
 
 class BodyDataService:
     @staticmethod
@@ -83,6 +84,92 @@ class BodyDataService:
         except requests.exceptions.RequestException as e:
             print(f"当前身体围度保存请求失败：{e}")
             return None
+
+    @staticmethod
+    def request_weight_history(user_id: int):
+        """获取体重历史记录"""
+        url = f"{BASE_URL}/body/weight/get_weight_history"
+        data = {
+            "user_id": user_id
+        }
+
+        try:
+            response = requests.post(url, json=data, timeout=API_TIMEOUT)
+            print("服务端返回内容：", response.text)
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"体重历史记录请求失败：{e}")
+            return None
+
+    @staticmethod
+    def request_body_fat_rate_history(user_id: int):
+        """获取体脂率历史记录"""
+        url = f"{BASE_URL}/body/weight/get_body_fat_rate_history"
+        data = {
+            "user_id": user_id
+        }
+
+        try:
+            response = requests.post(url, json=data, timeout=API_TIMEOUT)
+            print("服务端返回内容：", response.text)
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"体脂率历史记录请求失败：{e}")
+            return None
+
+    @staticmethod
+    def request_delete_weight_record(user_id:int,date):
+        """删除体重记录"""
+        url = f"{BASE_URL}/body/weight/delete_weight_by_date"
+        data = {
+            "user_id": user_id,
+            "date": date.strftime("%Y-%m-%d")
+        }
+        try:
+            response = requests.post(url, json=data,timeout=API_TIMEOUT)
+            print("服务端返回内容：", response.text)
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"删除体重记录请求失败：{e}")
+            return None
+
+    @staticmethod
+    def request_delete_body_fat_rate_record(user_id:int,date):
+        """删除体脂率记录"""
+        url = f"{BASE_URL}/body/weight/delete_body_fat_rate_by_date"
+        date = {
+            "user_id": user_id,
+            "date": date.strftime("%Y-%m-%d")
+        }
+        try:
+            response = requests.post(url, json=date,timeout=API_TIMEOUT)
+            print("服务端返回内容：", response.text)
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"删除体脂率记录请求失败：{e}")
+            return None
+
+    @staticmethod
+    def request_circumference_history(user_id:int,part:str):
+        """获取身体围度历史记录"""
+        url = f"{BASE_URL}/body/circumference/get_circumference_history"
+        data = {
+            "user_id": user_id,
+            "part": part
+        }
+        try:
+            response = requests.post(url, json=data,timeout=API_TIMEOUT)
+            print("服务端返回内容：", response.text)
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"身体围度历史记录请求失败：{e}")
+            return None
+
+
+
+
+
+
 
 
 

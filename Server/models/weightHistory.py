@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime, timedelta
 
 from tortoise.models import Model
 from tortoise import fields
@@ -58,13 +58,11 @@ class WeightHistory(Model):
         return await cls.filter(weight_data=weight_data).exclude(body_fat_rate=None).order_by('-record_date')
 
     @classmethod
-    async def delete_weight_history_by_date(cls, weight_data, target_date: date):
-        """
-        删除指定日期的体重记录（只删有体重数据的）
-        """
+    async def delete_weight_history_by_date(cls, weight_data, target_date):
+        """删除指定日期的体重记录"""
         return await cls.filter(
             weight_data=weight_data,
-            record_date__date=target_date
+            record_date=target_date
         ).exclude(weight=None).delete()
 
     @classmethod
@@ -74,6 +72,6 @@ class WeightHistory(Model):
         """
         return await cls.filter(
             weight_data=weight_data,
-            record_date__date=target_date
+            record_date=target_date
         ).exclude(body_fat_rate=None).delete()
 

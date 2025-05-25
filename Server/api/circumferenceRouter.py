@@ -15,3 +15,26 @@ async def save_current_circumference(current_circumference: SaveCurrentCircumfer
     )
     return response
 
+# 获取身体围度表历史记录
+@router.post("/get_circumference_history")
+async def get_circumference_history(history: GetCircumferenceHistoryRequest):
+    """获取身体部位的围度历史数据"""
+    response = await CircumferenceService.get_circumference_history(
+        user_id=history.user_id,
+        part=history.part
+    )
+    return response
+
+# 删除特定日期的身体围度记录
+@router.post("/delete_circumference_record")
+async def delete_circumference_record_by_date(circumference: DeleteCircumferenceRecordRequest):
+    """删除特定日期的身体围度记录"""
+    response = await CircumferenceService.delete_circumference_record_by_date(
+        user_id=circumference.user_id,
+        part=circumference.part,
+        date=circumference.date
+    )
+    return response
+
+
+

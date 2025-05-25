@@ -1,7 +1,7 @@
 from Server.services.dataService import DataService
 from fastapi import HTTPException
 from .config import *
-
+from datetime import date
 
 class CircumferenceService:
     @staticmethod
@@ -14,7 +14,8 @@ class CircumferenceService:
         if not circumference_data:
             return {}
 
-        return await DataService.get_latest_circumference(circumference_data)
+        latest_data = await DataService.get_latest_circumference(circumference_data)
+        return latest_data
 
     @staticmethod
     async def save_current_circumference(user_id: int, part: str, value: float):
@@ -31,5 +32,54 @@ class CircumferenceService:
             raise HTTPException(status_code=400, detail=SAVE_CURRENT_CIRCUMFERENCE_FAILED)
 
         return {"message": CURRENT_CIRCUMFERENCE_SAVE_SUCCESSFULLY, "data": circumference}
+
+    @staticmethod
+    async def get_circumference_history(user_id: int, part: str):
+        """获取某一部位的身体围度历史记录"""
+        valid_parts = {
+            "neck", "shoulder", "chest", "waist", "hip",
+            "arm_left", "arm_right", "forearm_left", "forearm_right",
+            "thigh_left", "thigh_right", "calf_left", "calf_right"
+        }
+        if part not in valid_parts:
+            raise HTTPException(status_code=400, detail=INVALID_PART)
+
+        body_info = await DataService.get_or_create_body_info(user_id=user_id)
+        if not body_info:
+            raise HTTPException(status_code=400, detail=BODY_INFO_NOT_EXIST)
+
+        circumference_data = await DataService.get_circumferences_by_user(body_info)
+        if not circumference_data:
+            raise HTTPException(status_code=400, detail=CIRCUMFERENCE_HISTORY_NOT_EXIST)
+
+        history = await DataService.get_circumference_history(circumference_data, part)
+
+        return {
+            "message": CIRCUMFERENCE_HISTORY_GET_SUCCESSFULLY,
+            f"{part}_history": [
+                {
+                    "value": item["value"],
+                    "record_date": item["date"]
+                } for item in history
+            ]
+        }
+
+    @staticmethod
+    async def delete_circumference_record_by_date(user_id: int, part: str, date: date):
+        """删除指定日期的身体围度记录"""
+        body_info = await DataService.get_or_create_body_info(user_id=user_id)
+        if not body_info:
+            raise HTTPException(status_code=400, detail=BODY_INFO_NOT_EXIST)
+
+        circumference_data = await DataService.get_circumferences_by_user(body_info)
+        delete_count = await DataService.delete_circumference_record_by_date(circumference_data, part, date)
+        if delete_count == 0:
+            raise HTTPException(status_code=400, detail=CIRCUMFERENCE_RECORD_NOT_EXIST)
+
+        return {"message": CIRCUMFERENCE_RECORD_DELETE_SUCCESSFULLY}
+
+
+
+
 
 

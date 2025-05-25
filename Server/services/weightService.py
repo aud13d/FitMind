@@ -159,9 +159,12 @@ class WeightService:
         if not body_info:
             raise HTTPException(status_code=400, detail=BODY_INFO_NOT_EXIST)
 
-        deleted_count = await DataService.delete_weight_history_by_date(body_info, target_date)
+        weight_data = await DataService.get_weight_by_user(body_info)
+
+        deleted_count = await DataService.delete_weight_history_by_date(weight_data, target_date)
         if deleted_count == 0:
             raise HTTPException(status_code=400, detail=WEIGHT_HISTORY_NOT_EXIST)
+
 
         return {"message": WEIGHT_HISTORY_DELETED_SUCCESSFULLY , "deleted_count": deleted_count}
 
@@ -172,7 +175,9 @@ class WeightService:
         if not body_info:
             raise HTTPException(status_code=400, detail=BODY_INFO_NOT_EXIST)
 
-        deleted_count = await DataService.delete_body_fat_rate_history_by_date(body_info, target_date)
+        weight_data = await DataService.get_weight_by_user(body_info)
+
+        deleted_count = await DataService.delete_body_fat_rate_history_by_date(weight_data, target_date)
         if deleted_count == 0:
             raise HTTPException(status_code=400, detail=BODY_FAT_RATE_HISTORY_NOT_EXIST)
 

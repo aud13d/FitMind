@@ -1,4 +1,5 @@
 """""记录列表弹窗"""""
+import re
 import sys
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtWidgets import (
@@ -17,58 +18,11 @@ class RecordListDialog(QDialog):
 
     save_current_circumference_signal = Signal(str, float)
 
-    # 获取当前
-    get_current_weight_signal = Signal()
-    get_target_weight_signal = Signal()
-    get_current_body_fat_rate_signal = Signal()
-    get_current_neck_signal = Signal()                  # 获取脖围
-    get_current_shoulder_signal = Signal()              # 获取肩宽
-    get_current_waist_signal = Signal()                 # 获取腰围
-    get_current_hip_signal = Signal()                   # 获取臀围
-    get_current_chest_signal = Signal()                 # 获取胸围
-    get_current_arm_left_signal = Signal()              # 获取左臂围
-    get_current_arm_right_signal = Signal()             # 获取右臂围
-    get_current_forearm_left_signal = Signal()          # 获取左小臂围
-    get_current_forearm_right_signal = Signal()         # 获取右小臂围
-    get_current_leg_left_signal = Signal()              # 获取左腿围
-    get_current_leg_right_signal = Signal()             # 获取右腿围
-    get_current_calf_left_signal = Signal()             # 获取左小腿围
-    get_current_calf_right_signal = Signal()            # 获取右小腿围
-
-    # 获取历史
-    get_weight_history_signal = Signal()
-    get_body_fat_rate_history_signal = Signal()
-    get_neck_history_signal = Signal()                  # 获取脖围历史
-    get_shoulder_history_signal = Signal()              # 获取肩宽历史
-    get_waist_history_signal = Signal()                 # 获取腰围历史
-    get_hip_history_signal = Signal()                   # 获取臀围历史
-    get_chest_history_signal = Signal()                 # 获取胸围历史
-    get_arm_left_history_signal = Signal()              # 获取左臂围历史
-    get_arm_right_history_signal = Signal()             # 获取右臂围历史
-    get_forearm_left_history_signal = Signal()          # 获取左小臂围历史
-    get_forearm_right_history_signal = Signal()         # 获取右小臂围历史
-    get_leg_left_history_signal = Signal()              # 获取左腿围历史
-    get_leg_right_history_signal = Signal()             # 获取右腿围历史
-    get_calf_left_history_signal = Signal()             # 获取左小腿围历史
-    get_calf_right_history_signal = Signal()            # 获取右小腿围历史
-
-
     # 删除
     delete_weight_history_signal = Signal(date)
     delete_body_fat_rate_history_signal = Signal(date)
-    delete_neck_history_signal = Signal(date)           # 根据日期删除脖围历史
-    delete_shoulder_history_signal = Signal(date)       # 根据日期删除肩宽历史
-    delete_waist_history_signal = Signal(date)          # 根据日期删除腰围历史
-    delete_hip_history_signal = Signal(date)            # 根据日期删除臀围历史
-    delete_chest_history_signal = Signal(date)          # 根据日期删除胸围历史
-    delete_arm_left_history_signal = Signal(date)       # 根据日期删除左臂围历史
-    delete_arm_right_history_signal = Signal(date)      # 根据日期删除右臂围历史
-    delete_forearm_left_history_signal = Signal(date)   # 根据日期删除左小臂围历史
-    delete_forearm_right_history_signal = Signal(date)  # 根据日期删除右小臂围历史
-    delete_leg_left_history_signal = Signal(date)       # 根据日期删除左腿围历史
-    delete_leg_right_history_signal = Signal(date)      # 根据日期删除右腿围历史
-    delete_calf_left_history_signal = Signal(date)      # 根据日期删除左小腿围历史
-    delete_calf_right_history_signal = Signal(date)     # 根据日期删除右小腿围历史
+
+    delete_circumference_signal = Signal(str, date)
 
 
 
@@ -261,25 +215,25 @@ class RecordListDialog(QDialog):
             f'{input_title} &nbsp;&nbsp;<span style="font-size:12px; color:#999999;">{date_text}</span>'
         )
 
-    def add_record(self, date, percent):
+    def add_record(self, date, percent, side=None):
         unit = self.percent_label.text()
+        side_text = f" ({side})" if side else ""
 
-        # 遍历已有项，检查是否有相同日期，更新文本
+        # 遍历已有项，检查是否有相同日期+side，更新文本
         for i in range(self.record_list.count()):
             item = self.record_list.item(i)
             widget = self.record_list.itemWidget(item)
             if widget:
                 label = widget.findChild(QLabel)
                 if label:
-                    # 这里直接用 label.text() 但因格式复杂，不用改动
-                    if date in label.text():
+                    # 用 date 和 side_text 一起判断
+                    if date in label.text() and side_text in label.text():
                         label.setText(
-                            f'<span style="color: #999999; font-size: 13px;">{date}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                            f'<span style="color: #999999; font-size: 13px;">{date}{side_text}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
                             f'<span style="color: #000000; font-size: 15px; font-weight: bold;">{percent}{unit}</span>'
                         )
                         return  # 找到就更新后返回
 
-        # 新建item
         item_widget = QWidget()
         layout = QHBoxLayout(item_widget)
         layout.setContentsMargins(8, 4, 8, 4)
@@ -288,7 +242,7 @@ class RecordListDialog(QDialog):
         left_label = QLabel()
         left_label.setTextFormat(Qt.RichText)
         left_label.setText(
-            f'<span style="color: #999999; font-size: 13px;">{date}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+            f'<span style="color: #999999; font-size: 13px;">{date}{side_text}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
             f'<span style="color: #000000; font-size: 15px; font-weight: bold;">{percent}{unit}</span>'
         )
 
@@ -310,7 +264,7 @@ class RecordListDialog(QDialog):
         self.record_list.addItem(item)
         self.record_list.setItemWidget(item, item_widget)
 
-        delete_button.clicked.connect(lambda: self.record_list.takeItem(self.record_list.row(item)))
+        delete_button.clicked.connect(lambda: self.delete_record_item(item))
 
     def on_number_click(self, text):
         current_text = self.percent_input.text()
@@ -367,12 +321,33 @@ class RecordListDialog(QDialog):
 
         self.close()
 
+    def delete_record_item(self, item):
+        """删除 record_list 中的指定 item，并发出日期信号（类型为 datetime.date）"""
+        widget = self.record_list.itemWidget(item)
+        if widget:
+            label = widget.findChild(QLabel)
+            if label:
+                text = label.text()
+                match = re.search(r'>(\d{4}-\d{2}-\d{2})<', text)
+                if match:
+                    date_str = match.group(1)
+                    try:
+                        date = datetime.strptime(date_str, "%Y-%m-%d").date()
+                        self.delete_weight_history_signal.emit(date)
+                    except ValueError:
+                        print("Invalid date format:", date_str)
+
+        row = self.record_list.row(item)
+        self.record_list.takeItem(row)
+
+    def on_date_click(self):
+        print("日期区域被点击了")
+
     def resizeEvent(self, event):
         self.bg_frame.setGeometry(0, 0, self.width(), self.height())
         super().resizeEvent(event)
 
-    def on_date_click(self):
-        print("日期区域被点击了")
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

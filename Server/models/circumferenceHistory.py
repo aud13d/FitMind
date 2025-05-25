@@ -81,3 +81,46 @@ class CircumferenceHistory(Model):
 
         return result
 
+    @classmethod
+    async def get_circumference_history(cls, circumference, part):
+            """获取指定身体围度字段的历史记录（按日期升序排列）"""
+            if part not in {
+                "neck", "shoulder", "chest", "waist", "hip",
+                "arm_left", "arm_right", "forearm_left", "forearm_right",
+                "thigh_left", "thigh_right", "calf_left", "calf_right"
+            }:
+                raise ValueError(f"不支持的字段名: {part}")
+
+            records = (
+                await cls.filter(
+                    Q(circumference=circumference) & ~Q(**{part: None})
+                )
+                .order_by("record_date")
+                .values("record_date", part)
+            )
+
+            return [
+                {
+                    "value": record[part],
+                    "date": str(record["record_date"])
+                }
+                for record in records
+            ]
+
+    @classmethod
+    async def delete_circumference_history_by_date(cls, circumference, part: str, target_date: date):
+        """删除指定日期某个部位的围度记录（只删除该部位非空的数据）"""
+        valid_parts = {
+            "neck", "shoulder", "chest", "waist", "hip",
+            "arm_left", "arm_right", "forearm_left", "forearm_right",
+            "thigh_left", "thigh_right", "calf_left", "calf_right"
+        }
+        if part not in valid_parts:
+            raise ValueError(f"不支持的字段名: {part}")
+
+        return await cls.filter(
+            circumference=circumference,
+            record_date=target_date
+        ).exclude(**{part: None}).delete()
+
+

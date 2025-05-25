@@ -171,19 +171,14 @@ class DataService:
         return await WeightHistory.get_body_fat_rate_history(body_info)
 
     @staticmethod
-    async def delete_weight_history_by_date(body_info, target_date: date):
+    async def delete_weight_history_by_date(weight_data, target_date: date):
         """删除特定日期的体重记录"""
-        return await WeightHistory.delete_weight_history_by_date(body_info, target_date)
+        return await WeightHistory.delete_weight_history_by_date(weight_data, target_date)
 
     @staticmethod
-    async  def delete_body_fat_rate_history_by_date(body_info, target_date: date):
+    async  def delete_body_fat_rate_history_by_date(weight_data, target_date: date):
         """删除特定日期的体脂率记录"""
-        return await WeightHistory.delete_body_fat_rate_history_by_date(body_info, target_date)
-
-    @staticmethod
-    async def create_or_update_current_circumference(body_info,data:dict):
-        """创建/更新当前身体围度"""
-        return await Circumference.create_or_update(body_info, data)
+        return await WeightHistory.delete_body_fat_rate_history_by_date(weight_data, target_date)
 
     @staticmethod
     async def get_weight_by_user(body_info):
@@ -191,14 +186,20 @@ class DataService:
         return await Weight.get_by_user(body_info)
 
     @staticmethod
-    async def get_latest_weight(body_info):
+    async def get_latest_weight(weight_data):
         """根据体重表从对应的历史记录中获取最新体重"""
-        return await WeightHistory.get_latest_weight(body_info)
+        return await WeightHistory.get_latest_weight(weight_data)
 
     @staticmethod
     async def get_latest_body_fat_rate(weight_data):
         """根据体重表从对应的历史记录中获取最新体脂率"""
         return await WeightHistory.get_latest_body_fat_rate(weight_data)
+
+
+    @staticmethod
+    async def create_or_update_current_circumference(body_info,data:dict):
+        """创建/更新当前身体围度"""
+        return await Circumference.create_or_update(body_info, data)
 
     @staticmethod
     async def get_circumferences_by_user(body_info):
@@ -210,4 +211,12 @@ class DataService:
         """根据身体围度表从对应的历史记录中获取最新的身体围度"""
         return await CircumferenceHistory.get_latest_circumference(circumference_data)
 
+    @staticmethod
+    async def get_circumference_history(circumference,part):
+        """获取身体围度历史记录"""
+        return await CircumferenceHistory.get_circumference_history(circumference,part)
 
+    @staticmethod
+    async def delete_circumference_record_by_date(circumference,part,date):
+        """删除特定日期的身体围度记录"""
+        return await CircumferenceHistory.delete_circumference_history_by_date(circumference,part,date)

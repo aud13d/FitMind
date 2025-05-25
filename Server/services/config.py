@@ -90,9 +90,13 @@ BODY_FAT_RATE_HISTORY_NOT_EXIST = "Body fat rate history does not exist!"
 
 # 围度相关
 SAVE_CURRENT_CIRCUMFERENCE_FAILED = "Save current circumference failed!"
+INVALID_PART = "Invalid part!"
+CIRCUMFERENCE_HISTORY_NOT_EXIST = "Circumference history does not exist!"
+CIRCUMFERENCE_RECORD_NOT_EXIST = "Circumference record does not exist!"
 
 # 身体数据相关
 BODY_INFO_NOT_EXIST = "Body info does not exist!"
+
 
 # 成功提示
 VERIFICATION_SENT = "Verification has been sent to your email!"
@@ -114,3 +118,5 @@ BODY_FAT_RATE_HISTORY_GET_SUCCESSFULLY = "Body fat rate history get successfully
 WEIGHT_HISTORY_DELETED_SUCCESSFULLY = "Weight history deleted successfully!"
 BODY_FAT_RATE_HISTORY_DELETED_SUCCESSFULLY = "Body fat rate history deleted successfully!"
 CURRENT_CIRCUMFERENCE_SAVE_SUCCESSFULLY = "Current circumference saved successfully!"
+CIRCUMFERENCE_HISTORY_GET_SUCCESSFULLY = "Circumference history get successfully!"
+CIRCUMFERENCE_RECORD_DELETE_SUCCESSFULLY = "Circumference record deleted successfully!"

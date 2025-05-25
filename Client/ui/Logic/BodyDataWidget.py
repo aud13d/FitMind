@@ -151,6 +151,7 @@ class BodyDataWidget(QWidget):
             self.ui.button_body_g.setChecked(True)
 
     def on_unit_button_clicked(self):
+        """响应单位变化"""
         if self.ui.button_body_kg.isChecked():
             UserBodyData.Unit_weight = UserBodyData.UNIT_KG
         elif self.ui.button_body_g.isChecked():
@@ -161,6 +162,7 @@ class BodyDataWidget(QWidget):
         self.ui.button_body_g.setText(UserBodyData.UNIT_JIN)
 
     def convert_weight(self, value: float):
+        """体重单位转换"""
         if value is None:
             return None
         if UserBodyData.Unit_weight == UserBodyData.UNIT_KG:
@@ -170,6 +172,7 @@ class BodyDataWidget(QWidget):
         return value
 
     def convert_to_kg(self, value: float):
+        """将体重转换为千克"""
         if UserBodyData.Unit_weight == UserBodyData.UNIT_JIN:
             return value / 2
         return value
@@ -192,13 +195,72 @@ class BodyDataWidget(QWidget):
                 if info and info.get("value") is not None:
                     self.body_frame.update_label_value_by_part_name(part, info["value"])
 
+
+    # 体重相关
     def set_current_weight(self):
         """设置当前体重"""
         self.dialog = RecordListDialog(parent=self, input_title="weight",unit=UserBodyData.Unit_weight,date_text=datetime.today().strftime("%Y-%m-%d"))
         self.dialog.setModal(True)
+
         self.dialog.save_current_weight_signal.connect(self.save_current_weight)
+        self.dialog.delete_weight_history_signal.connect(self.delete_weight_record)
+
+        history = self.get_weight_history()
+        if history:
+            for record in history:
+                raw_date = record.get("record_date")
+                dt = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+                date_str = dt.strftime("%Y-%m-%d")
+                weight_value = record.get("weight")
+                self.dialog.add_record(date_str, str(weight_value))
 
         self.dialog.exec()
+
+    def delete_weight_record(self,date):
+        """删除体重记录"""
+        user_id = self.user_id
+        response = BodyDataService.request_delete_weight_record(user_id,date)
+        if response is None:
+            self.show_tip("Network error, please try again", success=False)
+            return
+        try:
+            data = response.json()
+        except ValueError:
+            self.show_tip("Invalid server response", success=False)
+
+        if response.status_code == 200:
+            message = data.get("message", "Delete Successfully!")
+            self.show_tip(message, success=True)
+            print("Successfully!", message)
+        else:
+            message = data.get("message", "Failed to delete weight record.")
+            self.show_tip(message, success=False)
+            print("Failed!", message)
+
+
+    def get_weight_history(self):
+        """获取体重历史记录"""
+        user_id = self.user_id
+        response = BodyDataService.request_weight_history(user_id)
+        if response is None:
+            self.show_tip("Network error, please try again", success=False)
+            return
+        try:
+            data = response.json()
+        except ValueError:
+            self.show_tip("Invalid server response", success=False)
+
+        if response.status_code == 200:
+            message = data.get("message", "Successfully!")
+            history = data.get("weight_history", [])
+            self.show_tip("Successfully!", success=True)
+            print("Successfully!", message)
+            return history
+        else:
+            message = data.get("message", "Failed to get weight history.")
+            self.show_tip(message, success=False)
+            print("Failed!", message)
+            return None
 
     def save_current_weight(self, current_weight):
         """保存当前体重，调用发送网络请求"""
@@ -233,6 +295,7 @@ class BodyDataWidget(QWidget):
             message = data.get("message","Failed to save Current Weight.")
             self.show_tip(message,success=False)
             print("Failed!",message)
+
 
     def update_current_weight_label_value(self, current_weight,date=None):
         """更新体重标签的值"""
@@ -302,7 +365,41 @@ class BodyDataWidget(QWidget):
         self.dialog.setModal(True)
         self.dialog.save_current_body_fat_rate_signal.connect(self.save_current_body_fat_rate)
 
+        history = self.get_body_fat_rate_history()
+        if history:
+            for record in history:
+                raw_date = record.get("record_date")
+                dt = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+                date_str = dt.strftime("%Y-%m-%d")
+                body_fat_rate_value = record.get("body_fat_rate")
+                self.dialog.add_record(date_str, str(body_fat_rate_value))
+
         self.dialog.exec()
+
+    def get_body_fat_rate_history(self):
+        """获取体脂率历史记录"""
+        user_id = self.user_id
+        response = BodyDataService.request_body_fat_rate_history(user_id)
+        if response is None:
+            self.show_tip("Network error, please try again", success=False)
+            return
+        try:
+            data = response.json()
+        except ValueError:
+            self.show_tip("Invalid server response", success=False)
+
+        if response.status_code == 200:
+            message = data.get("message", "Successfully!")
+            history = data.get("body_fat_rate_history", [])
+            self.show_tip("Successfully!", success=True)
+            print("Successfully!", message)
+            return history
+        else:
+            message = data.get("message", "Failed to get weight history.")
+            self.show_tip(message, success=False)
+            print("Failed!", message)
+            return None
+
 
     def save_current_body_fat_rate(self, current_body_fat_rate):
         """保存体脂率，调用发送网络请求"""
@@ -341,17 +438,83 @@ class BodyDataWidget(QWidget):
         label.setTextInteractionFlags(Qt.NoTextInteraction)  # 防止鼠标选中文本
         label.setText(full_text)
 
+
+    # 身体部位相关
+    def map_part_to_api_parts(self, part: str):
+        """把界面传入的 part 映射成后端接口可接受的 part 字符串列表"""
+        # 这里所有键是界面传入的，值是后端接口需要的
+        mapping = {
+            "Neck": ["neck"],
+            "Shoulder": ["shoulder"],
+            "Chest": ["chest"],
+            "Waist": ["waist"],
+            "Hip": ["hip"],
+            "Arms": ["arm_left", "arm_right"],  # 双手
+            "Forearms": ["forearm_left", "forearm_right"],  # 双前臂
+            "Legs": ["thigh_left", "thigh_right"],  # 双大腿
+            "Calfs": ["calf_left", "calf_right"],  # 双小腿
+        }
+        return mapping.get(part, [part.lower()])  # 兜底转小写
+
     def on_body_part_clicked(self, part: str):
-        """响应身体部位点击事件"""
+        """点击身体部位，弹出记录列表"""
         self.dialog = RecordListDialog(
             parent=self,
             input_title=part,
             unit=self.unit_length,
             date_text=datetime.today().strftime("%Y-%m-%d")
         )
-
         self.dialog.save_current_circumference_signal.connect(self.save_current_circumference)
+
+        api_parts = self.map_part_to_api_parts(part)
+        combined_history = []
+
+        for p in api_parts:
+            history = self.get_circumference_history(p)
+            if history:
+                side = None
+                if p.endswith("_left"):
+                    side = "L"
+                elif p.endswith("_right"):
+                    side = "R"
+                for record in history:
+                    record['side'] = side
+                combined_history.extend(history)
+
+        combined_history.sort(key=lambda x: x["record_date"], reverse=True)
+
+        for record in combined_history:
+            raw_date = record.get("record_date")
+            dt = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+            date_str = dt.strftime("%Y-%m-%d")
+            circumference_value = record.get("value")
+            side = record.get("side")
+            self.dialog.add_record(date_str, str(circumference_value), side=side)
+
         self.dialog.exec()
+
+    def get_circumference_history(self, part: str):
+        """获取某一部位的历史记录"""
+        user_id = self.user_id
+        response = BodyDataService.request_circumference_history(user_id,part)
+        if response is None:
+            self.show_tip("Network error, please try again",success=False)
+            return
+        try:
+            data = response.json()
+        except ValueError:
+            self.show_tip("Invalid server response", success=False)
+        if response.status_code == 200:
+            message = data.get("message", "Successfully!")
+            history = data.get(f"{part}_history", [])
+            self.show_tip("Successfully!", success=True)
+            print("Successfully!", message)
+            return history
+        else:
+            message = data.get("message", "Failed to get weight history.")
+            self.show_tip(message, success=False)
+            print("Failed!", message)
+            return None
 
     def save_current_circumference(self, part: str, value: float):
         """通用方法：保存任意身体部位围度"""
