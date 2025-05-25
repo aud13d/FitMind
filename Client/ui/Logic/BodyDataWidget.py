@@ -2,7 +2,6 @@ import json
 from datetime import datetime
 import re
 
-
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QWidget, QButtonGroup
 
@@ -27,7 +26,8 @@ class BodyDataWidget(QWidget):
         self.ui.stackedWidget.setCurrentIndex(0) # self.ui.page_body_data
         self.body_frame = BodyFrame(self.ui.page_body_data)
 
-        self.unit_weight = "kg" if self.ui.button_body_kg.isChecked() else "g"
+        # 初始化单位
+        self.unit_weight = UserBodyData.Unit_weight
         self.unit_percentage = "%"
         self.unit_length = "cm"
 
@@ -44,18 +44,26 @@ class BodyDataWidget(QWidget):
         # 载入用户数据
         self.load_initial_body_data()
 
+        self.recover_weight_unit()
+
         self.bind()
 
     def bind(self):
+        # 界面切换
         self.ui.button_body_data.clicked.connect(self.move_to_body_data)
         self.ui.button_body_graph.clicked.connect(self.move_to_body_graph)
 
+        # 体重数据点击事件
         self.ui.label_body_current_weight.clicked.connect(self.set_current_weight)
         self.ui.label_body_target_weight.clicked.connect(self.set_target_weight)
         self.ui.label_body_body_fat.clicked.connect(self.set_current_body_fat_rate)
 
-        self.body_frame.body_part_clicked.connect(self.on_body_part_clicked)
+        # 单位切换
+        self.ui.button_body_kg.clicked.connect(self.on_unit_button_clicked)
+        self.ui.button_body_g.clicked.connect(self.on_unit_button_clicked)
 
+        # 显示切换
+        self.body_frame.body_part_clicked.connect(self.on_body_part_clicked)
 
     def move_to_body_data(self):
         """切换到数据界面"""
@@ -71,7 +79,6 @@ class BodyDataWidget(QWidget):
         self.unit_group.setExclusive(True)
         self.unit_group.addButton(self.ui.button_body_kg, 0)
         self.unit_group.addButton(self.ui.button_body_g, 1)
-        self.ui.button_body_kg.setChecked(True)
 
     def setup_Show_button_group(self):
         """设置显示转换"""
@@ -81,11 +88,8 @@ class BodyDataWidget(QWidget):
         self.show_group.addButton(self.ui.button_body_graph, 1)
         self.ui.button_body_data.setChecked(True)
 
-
-
     def Init_weight_label_value(self):
         """初始化体重相关的标签值"""
-
         def init_label(label, title, unit):
             label.setTextFormat(Qt.RichText)
             label.setTextInteractionFlags(Qt.NoTextInteraction)
@@ -100,9 +104,11 @@ class BodyDataWidget(QWidget):
             full_text = f"{title}<br>{date_str}<br><br>{value_html} {unit_html}"
             label.setText(full_text)
 
-        init_label(self.ui.label_body_current_weight,"Current Weight", "kg")
-        init_label(self.ui.label_body_target_weight,"Target Weight", "kg")
-        init_label(self.ui.label_body_body_fat,"Current Fat Rate", "%")
+        init_label(self.ui.label_body_current_weight,"Current Weight", UserBodyData.Unit_weight)
+        init_label(self.ui.label_body_target_weight,"Target Weight", UserBodyData.Unit_weight)
+        init_label(self.ui.label_body_body_fat,"Current Fat Rate", self.unit_percentage)
+        self.ui.button_body_kg.setText(UserBodyData.UNIT_KG)
+        self.ui.button_body_g.setText(UserBodyData.UNIT_JIN)
 
     def load_initial_body_data(self):
         """载入已有的体重、目标体重和体脂率数据并更新显示"""
@@ -137,16 +143,50 @@ class BodyDataWidget(QWidget):
         # 更新界面显示
         self.update_labels_from_user_data()
 
+    def recover_weight_unit(self):
+        """恢复体重单位"""
+        if UserBodyData.Unit_weight == UserBodyData.UNIT_KG:
+            self.ui.button_body_kg.setChecked(True)
+        elif UserBodyData.Unit_weight == UserBodyData.UNIT_JIN:
+            self.ui.button_body_g.setChecked(True)
+
+    def on_unit_button_clicked(self):
+        if self.ui.button_body_kg.isChecked():
+            UserBodyData.Unit_weight = UserBodyData.UNIT_KG
+        elif self.ui.button_body_g.isChecked():
+            UserBodyData.Unit_weight = UserBodyData.UNIT_JIN
+        self.update_labels_from_user_data()
+        # 更新按钮文本
+        self.ui.button_body_kg.setText(UserBodyData.UNIT_KG)
+        self.ui.button_body_g.setText(UserBodyData.UNIT_JIN)
+
+    def convert_weight(self, value: float):
+        if value is None:
+            return None
+        if UserBodyData.Unit_weight == UserBodyData.UNIT_KG:
+            return value
+        elif UserBodyData.Unit_weight == UserBodyData.UNIT_JIN:
+            return value * 2
+        return value
+
+    def convert_to_kg(self, value: float):
+        if UserBodyData.Unit_weight == UserBodyData.UNIT_JIN:
+            return value / 2
+        return value
+
     def update_labels_from_user_data(self):
         """根据缓存数据更新界面"""
-        if UserBodyData.current_weight is not None:
-            self.update_current_weight_label_value(UserBodyData.current_weight)
-        if UserBodyData.target_weight is not None:
-            self.update_target_weight_label_value(UserBodyData.target_weight)
+        current_weight = self.convert_weight(UserBodyData.current_weight)
+        target_weight = self.convert_weight(UserBodyData.target_weight)
+
+        if current_weight is not None:
+            self.update_current_weight_label_value(current_weight)
+        if target_weight is not None:
+            self.update_target_weight_label_value(target_weight)
         if UserBodyData.body_fat_rate is not None:
             self.update_current_body_fat_rate_label_value(UserBodyData.body_fat_rate)
 
-        if hasattr(self, "body_frame"):  # 假设 body_frame 是你显示部位数据的组件
+        if hasattr(self, "body_frame"):
             circ_data = UserBodyData.circumferences or {}
             for part, info in circ_data.items():
                 if info and info.get("value") is not None:
@@ -154,7 +194,7 @@ class BodyDataWidget(QWidget):
 
     def set_current_weight(self):
         """设置当前体重"""
-        self.dialog = RecordListDialog(parent=self, input_title="weight",unit=self.unit_weight,date_text=datetime.today().strftime("%Y-%m-%d"))
+        self.dialog = RecordListDialog(parent=self, input_title="weight",unit=UserBodyData.Unit_weight,date_text=datetime.today().strftime("%Y-%m-%d"))
         self.dialog.setModal(True)
         self.dialog.save_current_weight_signal.connect(self.save_current_weight)
 
@@ -168,7 +208,10 @@ class BodyDataWidget(QWidget):
             self.show_tip("Please enter a weight",success=False)
             return
 
-        response = BodyDataService.request_current_weight_save(user_id,current_weight)
+        # 转换为 Kg
+        current_weight_kg = self.convert_to_kg(current_weight)
+
+        response = BodyDataService.request_current_weight_save(user_id, current_weight_kg)
 
         if response is None:
             self.show_tip("Network error, please try again",success=False)
@@ -182,7 +225,7 @@ class BodyDataWidget(QWidget):
         if response.status_code == 200:
             message = data.get("message","Current Weight saved!")
             self.update_current_weight_label_value(current_weight)
-            UserBodyData.update(current_weight=current_weight)       #把更新的数据填入缓冲
+            UserBodyData.update(current_weight=current_weight_kg)       #把更新的数据填入缓冲
             self.show_tip(message,success=True)
             print("Successfully!",message)
 
@@ -197,7 +240,7 @@ class BodyDataWidget(QWidget):
             date = datetime.today().strftime("%Y-%m-%d")
 
         value_html = f'<span style="color:#007BFF; font:bold 24px "微软雅黑";">{current_weight}</span>'
-        unit_html = '<span style="color:#868686;"> kg</span>'
+        unit_html = f'<span style="color:#868686;"> {UserBodyData.Unit_weight}</span>'
         full_text = f"Current weight<br>{date}<br><br>{value_html} {unit_html}"
 
         label = self.ui.label_body_current_weight
@@ -207,7 +250,7 @@ class BodyDataWidget(QWidget):
 
     def set_target_weight(self):
         """设置目标体重"""
-        self.dialog = RecordListDialog(parent=self, input_title="target weight",unit=self.unit_weight,date_text=datetime.today().strftime("%Y-%m-%d"))
+        self.dialog = RecordListDialog(parent=self, input_title="target weight",unit=UserBodyData.Unit_weight,date_text=datetime.today().strftime("%Y-%m-%d"))
         self.dialog.setModal(True)
         self.dialog.save_target_weight_signal.connect(self.save_target_weight)
 
@@ -219,7 +262,11 @@ class BodyDataWidget(QWidget):
         if not target_weight:
             self.show_tip("Please enter a target weight",success=False)
             return
-        response = BodyDataService.request_target_weight_save(user_id,target_weight)
+
+        # 转换为 Kg
+        target_weight_kg = self.convert_to_kg(target_weight)
+
+        response = BodyDataService.request_target_weight_save(user_id, target_weight_kg)
         if response is None:
             self.show_tip("Network error, please try again",success=False)
             return
@@ -230,7 +277,7 @@ class BodyDataWidget(QWidget):
         if response.status_code == 200:
             message = data.get("message","Target Weight saved!")
             self.update_target_weight_label_value(target_weight)
-            UserBodyData.update(target_weight=target_weight)  # 把更新的数据填入缓冲
+            UserBodyData.update(target_weight=target_weight_kg)  # 把更新的数据填入缓冲
             self.show_tip(message,success=True)
             print("Successfully!",message)
         else:
@@ -242,7 +289,7 @@ class BodyDataWidget(QWidget):
         """更新目标体重标签的值"""
         date = datetime.today().strftime("%Y-%m-%d")
         value_html = f'<span style="color:#007BFF; font:bold 24px "微软雅黑";">{target_weight}</span>'
-        unit_html = '<span style="color:#868686;"> kg</span>'
+        unit_html = f'<span style="color:#868686;"> {UserBodyData.Unit_weight}</span>'
         full_text = f"Target weight<br>{date}<br><br>{value_html} {unit_html}"
         label = self.ui.label_body_target_weight
         label.setTextFormat(Qt.RichText)  # 启用富文本模式

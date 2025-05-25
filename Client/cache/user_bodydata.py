@@ -7,6 +7,10 @@ class UserBodyData:
     body_fat_rate = None
     body_fat_rate_date = None
 
+    UNIT_KG = "Kg"
+    UNIT_JIN = "Jin"
+    Unit_weight = UNIT_KG
+
     circumferences = {}
 
     @classmethod
