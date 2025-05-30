@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget_AddMeal</class>
+ <widget class="QWidget" name="Widget_AddMeal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>362</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>666</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_8">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">#frame{
+background-color:rgb(236, 236, 236);
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="frame_2">
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+	background-color: white; /* 纯白背景 */
+	border-top-right-radius:6px;
+	border-top-left-radius:6px;
+	border-bottom-right-radius:6px;
+	border-bottom-left-radius:6px;
+}
+
+QToolButton {
+    font: 9pt &quot;微软雅黑&quot;;
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 60px;
+    min-height: 25px;
+
+}
+
+QToolButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QToolButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QToolButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+
+/* 选中时：字体变蓝 + 发光 */
+QToolButton:checked {
+    background-color: white;
+    color: #0078D7; /* 选中后字体变蓝 */
+    font-weight: bold; /* 加粗 */
+    text-shadow: 0px 0px 5px #4da6ff; /* 轻微发光效果 */
+}
+
+QPushButton {
+    font: 9pt &quot;微软雅黑&quot;;
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: transparent; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 60px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QPushButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QPushButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+
+
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>16</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="button_return">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../res.qrc">
+               <normaloff>:/icons/icon/back.png</normaloff>:/icons/icon/back.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="button_previous">
+             <property name="styleSheet">
+              <string notr="true">QToolButton{
+background-color:white;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Today</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="button_next">
+             <property name="styleSheet">
+              <string notr="true">QToolButton{
+background-color:white;
+}</string>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_seeting">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../res.qrc">
+               <normaloff>:/icons/icon/setting.png</normaloff>:/icons/icon/setting.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_3">
+        <property name="styleSheet">
+         <string notr="true">#frame_3{
+	background-color: rgb(255, 255, 255);
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+QFrame{
+	background-color: rgb(255, 255, 255);
+}
+
+QToolButton {
+    font: 9pt &quot;微软雅黑&quot;;
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 60px;
+    min-height: 25px;
+
+}
+
+QToolButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QToolButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QToolButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+
+/* 选中时：字体变蓝 + 发光 */
+QToolButton:checked {
+    background-color: white;
+    color: #0078D7; /* 选中后字体变蓝 */
+    font-weight: bold; /* 加粗 */
+    text-shadow: 0px 0px 5px #4da6ff; /* 轻微发光效果 */
+}
+
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="rightMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>9</number>
+         </property>
+         <item>
+          <widget class="QFrame" name="frame_6">
+           <property name="styleSheet">
+            <string notr="true">#frame_6{
+background:transparent;
+margin-left: 10px;  /* 根据需要可调整数值 */
+margin-right: 5px;}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QToolButton" name="toolButton_7">
+                <property name="styleSheet">
+                 <string notr="true">QToolButton {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 2px;
+    background-color: rgb(212, 212, 212);
+}
+
+QToolButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+}
+
+QToolButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+}</string>
+                </property>
+                <property name="text">
+                 <string>Set Template</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="toolButton_8">
+                <property name="styleSheet">
+                 <string notr="true">QToolButton {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 2px;
+    background-color: rgb(212, 212, 212);
+}
+
+QToolButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Share</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <property name="spacing">
+            <number>9</number>
+           </property>
+           <property name="leftMargin">
+            <number>6</number>
+           </property>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="rightMargin">
+            <number>6</number>
+           </property>
+           <property name="bottomMargin">
+            <number>10</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_train_protein">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LayoutDirection::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+    background-color: lightyellow; /* 背景颜色 */
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Pro(g)
+0
+0% </string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_train_carbohydrate">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+    background-color: lightgreen; /* 背景颜色 */
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Carbs(g)
+0
+0% </string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_train_fat">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+
+	
+	background-color: rgb(255, 144, 155);
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Fat(g)
+0
+0% </string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_train_water">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    font: 8pt &quot;微软雅黑&quot;;
+    border-radius: 9px; /* 圆角 */
+    background-color: lightblue; /* 背景颜色 */
+    color: black; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>H2O(ml)
+0/0
+0% </string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="styleSheet">
+         <string notr="true">QScrollArea {              /* 主容器 */
+    border: none;
+}</string>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>362</width>
+           <height>452</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame_4">
+            <property name="styleSheet">
+             <string notr="true">QToolButton {
+    font: 9pt &quot;微软雅黑&quot;;
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: white; /* 纯白背景 */
+    color: black; /* 黑色文字 */
+    min-width: 60px;
+    min-height: 25px;
+
+}
+
+QToolButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QToolButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QToolButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+
+/* 选中时：字体变蓝 + 发光 */
+QToolButton:checked {
+    background-color: white;
+    color: #0078D7; /* 选中后字体变蓝 */
+    font-weight: bold; /* 加粗 */
+    text-shadow: 0px 0px 5px #4da6ff; /* 轻微发光效果 */
+}
+
+</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,9">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_7">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <property name="spacing">
+                   <number>16</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QToolButton" name="button_carbonCycleSetting">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string> C-Cycle</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../res.qrc">
+                      <normaloff>:/icons/icon/xunhuan.png</normaloff>:/icons/icon/xunhuan.png</iconset>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="button_Menu">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Menu+</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../res.qrc">
+                      <normaloff>:/icons/icon/shipu.png</normaloff>:/icons/icon/shipu.png</iconset>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="button_foodRecommendation">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Rec</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../res.qrc">
+                      <normaloff>:/icons/icon/tuijianma.png</normaloff>:/icons/icon/tuijianma.png</iconset>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_8">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_5">
+        <property name="styleSheet">
+         <string notr="true">QFrame{
+	background:white;
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+}
+
+QToolButton {
+    font: 9pt &quot;微软雅黑&quot;; 
+    qproperty-alignment: AlignLeft; /* 文字左对齐 */
+    padding-left: 0px; /* 确保紧贴左边 */
+    border-radius: 6px; /* 轻微圆角 */
+    background-color: transparent; 
+    color: black; /* 黑色文字 */
+    min-width: 16px;
+    min-height: 16px;
+
+}
+
+QToolButton:hover {
+    background-color: #f0f0f0; /* 浅灰色悬浮效果 */
+    margin-top: 2px; /* 轻微下移，增加按压感 */
+}
+
+QToolButton:pressed {
+    background-color: #e0e0e0; /* 按下时变深灰 */
+    margin-top: 1px; /* 按下时轻微上移 */
+}
+
+QToolButton:disabled {
+    background-color: #f8f8f8;
+    color: gray;
+    border-color: #ddd;
+}
+
+/* 选中时：字体变蓝 + 发光 */
+QToolButton:checked {
+    background-color: transparent;
+    color: #0078D7; /* 选中后字体变蓝 */
+    font-weight: bold; /* 加粗 */
+    text-shadow: 0px 0px 5px #4da6ff; /* 轻微发光效果 */
+}
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QToolButton" name="button_train_breakfast">
+           <property name="minimumSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>breakfast</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../res.qrc">
+             <normaloff>:/icons/icon/zaocan.png</normaloff>:/icons/icon/zaocan.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="button_train_lunch">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>lunch</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../res.qrc">
+             <normaloff>:/icons/icon/wucan.png</normaloff>:/icons/icon/wucan.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="button_train_dinner">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>dinner</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../res.qrc">
+             <normaloff>:/icons/icon/hanbao.png</normaloff>:/icons/icon/hanbao.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="button_train_extra_meal">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>extra-meal</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../res.qrc">
+             <normaloff>:/icons/icon/jiangmianbaoregou.png</normaloff>:/icons/icon/jiangmianbaoregou.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="button_train_drink">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>drink</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../res.qrc">
+             <normaloff>:/icons/icon/yinshui.png</normaloff>:/icons/icon/yinshui.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="button_train_weight">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>weight</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../res.qrc">
+             <normaloff>:/icons/icon/tizhong.png</normaloff>:/icons/icon/tizhong.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../res.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>button_return</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget_AddMeal</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>44</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>30</x>
+     <y>-13</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

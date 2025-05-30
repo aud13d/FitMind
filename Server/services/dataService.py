@@ -4,6 +4,7 @@ from typing import List, Literal
 from ..models.aerobic import Aerobic
 from ..models.circumference import Circumference
 from ..models.circumferenceHistory import CircumferenceHistory
+from ..models.food import Food
 from ..models.rest import Rest
 from ..models.user import User
 from ..database.redisClient import RedisClient
@@ -220,3 +221,8 @@ class DataService:
     async def delete_circumference_record_by_date(circumference,part,date):
         """删除特定日期的身体围度记录"""
         return await CircumferenceHistory.delete_circumference_history_by_date(circumference,part,date)
+
+    @staticmethod
+    async def search_food(food:str):
+        """根据关键字从数据库中查找食物数据"""
+        return await Food.search_by_keyword(food)

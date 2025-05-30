@@ -1,10 +1,13 @@
 from PySide6.QtWidgets import QMainWindow, QButtonGroup, QCalendarWidget, QPushButton
 from PySide6.QtCore import QLocale, Qt
 from Client.ui.Designer.ui_MainInterface import Ui_MainWindow
+from .MealRecodWidget import MealRecordWidget
 from .TrainAndDietDialog import TrainAndDietDialog
 from Client.ui.Components.MaskWidget import MaskWidget
-from ...cache.user_bodydata import UserBodyData
-from ...cache.user_session import UserSession
+from Client.cache.user_bodydata import UserBodyData
+from Client.cache.user_session import UserSession
+from Client.ui.Logic.DietInterfaceWidget import DietInterfaceWidget
+from Client.ui.Components.DringkingListDialog import DrinkingListDialog
 
 
 class MainInterfaceWindow(QMainWindow):
@@ -58,6 +61,14 @@ class MainInterfaceWindow(QMainWindow):
 
         #打开训练/饮食窗口
         self.ui.button_TrainAndDiet.clicked.connect(self.open_TrainAndDiet)
+        #打开饮食界面
+        self.ui.frame_dietRecord.clicked.connect(self.open_DietInterface)
+        self.ui.button_train_drink.clicked.connect(self.open_DrinkingList)
+        self.ui.button_train_breakfast.clicked.connect(self.open_BreakfastList)
+        self.ui.button_train_lunch.clicked.connect(self.open_LunchList)
+        self.ui.button_train_dinner.clicked.connect(self.open_DinnerList)
+
+
 
     def move_to_train(self):
         """切换到训练界面"""
@@ -134,6 +145,41 @@ class MainInterfaceWindow(QMainWindow):
 
         # 关闭遮罩层
         self.mask.close()
+
+    def open_DietInterface(self):
+        """打开饮食记录窗口"""
+        self.add_meal_widget = DietInterfaceWidget(self)
+        self.add_meal_widget.show()
+
+    def open_DrinkingList(self):
+        """打开喝水记录窗口（先打开饮食记录，然后打开喝水记录）"""
+        self.add_meal_widget = DietInterfaceWidget(self)
+        self.add_meal_widget.show()
+        self.add_meal_widget.ui.button_diet_drink.clicked.emit()
+
+    def open_BreakfastList(self):
+        """打开饮食记录窗口"""
+        self.add_meal_widget = DietInterfaceWidget(self)
+        self.add_meal_widget.show()
+
+        self.add_meal_widget.ui.button_diet_breakfast.clicked.emit()
+
+    def open_LunchList(self):
+        """打开饮食记录窗口"""
+        self.add_meal_widget = DietInterfaceWidget(self)
+        self.add_meal_widget.show()
+
+        self.add_meal_widget.ui.button_diet_lunch.clicked.emit()
+
+    def open_DinnerList(self):
+        """打开饮食记录窗口"""
+        self.add_meal_widget = DietInterfaceWidget(self)
+        self.add_meal_widget.show()
+
+        self.add_meal_widget.ui.button_diet_dinner.clicked.emit()
+
+
+
 
     def set_new_train_widget(self, widget):
         """保存 NewTrainWidget 引用并监听最小化"""

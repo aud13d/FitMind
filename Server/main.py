@@ -8,6 +8,7 @@ from Server.api.restRouter import router as rest_router
 from Server.api.weightRouter import router as weight_router
 from Server.api.circumferenceRouter import router as circumference_router
 from Server.api.bodyRouter import router as body_router
+from Server.api.mealRouter import router as meal_router
 from Server.database.postgreSql import Database
 from Server.database.redisClient import RedisClient
 
@@ -34,6 +35,7 @@ app.include_router(rest_router)
 app.include_router(weight_router)
 app.include_router(circumference_router)
 app.include_router(body_router)
+app.include_router(meal_router)
 
 if __name__ == "__main__":
     uvicorn.run("main.py:app", host="127.0.0.1", port=8000, reload=True)

@@ -19,7 +19,11 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCalendarWidge
     QHBoxLayout, QLabel, QMainWindow, QPushButton,
     QScrollArea, QSizePolicy, QSpacerItem, QSplitter,
     QStackedWidget, QToolButton, QVBoxLayout, QWidget)
+
+from Client.ui.Components.ClickableFrame import ClickableFrame
+from Client.ui.Components.ClickableLabel import ClickableLabel
 from ..res_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -348,12 +352,12 @@ class Ui_MainWindow(object):
         self.frame_6.setSizePolicy(sizePolicy4)
         self.frame_6.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Shadow.Raised)
-        self.frame_13 = QFrame(self.frame_6)
-        self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setGeometry(QRect(0, 10, 331, 216))
-        sizePolicy.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
-        self.frame_13.setSizePolicy(sizePolicy)
-        self.frame_13.setStyleSheet(u"#frame_13{\n"
+        self.frame_dietRecord = ClickableFrame(self.frame_6)
+        self.frame_dietRecord.setObjectName(u"frame_dietRecord")
+        self.frame_dietRecord.setGeometry(QRect(0, 10, 331, 216))
+        sizePolicy.setHeightForWidth(self.frame_dietRecord.sizePolicy().hasHeightForWidth())
+        self.frame_dietRecord.setSizePolicy(sizePolicy)
+        self.frame_dietRecord.setStyleSheet(u"#frame_13{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	border-top-right-radius:40px;\n"
 "	border-top-left-radius:40px;\n"
@@ -364,11 +368,11 @@ class Ui_MainWindow(object):
 "QToolButton{\n"
 "	font:9pt \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "}")
-        self.frame_13.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_13.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_13)
+        self.frame_dietRecord.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_dietRecord.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_dietRecord)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_train_already_eaten = QLabel(self.frame_13)
+        self.label_train_already_eaten = QLabel(self.frame_dietRecord)
         self.label_train_already_eaten.setObjectName(u"label_train_already_eaten")
         sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
         sizePolicy5.setHorizontalStretch(0)
@@ -386,7 +390,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setSpacing(9)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(6, 5, 6, 10)
-        self.label_train_protein = QLabel(self.frame_13)
+        self.label_train_protein = ClickableLabel(self.frame_dietRecord)
         self.label_train_protein.setObjectName(u"label_train_protein")
         sizePolicy1.setHeightForWidth(self.label_train_protein.sizePolicy().hasHeightForWidth())
         self.label_train_protein.setSizePolicy(sizePolicy1)
@@ -404,7 +408,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.label_train_protein)
 
-        self.label_train_carbohydrate = QLabel(self.frame_13)
+        self.label_train_carbohydrate = ClickableLabel(self.frame_dietRecord)
         self.label_train_carbohydrate.setObjectName(u"label_train_carbohydrate")
         sizePolicy1.setHeightForWidth(self.label_train_carbohydrate.sizePolicy().hasHeightForWidth())
         self.label_train_carbohydrate.setSizePolicy(sizePolicy1)
@@ -421,7 +425,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.label_train_carbohydrate)
 
-        self.label_train_fat = QLabel(self.frame_13)
+        self.label_train_fat = ClickableLabel(self.frame_dietRecord)
         self.label_train_fat.setObjectName(u"label_train_fat")
         sizePolicy1.setHeightForWidth(self.label_train_fat.sizePolicy().hasHeightForWidth())
         self.label_train_fat.setSizePolicy(sizePolicy1)
@@ -440,7 +444,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.label_train_fat)
 
-        self.label_train_water = QLabel(self.frame_13)
+        self.label_train_water = ClickableLabel(self.frame_dietRecord)
         self.label_train_water.setObjectName(u"label_train_water")
         sizePolicy1.setHeightForWidth(self.label_train_water.sizePolicy().hasHeightForWidth())
         self.label_train_water.setSizePolicy(sizePolicy1)
@@ -463,7 +467,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.horizontalLayout_8.setContentsMargins(-1, 10, -1, 10)
-        self.button_train_breakfast = QToolButton(self.frame_13)
+        self.button_train_breakfast = QToolButton(self.frame_dietRecord)
         self.button_train_breakfast.setObjectName(u"button_train_breakfast")
         icon2 = QIcon()
         icon2.addFile(u":/icons/icon/zaocan.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -472,7 +476,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.button_train_breakfast)
 
-        self.button_train_lunch = QToolButton(self.frame_13)
+        self.button_train_lunch = QToolButton(self.frame_dietRecord)
         self.button_train_lunch.setObjectName(u"button_train_lunch")
         icon3 = QIcon()
         icon3.addFile(u":/icons/icon/wucan.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -481,7 +485,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.button_train_lunch)
 
-        self.button_train_dinner = QToolButton(self.frame_13)
+        self.button_train_dinner = QToolButton(self.frame_dietRecord)
         self.button_train_dinner.setObjectName(u"button_train_dinner")
         icon4 = QIcon()
         icon4.addFile(u":/icons/icon/hanbao.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -490,7 +494,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.button_train_dinner)
 
-        self.button_train_extra_meal = QToolButton(self.frame_13)
+        self.button_train_extra_meal = QToolButton(self.frame_dietRecord)
         self.button_train_extra_meal.setObjectName(u"button_train_extra_meal")
         icon5 = QIcon()
         icon5.addFile(u":/icons/icon/jiangmianbaoregou.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -499,7 +503,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.button_train_extra_meal)
 
-        self.button_train_drink = QToolButton(self.frame_13)
+        self.button_train_drink = QToolButton(self.frame_dietRecord)
         self.button_train_drink.setObjectName(u"button_train_drink")
         icon6 = QIcon()
         icon6.addFile(u":/icons/icon/yinshui.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -508,7 +512,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.button_train_drink)
 
-        self.button_train_weight = QToolButton(self.frame_13)
+        self.button_train_weight = QToolButton(self.frame_dietRecord)
         self.button_train_weight.setObjectName(u"button_train_weight")
         icon7 = QIcon()
         icon7.addFile(u":/icons/icon/tizhong.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
