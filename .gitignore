@@ -1,0 +1,11 @@
+# 忽略 PyCharm 项目配置
+.idea/
+
+# 忽略 Python 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+
+# 可选：忽略日志和数据库
+*.log
+*.sqlite3
