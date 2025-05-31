@@ -2,11 +2,12 @@ from PySide6.QtWidgets import (
     QLabel, QDialog, QVBoxLayout, QHBoxLayout, QLineEdit, QPushButton,
     QSpacerItem, QSizePolicy, QFrame, QGridLayout
 )
-from PySide6.QtCore import Qt, QSize
+from PySide6.QtCore import Qt, QSize, Signal
 from PySide6.QtGui import QPixmap, QIcon, QPainter, QPainterPath, QIntValidator
 
 
 class FoodListDialog(QDialog):
+    food_added = Signal(dict)
     def __init__(self, parent=None, food_data=None):
         super().__init__(parent)
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog)
@@ -178,6 +179,7 @@ class FoodListDialog(QDialog):
 
         # 5. 添加食物按钮
         self.button_add = QPushButton("Add Food")
+        self.button_add.clicked.connect(self.emit_food_data)
         self.button_add.setMinimumSize(QSize(0,60))
         self.button_add.setStyleSheet("""
                 QPushButton{
@@ -247,6 +249,31 @@ class FoodListDialog(QDialog):
 
         self.input_edit.setText(new_text)
         self.update_nutrition_display()
+
+    def emit_food_data(self):
+        try:
+            weight = float(self.input_edit.text())
+        except ValueError:
+            weight = 0.0
+
+        kcal = round(self.energy * weight / 100, 1)
+        protein = round(self.protein * weight / 100, 1)
+        carbs = round(self.carbs * weight / 100, 1)
+        fat = round(self.fat * weight / 100, 1)
+
+        data = {
+            "name": self.food_data.get("name", "Food"),
+            "icon": self.food_data.get("icon"),
+            "weight": weight,
+            "energy": kcal,
+            "protein": protein,
+            "carbs": carbs,
+            "fat": fat,
+        }
+
+        self.food_added.emit(data)
+        self.accept()  # 关闭对话框
+
 
 
 

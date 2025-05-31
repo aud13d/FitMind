@@ -1,3 +1,5 @@
+from PySide6 import QtCore
+from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QMainWindow, QButtonGroup, QCalendarWidget, QPushButton
 from PySide6.QtCore import QLocale, Qt
 from Client.ui.Designer.ui_MainInterface import Ui_MainWindow
@@ -7,6 +9,7 @@ from Client.ui.Components.MaskWidget import MaskWidget
 from Client.cache.user_bodydata import UserBodyData
 from Client.cache.user_session import UserSession
 from Client.ui.Logic.DietInterfaceWidget import DietInterfaceWidget
+from Client.config import *
 from Client.ui.Components.DringkingListDialog import DrinkingListDialog
 
 
@@ -36,6 +39,8 @@ class MainInterfaceWindow(QMainWindow):
         self.new_train_widget_mini_floating_button = self.create_new_train_widget_mini_floating_button()
         self.new_train_widget_mini_floating_button.setVisible(False)  # 默认隐藏
         self.new_train_widget = None
+
+        self.setUserIcons()
 
         self.bind()
 
@@ -209,6 +214,48 @@ class MainInterfaceWindow(QMainWindow):
         UserSession.clear()
         print("用户缓存已清空")
         super().closeEvent(event)
+
+    def setUserIcons(self):
+        """设置User界面的图标"""
+        self._set_icon(self.ui.label_user_icon, User_IconPath, 48)
+        self._set_icon(self.ui.label_menstual_icon, Menstual_IconPath, 24)
+        self._set_icon(self.ui.label_picture_wall_icon, PictureWall_IconPath, 24)
+        self._set_icon(self.ui.label_memo_icon, Memo_IconPath, 24)
+        self._set_icon(self.ui.label_preferences_icon, Preferences_IconPath, 24)
+        self._set_icon(self.ui.label_button_faceback_center_icon, FacebackCenter_IconPath, 24)
+        self._set_icon(self.ui.label_body_data_icon, BodyData_IconPath, 24)
+        self._set_icon(self.ui.label_user_guide_icon, UserGuide_IconPath, 24)
+        self._set_icon(self.ui.label_language_icon,Language_IconPath ,24)
+        self._set_icon(self.ui.label_RM_calculator_icon, RMCalculator_IconPath, 24)
+        self._set_icon(self.ui.label_wechat_icon, WeChat_IconPath, 24)
+        self._set_icon(self.ui.label_tools_icon, Tools_IconPath, 24)
+        self._set_icon(self.ui.label_agreement_and_account_icon, AgreementAndAccount_IconPath, 24)
+
+    def _set_icon(self, label, path, size):
+        """通用的图标设置方法"""
+        # 强制 QLabel 尺寸为指定大小
+        label.setFixedSize(size, size)
+        label.setStyleSheet("padding: 0px; margin: 0px; border: none;")
+
+        # 加载图标
+        pixmap = QPixmap(path)
+        if pixmap.isNull():
+            print(f"图标加载失败：{path}")
+            return
+
+        # 将图标缩放为目标大小，保持比例 + 平滑缩放
+        scaled = pixmap.scaled(
+            size, size,
+            QtCore.Qt.KeepAspectRatio,
+            QtCore.Qt.SmoothTransformation
+        )
+
+        # 设置图标
+        label.setPixmap(scaled)
+        label.setAlignment(QtCore.Qt.AlignCenter)
+
+
+
 
 
 

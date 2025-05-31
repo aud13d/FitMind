@@ -1,5 +1,5 @@
 from PIL.ImageQt import QPixmap
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QPainter, QPainterPath
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QVBoxLayout
 
@@ -9,7 +9,8 @@ from Client.ui.Components.MaskWidget import MaskWidget
 
 
 class FoodFrame(ClickableFrame):
-    def __init__(self, name, energy, protein, carbs, fat, icon=None, parent=None,meal_record_widget=None):
+    food_added = Signal(dict)
+    def __init__(self, name, energy, protein, carbs, fat, icon=None, parent=None,meal_record_widget=None,weight=100):
         super().__init__(parent)
         self.meal_record_widget = meal_record_widget
         self.setStyleSheet("""
@@ -50,7 +51,7 @@ class FoodFrame(ClickableFrame):
         # 构建左边的食物名称 + kcal 热量
         name_label = QLabel(f"<b>{name}</b>")
 
-        kcal_label = QLabel(f"{energy if energy is not None else '--'} kcal / 100g")
+        kcal_label = QLabel(f"{energy if energy is not None else '--'} kcal / {weight}g")
         kcal_label.setStyleSheet("font-size: 11px; color: #666;")
 
         # 构建右边的营养素彩色数据
@@ -108,6 +109,9 @@ class FoodFrame(ClickableFrame):
         # 移动到父控件下部分
         parent_pos = self.meal_record_widget.mapToGlobal(self.meal_record_widget.rect().topLeft())
         dialog.move(parent_pos.x(), parent_pos.y() + int(parent_size.height() * (1 - height_ratio)))
+
+        # 信号中转
+        dialog.food_added.connect(self.food_added.emit)
 
         # 关闭对话框时自动关闭遮罩
         dialog.finished.connect(mask.close)

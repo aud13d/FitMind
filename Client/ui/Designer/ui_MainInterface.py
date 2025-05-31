@@ -1122,6 +1122,464 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_history)
         self.page_user = QWidget()
         self.page_user.setObjectName(u"page_user")
+        self.verticalLayout_32 = QVBoxLayout(self.page_user)
+        self.verticalLayout_32.setObjectName(u"verticalLayout_32")
+        self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
+        self.frame_user = QFrame(self.page_user)
+        self.frame_user.setObjectName(u"frame_user")
+        self.frame_user.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_user.setStyleSheet(u"QFrame{\n"
+"	background-color: rgb(216, 216, 216);\n"
+"		border-top-right-radius:20px;\n"
+"	border-top-left-radius:20px;\n"
+"\n"
+"}")
+        self.frame_user.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_user.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_26 = QVBoxLayout(self.frame_user)
+        self.verticalLayout_26.setSpacing(10)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.frame_user_head = QFrame(self.frame_user)
+        self.frame_user_head.setObjectName(u"frame_user_head")
+        sizePolicy5.setHeightForWidth(self.frame_user_head.sizePolicy().hasHeightForWidth())
+        self.frame_user_head.setSizePolicy(sizePolicy5)
+        self.frame_user_head.setMinimumSize(QSize(0, 10))
+        self.frame_user_head.setMaximumSize(QSize(16777215, 75))
+        self.frame_user_head.setStyleSheet(u"QFrame{\n"
+"background-color:white;\n"
+"border-radius:20px;\n"
+"margin-top:10px;\n"
+"margin-left:10px;\n"
+"margin-right:10px;\n"
+"}")
+        self.frame_user_head.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_user_head.setFrameShadow(QFrame.Shadow.Raised)
+        self.frame_user_head.setLineWidth(4)
+        self.verticalLayout_27 = QVBoxLayout(self.frame_user_head)
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.verticalLayout_27.setContentsMargins(9, -1, -1, 9)
+        self.horizontalLayout_45 = QHBoxLayout()
+        self.horizontalLayout_45.setObjectName(u"horizontalLayout_45")
+        self.label_user_icon = QLabel(self.frame_user_head)
+        self.label_user_icon.setObjectName(u"label_user_icon")
+        self.label_user_icon.setScaledContents(True)
+
+        self.horizontalLayout_45.addWidget(self.label_user_icon)
+
+        self.label_user = QLabel(self.frame_user_head)
+        self.label_user.setObjectName(u"label_user")
+
+        self.horizontalLayout_45.addWidget(self.label_user)
+
+        self.horizontalLayout_45.setStretch(0, 2)
+        self.horizontalLayout_45.setStretch(1, 8)
+
+        self.verticalLayout_27.addLayout(self.horizontalLayout_45)
+
+
+        self.verticalLayout_26.addWidget(self.frame_user_head)
+
+        self.frame_user_2 = QFrame(self.frame_user)
+        self.frame_user_2.setObjectName(u"frame_user_2")
+        self.frame_user_2.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_user_2.setStyleSheet(u"QFrame{\n"
+"background-color:white;\n"
+"border-radius:20px;\n"
+"margin-left:10px;\n"
+"margin-right:10px;\n"
+"}")
+        self.frame_user_2.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_user_2.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_28 = QVBoxLayout(self.frame_user_2)
+        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
+        self.horizontalLayout_46 = QHBoxLayout()
+        self.horizontalLayout_46.setObjectName(u"horizontalLayout_46")
+        self.label_menstual_icon = QLabel(self.frame_user_2)
+        self.label_menstual_icon.setObjectName(u"label_menstual_icon")
+        sizePolicy.setHeightForWidth(self.label_menstual_icon.sizePolicy().hasHeightForWidth())
+        self.label_menstual_icon.setSizePolicy(sizePolicy)
+        self.label_menstual_icon.setMinimumSize(QSize(16, 16))
+        self.label_menstual_icon.setScaledContents(True)
+
+        self.horizontalLayout_46.addWidget(self.label_menstual_icon)
+
+        self.button_menstrual = QPushButton(self.frame_user_2)
+        self.button_menstrual.setObjectName(u"button_menstrual")
+        self.button_menstrual.setMinimumSize(QSize(0, 30))
+        self.button_menstrual.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_46.addWidget(self.button_menstrual)
+
+        self.horizontalLayout_46.setStretch(0, 1)
+        self.horizontalLayout_46.setStretch(1, 9)
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_46)
+
+        self.horizontalLayout_47 = QHBoxLayout()
+        self.horizontalLayout_47.setObjectName(u"horizontalLayout_47")
+        self.label_picture_wall_icon = QLabel(self.frame_user_2)
+        self.label_picture_wall_icon.setObjectName(u"label_picture_wall_icon")
+        sizePolicy.setHeightForWidth(self.label_picture_wall_icon.sizePolicy().hasHeightForWidth())
+        self.label_picture_wall_icon.setSizePolicy(sizePolicy)
+        self.label_picture_wall_icon.setMinimumSize(QSize(16, 16))
+        self.label_picture_wall_icon.setScaledContents(True)
+
+        self.horizontalLayout_47.addWidget(self.label_picture_wall_icon)
+
+        self.button_picture_wall = QPushButton(self.frame_user_2)
+        self.button_picture_wall.setObjectName(u"button_picture_wall")
+        self.button_picture_wall.setMinimumSize(QSize(0, 30))
+        self.button_picture_wall.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_47.addWidget(self.button_picture_wall)
+
+        self.horizontalLayout_47.setStretch(0, 1)
+        self.horizontalLayout_47.setStretch(1, 9)
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_47)
+
+        self.horizontalLayout_48 = QHBoxLayout()
+        self.horizontalLayout_48.setObjectName(u"horizontalLayout_48")
+        self.label_memo_icon = QLabel(self.frame_user_2)
+        self.label_memo_icon.setObjectName(u"label_memo_icon")
+        sizePolicy.setHeightForWidth(self.label_memo_icon.sizePolicy().hasHeightForWidth())
+        self.label_memo_icon.setSizePolicy(sizePolicy)
+        self.label_memo_icon.setMinimumSize(QSize(16, 16))
+        self.label_memo_icon.setScaledContents(True)
+
+        self.horizontalLayout_48.addWidget(self.label_memo_icon)
+
+        self.button_memo = QPushButton(self.frame_user_2)
+        self.button_memo.setObjectName(u"button_memo")
+        self.button_memo.setMinimumSize(QSize(0, 30))
+        self.button_memo.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_48.addWidget(self.button_memo)
+
+        self.horizontalLayout_48.setStretch(0, 1)
+        self.horizontalLayout_48.setStretch(1, 9)
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_48)
+
+
+        self.verticalLayout_26.addWidget(self.frame_user_2)
+
+        self.frame_user_3 = QFrame(self.frame_user)
+        self.frame_user_3.setObjectName(u"frame_user_3")
+        self.frame_user_3.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_user_3.setStyleSheet(u"QFrame{\n"
+"background-color:white;\n"
+"border-radius:20px;\n"
+"margin-left:10px;\n"
+"margin-right:10px;\n"
+"}")
+        self.frame_user_3.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_user_3.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_29 = QVBoxLayout(self.frame_user_3)
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.horizontalLayout_49 = QHBoxLayout()
+        self.horizontalLayout_49.setObjectName(u"horizontalLayout_49")
+        self.label_preferences_icon = QLabel(self.frame_user_3)
+        self.label_preferences_icon.setObjectName(u"label_preferences_icon")
+        sizePolicy.setHeightForWidth(self.label_preferences_icon.sizePolicy().hasHeightForWidth())
+        self.label_preferences_icon.setSizePolicy(sizePolicy)
+        self.label_preferences_icon.setMinimumSize(QSize(16, 16))
+        self.label_preferences_icon.setScaledContents(True)
+
+        self.horizontalLayout_49.addWidget(self.label_preferences_icon)
+
+        self.button_preferences = QPushButton(self.frame_user_3)
+        self.button_preferences.setObjectName(u"button_preferences")
+        self.button_preferences.setMinimumSize(QSize(0, 30))
+        self.button_preferences.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_49.addWidget(self.button_preferences)
+
+        self.horizontalLayout_49.setStretch(0, 1)
+        self.horizontalLayout_49.setStretch(1, 9)
+
+        self.verticalLayout_29.addLayout(self.horizontalLayout_49)
+
+        self.horizontalLayout_50 = QHBoxLayout()
+        self.horizontalLayout_50.setObjectName(u"horizontalLayout_50")
+        self.label_button_faceback_center_icon = QLabel(self.frame_user_3)
+        self.label_button_faceback_center_icon.setObjectName(u"label_button_faceback_center_icon")
+        sizePolicy.setHeightForWidth(self.label_button_faceback_center_icon.sizePolicy().hasHeightForWidth())
+        self.label_button_faceback_center_icon.setSizePolicy(sizePolicy)
+        self.label_button_faceback_center_icon.setMinimumSize(QSize(16, 16))
+        self.label_button_faceback_center_icon.setScaledContents(True)
+
+        self.horizontalLayout_50.addWidget(self.label_button_faceback_center_icon)
+
+        self.button_faceback_center = QPushButton(self.frame_user_3)
+        self.button_faceback_center.setObjectName(u"button_faceback_center")
+        self.button_faceback_center.setMinimumSize(QSize(0, 30))
+        self.button_faceback_center.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_50.addWidget(self.button_faceback_center)
+
+        self.horizontalLayout_50.setStretch(0, 1)
+        self.horizontalLayout_50.setStretch(1, 9)
+
+        self.verticalLayout_29.addLayout(self.horizontalLayout_50)
+
+        self.horizontalLayout_51 = QHBoxLayout()
+        self.horizontalLayout_51.setObjectName(u"horizontalLayout_51")
+        self.label_body_data_icon = QLabel(self.frame_user_3)
+        self.label_body_data_icon.setObjectName(u"label_body_data_icon")
+        sizePolicy.setHeightForWidth(self.label_body_data_icon.sizePolicy().hasHeightForWidth())
+        self.label_body_data_icon.setSizePolicy(sizePolicy)
+        self.label_body_data_icon.setMinimumSize(QSize(16, 16))
+        self.label_body_data_icon.setScaledContents(True)
+
+        self.horizontalLayout_51.addWidget(self.label_body_data_icon)
+
+        self.button_body_data = QPushButton(self.frame_user_3)
+        self.button_body_data.setObjectName(u"button_body_data")
+        self.button_body_data.setMinimumSize(QSize(0, 30))
+        self.button_body_data.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_51.addWidget(self.button_body_data)
+
+        self.horizontalLayout_51.setStretch(0, 1)
+        self.horizontalLayout_51.setStretch(1, 9)
+
+        self.verticalLayout_29.addLayout(self.horizontalLayout_51)
+
+
+        self.verticalLayout_26.addWidget(self.frame_user_3)
+
+        self.frame_user_4 = QFrame(self.frame_user)
+        self.frame_user_4.setObjectName(u"frame_user_4")
+        self.frame_user_4.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_user_4.setStyleSheet(u"QFrame{\n"
+"background-color:white;\n"
+"border-radius:20px;\n"
+"margin-left:10px;\n"
+"margin-right:10px;\n"
+"}")
+        self.frame_user_4.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_user_4.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_30 = QVBoxLayout(self.frame_user_4)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.horizontalLayout_52 = QHBoxLayout()
+        self.horizontalLayout_52.setObjectName(u"horizontalLayout_52")
+        self.label_user_guide_icon = QLabel(self.frame_user_4)
+        self.label_user_guide_icon.setObjectName(u"label_user_guide_icon")
+        sizePolicy.setHeightForWidth(self.label_user_guide_icon.sizePolicy().hasHeightForWidth())
+        self.label_user_guide_icon.setSizePolicy(sizePolicy)
+        self.label_user_guide_icon.setMinimumSize(QSize(16, 16))
+        self.label_user_guide_icon.setScaledContents(True)
+
+        self.horizontalLayout_52.addWidget(self.label_user_guide_icon)
+
+        self.button_user_guide = QPushButton(self.frame_user_4)
+        self.button_user_guide.setObjectName(u"button_user_guide")
+        self.button_user_guide.setMinimumSize(QSize(0, 30))
+        self.button_user_guide.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_52.addWidget(self.button_user_guide)
+
+        self.horizontalLayout_52.setStretch(0, 1)
+        self.horizontalLayout_52.setStretch(1, 9)
+
+        self.verticalLayout_30.addLayout(self.horizontalLayout_52)
+
+        self.horizontalLayout_53 = QHBoxLayout()
+        self.horizontalLayout_53.setObjectName(u"horizontalLayout_53")
+        self.label_language_icon = QLabel(self.frame_user_4)
+        self.label_language_icon.setObjectName(u"label_language_icon")
+        sizePolicy.setHeightForWidth(self.label_language_icon.sizePolicy().hasHeightForWidth())
+        self.label_language_icon.setSizePolicy(sizePolicy)
+        self.label_language_icon.setMinimumSize(QSize(16, 16))
+        self.label_language_icon.setScaledContents(True)
+
+        self.horizontalLayout_53.addWidget(self.label_language_icon)
+
+        self.button_language = QPushButton(self.frame_user_4)
+        self.button_language.setObjectName(u"button_language")
+        self.button_language.setMinimumSize(QSize(0, 30))
+        self.button_language.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_53.addWidget(self.button_language)
+
+        self.horizontalLayout_53.setStretch(0, 1)
+        self.horizontalLayout_53.setStretch(1, 9)
+
+        self.verticalLayout_30.addLayout(self.horizontalLayout_53)
+
+        self.horizontalLayout_54 = QHBoxLayout()
+        self.horizontalLayout_54.setObjectName(u"horizontalLayout_54")
+        self.label_RM_calculator_icon = QLabel(self.frame_user_4)
+        self.label_RM_calculator_icon.setObjectName(u"label_RM_calculator_icon")
+        sizePolicy.setHeightForWidth(self.label_RM_calculator_icon.sizePolicy().hasHeightForWidth())
+        self.label_RM_calculator_icon.setSizePolicy(sizePolicy)
+        self.label_RM_calculator_icon.setMinimumSize(QSize(16, 16))
+        self.label_RM_calculator_icon.setScaledContents(True)
+
+        self.horizontalLayout_54.addWidget(self.label_RM_calculator_icon)
+
+        self.button_RM_calculator = QPushButton(self.frame_user_4)
+        self.button_RM_calculator.setObjectName(u"button_RM_calculator")
+        self.button_RM_calculator.setMinimumSize(QSize(0, 30))
+        self.button_RM_calculator.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_54.addWidget(self.button_RM_calculator)
+
+        self.horizontalLayout_54.setStretch(0, 1)
+        self.horizontalLayout_54.setStretch(1, 9)
+
+        self.verticalLayout_30.addLayout(self.horizontalLayout_54)
+
+        self.horizontalLayout_55 = QHBoxLayout()
+        self.horizontalLayout_55.setObjectName(u"horizontalLayout_55")
+        self.label_wechat_icon = QLabel(self.frame_user_4)
+        self.label_wechat_icon.setObjectName(u"label_wechat_icon")
+        sizePolicy.setHeightForWidth(self.label_wechat_icon.sizePolicy().hasHeightForWidth())
+        self.label_wechat_icon.setSizePolicy(sizePolicy)
+        self.label_wechat_icon.setMinimumSize(QSize(16, 16))
+        self.label_wechat_icon.setScaledContents(True)
+
+        self.horizontalLayout_55.addWidget(self.label_wechat_icon)
+
+        self.button_wechat = QPushButton(self.frame_user_4)
+        self.button_wechat.setObjectName(u"button_wechat")
+        self.button_wechat.setMinimumSize(QSize(0, 30))
+        self.button_wechat.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_55.addWidget(self.button_wechat)
+
+        self.horizontalLayout_55.setStretch(0, 1)
+        self.horizontalLayout_55.setStretch(1, 9)
+
+        self.verticalLayout_30.addLayout(self.horizontalLayout_55)
+
+        self.horizontalLayout_56 = QHBoxLayout()
+        self.horizontalLayout_56.setObjectName(u"horizontalLayout_56")
+        self.label_tools_icon = QLabel(self.frame_user_4)
+        self.label_tools_icon.setObjectName(u"label_tools_icon")
+        sizePolicy.setHeightForWidth(self.label_tools_icon.sizePolicy().hasHeightForWidth())
+        self.label_tools_icon.setSizePolicy(sizePolicy)
+        self.label_tools_icon.setMinimumSize(QSize(16, 16))
+        self.label_tools_icon.setScaledContents(True)
+
+        self.horizontalLayout_56.addWidget(self.label_tools_icon)
+
+        self.button_tools = QPushButton(self.frame_user_4)
+        self.button_tools.setObjectName(u"button_tools")
+        self.button_tools.setMinimumSize(QSize(0, 30))
+        self.button_tools.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_56.addWidget(self.button_tools)
+
+        self.horizontalLayout_56.setStretch(0, 1)
+        self.horizontalLayout_56.setStretch(1, 9)
+
+        self.verticalLayout_30.addLayout(self.horizontalLayout_56)
+
+
+        self.verticalLayout_26.addWidget(self.frame_user_4)
+
+        self.frame_user_5 = QFrame(self.frame_user)
+        self.frame_user_5.setObjectName(u"frame_user_5")
+        sizePolicy5.setHeightForWidth(self.frame_user_5.sizePolicy().hasHeightForWidth())
+        self.frame_user_5.setSizePolicy(sizePolicy5)
+        self.frame_user_5.setMinimumSize(QSize(0, 30))
+        self.frame_user_5.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_user_5.setStyleSheet(u"QFrame{\n"
+"background-color:white;\n"
+"border-radius:20px;\n"
+"margin-left:10px;\n"
+"margin-right:10px;\n"
+"}")
+        self.frame_user_5.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_user_5.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_31 = QVBoxLayout(self.frame_user_5)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.horizontalLayout_11 = QHBoxLayout()
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.label_agreement_and_account_icon = QLabel(self.frame_user_5)
+        self.label_agreement_and_account_icon.setObjectName(u"label_agreement_and_account_icon")
+        self.label_agreement_and_account_icon.setMinimumSize(QSize(16, 16))
+        self.label_agreement_and_account_icon.setScaledContents(True)
+
+        self.horizontalLayout_11.addWidget(self.label_agreement_and_account_icon)
+
+        self.button_agreement_and_account = QPushButton(self.frame_user_5)
+        self.button_agreement_and_account.setObjectName(u"button_agreement_and_account")
+        self.button_agreement_and_account.setMinimumSize(QSize(0, 30))
+        self.button_agreement_and_account.setStyleSheet(u"QPushButton{\n"
+"background-color:white;\n"
+"border:none;\n"
+"text-align:left;\n"
+"}")
+
+        self.horizontalLayout_11.addWidget(self.button_agreement_and_account)
+
+        self.horizontalLayout_11.setStretch(0, 1)
+        self.horizontalLayout_11.setStretch(1, 9)
+
+        self.verticalLayout_31.addLayout(self.horizontalLayout_11)
+
+
+        self.verticalLayout_26.addWidget(self.frame_user_5)
+
+        self.frame_user_zhanwei = QFrame(self.frame_user)
+        self.frame_user_zhanwei.setObjectName(u"frame_user_zhanwei")
+        self.frame_user_zhanwei.setMinimumSize(QSize(0, 0))
+        self.frame_user_zhanwei.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_user_zhanwei.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.verticalLayout_26.addWidget(self.frame_user_zhanwei)
+
+
+        self.verticalLayout_32.addWidget(self.frame_user)
+
         self.stackedWidget.addWidget(self.page_user)
 
         self.verticalLayout_13.addWidget(self.stackedWidget)
@@ -1351,6 +1809,38 @@ class Ui_MainWindow(object):
         self.button_sports_more.setText(QCoreApplication.translate("MainWindow", u"More", None))
         self.button_history_history.setText(QCoreApplication.translate("MainWindow", u"History", None))
         self.button_history_statistics.setText(QCoreApplication.translate("MainWindow", u"Statistics", None))
+        self.label_user_icon.setText("")
+        self.label_user.setText(QCoreApplication.translate("MainWindow", u"<html>\n"
+"<head/>\n"
+"<body>\n"
+"<span style=\"color: black; font-size: 16px;\">User</span><br>\n"
+"<span style=\"color: gray; font-size: 9px;padding-top:9px;\">ID:9033227</span>\n"
+"</body>\n"
+"</html>", None))
+        self.label_menstual_icon.setText("")
+        self.button_menstrual.setText(QCoreApplication.translate("MainWindow", u"Menstrual", None))
+        self.label_picture_wall_icon.setText("")
+        self.button_picture_wall.setText(QCoreApplication.translate("MainWindow", u"Picture Wall", None))
+        self.label_memo_icon.setText("")
+        self.button_memo.setText(QCoreApplication.translate("MainWindow", u"Memo", None))
+        self.label_preferences_icon.setText("")
+        self.button_preferences.setText(QCoreApplication.translate("MainWindow", u"Preferences", None))
+        self.label_button_faceback_center_icon.setText("")
+        self.button_faceback_center.setText(QCoreApplication.translate("MainWindow", u"Faceback Center", None))
+        self.label_body_data_icon.setText("")
+        self.button_body_data.setText(QCoreApplication.translate("MainWindow", u"Body Data", None))
+        self.label_user_guide_icon.setText("")
+        self.button_user_guide.setText(QCoreApplication.translate("MainWindow", u"User Guide", None))
+        self.label_language_icon.setText("")
+        self.button_language.setText(QCoreApplication.translate("MainWindow", u"\u8bed\u8a00\u8bbe\u7f6e/Language", None))
+        self.label_RM_calculator_icon.setText("")
+        self.button_RM_calculator.setText(QCoreApplication.translate("MainWindow", u"RM Calculator", None))
+        self.label_wechat_icon.setText("")
+        self.button_wechat.setText(QCoreApplication.translate("MainWindow", u"WeChat Official Account", None))
+        self.label_tools_icon.setText("")
+        self.button_tools.setText(QCoreApplication.translate("MainWindow", u"Tools", None))
+        self.label_agreement_and_account_icon.setText("")
+        self.button_agreement_and_account.setText(QCoreApplication.translate("MainWindow", u"Agreement and Account", None))
         self.button_train.setText(QCoreApplication.translate("MainWindow", u"train", None))
         self.button_sports.setText(QCoreApplication.translate("MainWindow", u"sports", None))
         self.button_TrainAndDiet.setText(QCoreApplication.translate("MainWindow", u"T/D", None))

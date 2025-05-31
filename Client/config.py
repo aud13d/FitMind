@@ -64,6 +64,21 @@ MoveAddActionQDialog_IconPath = ":/icons/icon/移动.png"
 GoAddActionQDialog_IconPath =":/icons/icon/进入.png"
 TypeSelectionNewAerobicDialog_IconPath = ":/icons/icon/type.png"
 TimeSettingNewAerobicDialog_IconPath = ":/icons/icon/clock.png"
+
+User_IconPath = ":/icons/icon/疑惑.png"
+Menstual_IconPath = ":/icons/icon/Menstrual.png"
+PictureWall_IconPath=":/icons/icon/PictureWall.png"
+Memo_IconPath=":/icons/icon/Memo.png"
+Preferences_IconPath=":/icons/icon/Preferences.png"
+FacebackCenter_IconPath=":/icons/icon/Center.png"
+BodyData_IconPath=":/icons/icon/Body.png"
+UserGuide_IconPath=":/icons/icon/Guide.png"
+Language_IconPath=":/icons/icon/language.png"
+RMCalculator_IconPath=":/icons/icon/calculator.png"
+WeChat_IconPath=":/icons/icon/WeChat.png"
+Tools_IconPath=":/icons/icon/tools.png"
+AgreementAndAccount_IconPath=":/icons/icon/user-circle-single--circle-geometric-human-person-.png"
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # .../Client
 BodyQFrame_ImagePath = os.path.join(BASE_DIR, "ui", "image", "body.png")
 
