@@ -16,9 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QStackedWidget,
-    QToolButton, QVBoxLayout, QWidget)
+    QLineEdit, QPushButton, QScrollArea, QSizePolicy,
+    QStackedWidget, QToolButton, QVBoxLayout, QWidget)
 from ..res_rc import *
+
 class Ui_Widget_MealRecord(object):
     def setupUi(self, Widget_MealRecord):
         if not Widget_MealRecord.objectName():
@@ -156,6 +157,80 @@ class Ui_Widget_MealRecord(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.page_search = QWidget()
         self.page_search.setObjectName(u"page_search")
+        self.verticalLayout_4 = QVBoxLayout(self.page_search)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea = QScrollArea(self.page_search)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setStyleSheet(u"QScrollArea{\n"
+"	border:none\n"
+"}\n"
+"\n"
+"QWidget {\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    background: transparent;\n"
+"    width: 4px;\n"
+"    margin: 0px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: rgba(100, 100, 100, 0.5);\n"
+"    min-height: 20px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: rgba(100, 100, 100, 0.8);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical,\n"
+"QScrollBar::sub-line:vertical,\n"
+"QScrollBar::add-page:vertical,\n"
+"QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    background: transparent;\n"
+"    height: 4px;\n"
+"    margin: 0px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal {\n"
+"    background: rgba(100, 100, 100, 0.5);\n"
+"    min-width: 20px;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal:hover {\n"
+"    background: rg"
+                        "ba(100, 100, 100, 0.8);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:horizontal,\n"
+"QScrollBar::sub-line:horizontal,\n"
+"QScrollBar::add-page:horizontal,\n"
+"QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"    border: none;\n"
+"}\n"
+"")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 360, 477))
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_4.addWidget(self.scrollArea)
+
         self.stackedWidget.addWidget(self.page_search)
         self.page_collect = QWidget()
         self.page_collect.setObjectName(u"page_collect")

@@ -66,3 +66,17 @@ TypeSelectionNewAerobicDialog_IconPath = ":/icons/icon/type.png"
 TimeSettingNewAerobicDialog_IconPath = ":/icons/icon/clock.png"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # .../Client
 BodyQFrame_ImagePath = os.path.join(BASE_DIR, "ui", "image", "body.png")
+
+FoodQFrame_Mapping = {
+    "rice": os.path.join(BASE_DIR, "ui","image","rice.png"),
+    "tomato": os.path.join(BASE_DIR, "ui","image","tomato.png"),
+    "banana": os.path.join(BASE_DIR, "ui","image","banana.png"),
+    "beef": os.path.join(BASE_DIR, "ui","image","beef.png"),
+    "chicken": os.path.join(BASE_DIR, "ui","image","chicken.png"),
+    "corn": os.path.join(BASE_DIR, "ui","image","corn.png"),
+    "egg": os.path.join(BASE_DIR, "ui","image","egg.png"),
+    "kiwi": os.path.join(BASE_DIR, "ui","image","kiwi.png"),
+    "orange juice": os.path.join(BASE_DIR, "ui","image","orangejuice.png"),
+    "broccoli": os.path.join(BASE_DIR, "ui","image","broccoli.png"),
+}
+

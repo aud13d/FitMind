@@ -139,6 +139,7 @@ class DrinkingListDialog(QDialog):
 
         self.lineEdit_waterNum = QLineEdit(self.frame_foot)
         self.lineEdit_waterNum.setMinimumSize(QSize(30, 30))
+        self.lineEdit_waterNum.setReadOnly(True)
         self.lineEdit_waterNum.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.lineEdit_waterNum.setStyleSheet("""
             QLineEdit {
@@ -222,7 +223,7 @@ class DrinkingListDialog(QDialog):
                 padding-right:10px;
                 }
         """)
-        self.verticalLayout_4.addWidget(self.button_add, alignment=Qt.AlignHCenter)
+        self.verticalLayout_4.addWidget(self.button_add, alignment=Qt.AlignHCenter| Qt.AlignVCenter)
 
         self.bind()
 
