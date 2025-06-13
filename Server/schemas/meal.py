@@ -11,3 +11,16 @@ class FoodResponse(BaseModel):
     protein_g: Optional[float]
     carbs_g: Optional[float]
     fat_g: Optional[float]
+
+class FoodData(BaseModel):
+    food_name:str
+    weight:float
+    energy: float
+    protein: float
+    carbs: float
+    fat: float
+
+class MealSaveRequest(BaseModel):
+    user_id: int
+    target_kcal: float
+    foods: list[FoodData]

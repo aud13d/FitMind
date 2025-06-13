@@ -1,4 +1,4 @@
-import aioredis
+import redis.asyncio as aioredis
 from .config import REDIS_PORT, REDIS_HOST, REDIS_DB
 
 class RedisClient:

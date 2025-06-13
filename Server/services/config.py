@@ -97,6 +97,13 @@ CIRCUMFERENCE_RECORD_NOT_EXIST = "Circumference record does not exist!"
 # 身体数据相关
 BODY_INFO_NOT_EXIST = "Body info does not exist!"
 
+# 饮食相关
+MEAL_FOOD_LIST_EMPTY = "Meal food list cannot be empty!"
+MEAL_USER_DIET_INFO_NOT_FOUND = "Meal user diet info not found!"
+
+# 饮食数据相关
+
+
 
 # 成功提示
 VERIFICATION_SENT = "Verification has been sent to your email!"
@@ -120,3 +127,4 @@ BODY_FAT_RATE_HISTORY_DELETED_SUCCESSFULLY = "Body fat rate history deleted succ
 CURRENT_CIRCUMFERENCE_SAVE_SUCCESSFULLY = "Current circumference saved successfully!"
 CIRCUMFERENCE_HISTORY_GET_SUCCESSFULLY = "Circumference history get successfully!"
 CIRCUMFERENCE_RECORD_DELETE_SUCCESSFULLY = "Circumference record deleted successfully!"
+MEAL_ADD_SUCCESS = "Meal add success!"

@@ -352,7 +352,7 @@ margin-right: 5px;}</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
-               <widget class="QLabel" name="label_2">
+               <widget class="QLabel" name="label_diet_energy">
                 <property name="text">
                  <string>0</string>
                 </property>

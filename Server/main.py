@@ -38,8 +38,8 @@ app.include_router(body_router)
 app.include_router(meal_router)
 
 if __name__ == "__main__":
-    uvicorn.run("main.py:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main.py:app", host="127.0.0.1", port=60000, reload=True)
 
-# uvicorn Server.main:app --reload
+# uvicorn Server.main:app --reload --host 127.0.0.1 --port 60000
 # redis-server.exe redis.conf
 

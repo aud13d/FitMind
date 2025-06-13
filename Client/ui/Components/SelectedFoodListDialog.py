@@ -66,3 +66,8 @@ class SelectedFoodListDialog(QDialog):
     def update_foods(self, selected_foods: list[dict]):
         self.selected_foods = selected_foods
         self.refresh_data()
+
+    def get_all_foods(self) -> list[dict]:
+        return self.selected_foods
+
+

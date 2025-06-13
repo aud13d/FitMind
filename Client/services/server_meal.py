@@ -17,3 +17,20 @@ class MealService:
         except requests.exceptions.RequestException as e:
             print(f"食物搜索请求失败：{e}")
             return None
+
+    @staticmethod
+    def request_add_meal(user_id:int,foods: list,target_kcal:float=1104):
+        """添加一顿饭"""
+        url = f"{BASE_URL}/meal/add_meal"
+        data = {
+            "user_id": user_id,
+            "target_kcal": target_kcal,
+            "foods": foods
+        }
+        try:
+            response = requests.post(url, json=data, timeout=API_TIMEOUT)
+            print("服务端返回内容：", response.text)
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"食物保存请求失败：{e}")
+            return None

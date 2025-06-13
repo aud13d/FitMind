@@ -8,3 +8,12 @@ router = APIRouter(prefix="/meal", tags=["Meal"])
 async def search_food(query: FoodQuery):
     response = await MealService.search_food(query.keyword)
     return response
+
+@router.post("/add_meal")
+async def add_meal(meal: MealSaveRequest):
+    response = await MealService.add_meal(
+        user_id = meal.user_id,
+        target_kcal = meal.target_kcal,
+        foods = meal.foods
+    )
+    return response

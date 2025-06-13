@@ -52,7 +52,7 @@ def get_error_message(error_code):
     return ERROR_MESSAGES.get(error_code, "An unexpected error occurred!")
 
 # 网络请求
-BASE_URL = "http://127.0.0.1:8000/"
+BASE_URL = "http://127.0.0.1:60000/"
 API_TIMEOUT = 10
 PURPOSE_REGISTER = "register"
 PURPOSE_RETRIEVE = "retrieve"

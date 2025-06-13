@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'FitMind_Client_DietInterface.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.9.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -248,10 +248,10 @@ class Ui_Widget_DietInterface(object):
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.label_2 = QLabel(self.frame_6)
-        self.label_2.setObjectName(u"label_2")
+        self.label_diet_energy = QLabel(self.frame_6)
+        self.label_diet_energy.setObjectName(u"label_diet_energy")
 
-        self.horizontalLayout_5.addWidget(self.label_2)
+        self.horizontalLayout_5.addWidget(self.label_diet_energy)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -592,15 +592,15 @@ class Ui_Widget_DietInterface(object):
 
         self.horizontalLayout.addWidget(self.button_diet_lunch)
 
-        self.button_diet_dinner = QToolButton(self.frame_5)
-        self.button_diet_dinner.setObjectName(u"button_diet_dinner")
-        self.button_diet_dinner.setStyleSheet(u"")
+        self.button_diet_weight = QToolButton(self.frame_5)
+        self.button_diet_weight.setObjectName(u"button_diet_weight")
+        self.button_diet_weight.setStyleSheet(u"")
         icon7 = QIcon()
-        icon7.addFile(u":/icons/icon/hanbao.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.button_diet_dinner.setIcon(icon7)
-        self.button_diet_dinner.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+        icon7.addFile(u":/icons/icon/tizhong.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_diet_weight.setIcon(icon7)
+        self.button_diet_weight.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
-        self.horizontalLayout.addWidget(self.button_diet_dinner)
+        self.horizontalLayout.addWidget(self.button_diet_weight)
 
         self.button_diet_extra_meal = QToolButton(self.frame_5)
         self.button_diet_extra_meal.setObjectName(u"button_diet_extra_meal")
@@ -612,25 +612,25 @@ class Ui_Widget_DietInterface(object):
 
         self.horizontalLayout.addWidget(self.button_diet_extra_meal)
 
+        self.button_diet_dinner = QToolButton(self.frame_5)
+        self.button_diet_dinner.setObjectName(u"button_diet_dinner")
+        self.button_diet_dinner.setStyleSheet(u"")
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/icon/hanbao.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_diet_dinner.setIcon(icon9)
+        self.button_diet_dinner.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
+        self.horizontalLayout.addWidget(self.button_diet_dinner)
+
         self.button_diet_drink = QToolButton(self.frame_5)
         self.button_diet_drink.setObjectName(u"button_diet_drink")
         self.button_diet_drink.setStyleSheet(u"")
-        icon9 = QIcon()
-        icon9.addFile(u":/icons/icon/yinshui.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.button_diet_drink.setIcon(icon9)
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/icon/yinshui.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.button_diet_drink.setIcon(icon10)
         self.button_diet_drink.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
         self.horizontalLayout.addWidget(self.button_diet_drink)
-
-        self.button_diet_statistics = QToolButton(self.frame_5)
-        self.button_diet_statistics.setObjectName(u"button_diet_statistics")
-        self.button_diet_statistics.setStyleSheet(u"")
-        icon10 = QIcon()
-        icon10.addFile(u":/icons/icon/tizhong.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.button_diet_statistics.setIcon(icon10)
-        self.button_diet_statistics.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
-
-        self.horizontalLayout.addWidget(self.button_diet_statistics)
 
 
         self.verticalLayout_3.addWidget(self.frame_5)
@@ -652,7 +652,7 @@ class Ui_Widget_DietInterface(object):
         self.label.setText(QCoreApplication.translate("Widget_DietInterface", u"Today", None))
         self.button_next.setText(QCoreApplication.translate("Widget_DietInterface", u">", None))
         self.button_seeting.setText("")
-        self.label_2.setText(QCoreApplication.translate("Widget_DietInterface", u"0", None))
+        self.label_diet_energy.setText(QCoreApplication.translate("Widget_DietInterface", u"0", None))
         self.toolButton_7.setText(QCoreApplication.translate("Widget_DietInterface", u"Set Template", None))
         self.toolButton_8.setText(QCoreApplication.translate("Widget_DietInterface", u"Share", None))
         self.label_diet_protein.setText(QCoreApplication.translate("Widget_DietInterface", u"Pro(g)\n"
@@ -672,9 +672,9 @@ class Ui_Widget_DietInterface(object):
         self.button_foodRecommendation.setText(QCoreApplication.translate("Widget_DietInterface", u"Rec", None))
         self.button_diet_breakfast.setText(QCoreApplication.translate("Widget_DietInterface", u"breakfast", None))
         self.button_diet_lunch.setText(QCoreApplication.translate("Widget_DietInterface", u"lunch", None))
-        self.button_diet_dinner.setText(QCoreApplication.translate("Widget_DietInterface", u"dinner", None))
+        self.button_diet_weight.setText(QCoreApplication.translate("Widget_DietInterface", u"weight", None))
         self.button_diet_extra_meal.setText(QCoreApplication.translate("Widget_DietInterface", u"extra-meal", None))
+        self.button_diet_dinner.setText(QCoreApplication.translate("Widget_DietInterface", u"dinner", None))
         self.button_diet_drink.setText(QCoreApplication.translate("Widget_DietInterface", u"drink", None))
-        self.button_diet_statistics.setText(QCoreApplication.translate("Widget_DietInterface", u"statistics", None))
     # retranslateUi
 

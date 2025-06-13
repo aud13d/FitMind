@@ -11,6 +11,7 @@ from Client.cache.user_session import UserSession
 from Client.ui.Logic.DietInterfaceWidget import DietInterfaceWidget
 from Client.config import *
 from Client.ui.Components.DringkingListDialog import DrinkingListDialog
+from ...cache.user_dietdata import UserDietData
 
 
 class MainInterfaceWindow(QMainWindow):
@@ -212,6 +213,7 @@ class MainInterfaceWindow(QMainWindow):
         """当主窗口关闭时触发"""
         UserBodyData.clear()
         UserSession.clear()
+        UserDietData.clear()
         print("用户缓存已清空")
         super().closeEvent(event)
 
@@ -243,7 +245,7 @@ class MainInterfaceWindow(QMainWindow):
             print(f"图标加载失败：{path}")
             return
 
-        # 将图标缩放为目标大小，保持比例 + 平滑缩放
+        # 保持比例 + 平滑缩放
         scaled = pixmap.scaled(
             size, size,
             QtCore.Qt.KeepAspectRatio,

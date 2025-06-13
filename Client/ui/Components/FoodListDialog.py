@@ -33,11 +33,11 @@ class FoodListDialog(QDialog):
         self.frame_layout.setContentsMargins(15, 15, 15, 15)  # 内边距，保证内容不贴边
 
         # 返回按钮
-        self.button_return = QPushButton("Return")
-        self.button_return.setStyleSheet("font: 12pt '微软雅黑'; color: rgb(12, 12, 255); background: transparent;")
+        self.button_return = QPushButton("Back")
+        self.button_return.setStyleSheet("font:700 12pt '微软雅黑'; color: rgb(12, 12, 255); background: transparent;")
         self.button_return.setFixedHeight(30)
         self.button_return.clicked.connect(self.close)
-        self.frame_layout.addWidget(self.button_return, alignment=Qt.AlignLeft)
+        self.frame_layout.addWidget(self.button_return, alignment=Qt.AlignRight)
 
         # 1. 图标 + 名字（紧凑）
         icon = QLabel()
@@ -205,7 +205,10 @@ class FoodListDialog(QDialog):
         except ValueError:
             weight = 0
         self.weight_label.setText(f"{weight} g")
-        kcal = round(self.energy * weight / 100, 1)
+        if self.energy:
+            kcal = round(self.energy * weight / 100, 1)
+        else:
+            kcal = "--"
         protein = round(self.protein * weight / 100, 1)
         carbs = round(self.carbs * weight / 100, 1)
         fat = round(self.fat * weight / 100, 1)
@@ -273,6 +276,7 @@ class FoodListDialog(QDialog):
 
         self.food_added.emit(data)
         self.accept()  # 关闭对话框
+
 
 
 

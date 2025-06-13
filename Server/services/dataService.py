@@ -5,6 +5,7 @@ from ..models.aerobic import Aerobic
 from ..models.circumference import Circumference
 from ..models.circumferenceHistory import CircumferenceHistory
 from ..models.food import Food
+from ..models.meal import Meal
 from ..models.rest import Rest
 from ..models.user import User
 from ..database.redisClient import RedisClient
@@ -14,6 +15,7 @@ from ..models.userSportsInfo import UserSportsInfo
 from ..models.train import Train
 from ..models.weightHistory import WeightHistory
 from ..models.weight import Weight
+from ..models.userDietInfo import UserDietInfo
 
 
 class DataService:
@@ -226,3 +228,33 @@ class DataService:
     async def search_food(food:str):
         """根据关键字从数据库中查找食物数据"""
         return await Food.search_by_keyword(food)
+
+    @staticmethod
+    async def get_or_create_user_diet_info(user_id:int,target_kcal:float=None):
+        """获取/创建用户饮食信息"""
+        return await UserDietInfo.get_or_create_diet_info(user_id=user_id,target_kcal=target_kcal)
+
+    @staticmethod
+    async def create_meal_with_items(user_diet_info, meal_type, items):
+        """添加食物到用户的饮食记录"""
+        return await Meal.create_with_items(user_diet_info,meal_type,items)
+
+    @staticmethod
+    async def add_nutrition(user_id, date, calorie_increment=0.0, protein_increment=0.0, carbs_increment=0.0,
+                            fat_increment=0.0, water_increment=0.0):
+        """添加营养素到用户的饮食记录，累加当天摄入"""
+        return await UserDietInfo.add_nutrition(
+            user_id=user_id,
+            date_=date,
+            calorie_increment=calorie_increment,
+            protein_increment=protein_increment,
+            carbohydrate_increment=carbs_increment,
+            fat_increment=fat_increment,
+            water_increment=water_increment
+        )
+
+    @staticmethod
+    async def get_today_nutrition_dict(user_diet_info, date):
+        """获取用户当天某种餐型的营养素摄入情况"""
+        return await UserDietInfo.get_diet_info(user_diet_info, date)
+

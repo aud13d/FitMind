@@ -11,7 +11,10 @@ TORTOISE_MODELS = ["Server.models.user",
                    "Server.models.weightHistory",
                    "Server.models.circumference",
                    "Server.models.circumferenceHistory",
-                   "Server.models.food"]  # 将模型路径添加到列表中
+                   "Server.models.food",
+                   "Server.models.userDietInfo",
+                   "Server.models.meal",
+                   "Server.models.mealItem"]  # 将模型路径添加到列表中
 
 # PostgreSQL数据库
 DATABASE_CONFIG = {

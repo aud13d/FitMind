@@ -1,17 +1,22 @@
-from PySide6.QtCore import QRect, Qt, QTimer
+import json
+
+from PySide6.QtCore import QRect, Qt, QTimer, Signal
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QListWidget,  QLabel,  QWidget, \
  QVBoxLayout
 
+from Client.cache.user_session import UserSession
 from Client.config import FoodQFrame_Mapping
 from Client.ui.Components.FoodFrame import FoodFrame
 from Client.ui.Components.MaskWidget import MaskWidget
+from Client.ui.Components.NetworkErrorTipLabel import NetworkErrorTipLabel
 from Client.ui.Components.SelectedFoodListDialog import SelectedFoodListDialog
 from Client.ui.Designer.ui_MealRecord import Ui_Widget_MealRecord
 from Client.services.server_meal import MealService
 
 
 class MealRecordWidget(QWidget, Ui_Widget_MealRecord):
+    meal_add_signal = Signal(str,list) # 发送 早/午/晚餐 食物信息 信号
     def __init__(self, parent=None, name=None):
         super().__init__(parent)
         self.setupUi(self)
@@ -23,9 +28,12 @@ class MealRecordWidget(QWidget, Ui_Widget_MealRecord):
         self.food_dialog = SelectedFoodListDialog(parent=self, selected_foods=self.selected_foods)
 
         self.label.setText(name)
+        self.meal_name = name
 
         self.label.setMinimumWidth(150)
         self.bind()
+
+        self.user_id = UserSession.get_user_id()
 
         self.is_timer_triggered_search = False
         self.search_timer = QTimer(self)
@@ -37,12 +45,17 @@ class MealRecordWidget(QWidget, Ui_Widget_MealRecord):
         self.scroll_content_layout.setContentsMargins(10, 10, 10, 10)
         self.scroll_content_layout.setSpacing(10)
 
+        # 网络错误提示初始化（悬浮小标签，默认隐藏）
+        self.network_error_tip = NetworkErrorTipLabel(self)
+        self.network_error_tip.hide()
+
         # 把内容容器放入 scrollArea 里
         self.scrollArea.setWidget(self.scroll_content)
         self.scrollArea.setWidgetResizable(True)
 
         # 把布局引用给后面添加卡片用
         self.search_result_area = self.scroll_content_layout
+
 
     def bind(self):
         self.button_search.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
@@ -58,6 +71,9 @@ class MealRecordWidget(QWidget, Ui_Widget_MealRecord):
 
         # 食品清单
         self.button_list.clicked.connect(self.open_selected_food_list)
+
+        # 完成添加
+        self.button_confrim.clicked.connect(self.confirm_meal)
 
 
     def on_text_changed(self):
@@ -151,6 +167,61 @@ class MealRecordWidget(QWidget, Ui_Widget_MealRecord):
 
         # 刷新显示
         self.food_dialog.refresh_data()
+
+    def get_selected_foods(self) -> list[dict]:
+        return self.selected_foods
+
+    def confirm_meal(self):
+        user_id = self.user_id
+        foods = self.get_selected_foods()
+
+        if not foods:
+            self.show_tip("You haven't added any food yet", success=False)
+            return
+
+        clean_foods = []
+        for food in self.get_selected_foods():
+            clean_foods.append({
+                "food_name": food["name"],
+                "weight": food["weight"],
+                "energy": food["energy"],
+                "protein": food["protein"],
+                "carbs": food["carbs"],
+                "fat": food["fat"]
+            })
+
+        print(clean_foods)
+        response = MealService.request_add_meal(user_id=user_id, foods=clean_foods)
+        if response and response.status_code == 200:
+            print("Add meal successfully!")
+            # 这里可以清空已选食物，或者做其他UI反馈
+            self.selected_foods.clear()
+            self.food_dialog.update_foods(self.selected_foods)
+            self.food_dialog.refresh_data()
+
+            # 给父控件发送添加的饭点和食物信息
+            self.meal_add_signal.emit(self.meal_name, clean_foods)
+        else:
+            print("Add meal failed!")
+
+    def show_tip(self, message, success=True):
+        """用NetworkErrorTipLabel显示提示，自动处理消息类型和样式"""
+        # 如果是列表或者字典，转成字符串显示，防止setText报错
+        if not isinstance(message, str):
+            if isinstance(message, list) or isinstance(message, dict):
+                message = json.dumps(message, ensure_ascii=False, indent=2)
+            else:
+                message = str(message)
+
+        if success:
+            self.network_error_tip.setStyleSheet("color: white; background-color: rgba(0, 128, 0, 180);")
+        else:
+            self.network_error_tip.setStyleSheet("color: white; background-color: rgba(255, 0, 0, 180);")
+
+        self.network_error_tip.show_message(message)
+
+
+
 
 
 
